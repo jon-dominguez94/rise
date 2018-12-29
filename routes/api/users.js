@@ -13,7 +13,8 @@ router.get('/test', (req, res) => res.json({msg: "This is the users route"}));
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({ 
     id: req.user.id,
-    username: req.user.username,
+    fname: req.user.fname,
+    lname: req.user.lname,
     email: req.user.email
    });
 });
@@ -31,7 +32,8 @@ router.post('/register', (req, res) => {
       return res.status(400).json({ email: 'A user has already registered with this address'});
     } else {
       const newUser = new User({
-        username: req.body.username,
+        fname: req.body.fname,
+        lname: req.body.lname,
         email: req.body.email,
         password: req.body.password
       });
@@ -68,7 +70,7 @@ router.post('/login', (req, res) => {
     bcrypt.compare(password, user.password)
     .then(isMatch => {
       if(isMatch){
-        const payload = { id: user.id, username: user.username, email: user.email };
+        const payload = { id: user.id, fname: user.fname, lname: user.lname, email: user.email };
 
         jwt.sign(
           payload,
