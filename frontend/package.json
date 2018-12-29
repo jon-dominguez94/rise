@@ -12,7 +12,7 @@
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "thunk": "0.0.1"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
