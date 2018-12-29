@@ -15,7 +15,7 @@ mongoose
 .then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.log(err));
 
-app.use(passpoer.initialize());
+app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/users", users);
