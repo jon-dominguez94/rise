@@ -9,6 +9,7 @@ module.exports = function validateRegisterInput(data) {
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
+  data.phone = validText(data.phone) ? data.phone : '';
 
   if(Validator.isEmpty(data.fname)){
     errors.fname = 'First name field is required';
@@ -40,6 +41,14 @@ module.exports = function validateRegisterInput(data) {
 
   if(!Validator.equals(data.password, data.password2)){
     errors.password2 = 'Passwords must match';
+  }
+  
+  if(!Validator.isMobilePhone(data.phone, 'en-US')){
+    errors.phone = 'iPhone is invalid';
+  }
+
+  if(Validator.isEmpty(data.phone)){
+    errors.phone = 'Phone number is required';
   }
 
   return {

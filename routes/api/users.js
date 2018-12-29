@@ -15,7 +15,8 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     id: req.user.id,
     fname: req.user.fname,
     lname: req.user.lname,
-    email: req.user.email
+    email: req.user.email,
+    phone: req.user.phone
    });
 });
 
@@ -35,8 +36,13 @@ router.post('/register', (req, res) => {
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        phone: req.body.phone
       });
+
+      let numbers = newUser.phone.match(/\d+/g).map(Number).join('');
+      const finalNum = [numbers.slice(0, 3), numbers.slice(3, 6), numbers.slice(6, 10)];
+      newUser.phone = finalNum.join('-');
 
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -70,7 +76,7 @@ router.post('/login', (req, res) => {
     bcrypt.compare(password, user.password)
     .then(isMatch => {
       if(isMatch){
-        const payload = { id: user.id, fname: user.fname, lname: user.lname, email: user.email };
+        const payload = { id: user.id, fname: user.fname, lname: user.lname, email: user.email, phone: user.phone };
 
         jwt.sign(
           payload,
