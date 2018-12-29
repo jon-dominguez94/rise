@@ -9,6 +9,9 @@ mongoose
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.log(err));
 
+const users = require('./routes/api/users');
+app.use("/api/users", users);
+
 app.get("/", (req, res) => res.send("Helladqo World"));
 
 const port = process.env.PORT || 5000;
