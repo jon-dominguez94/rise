@@ -33,12 +33,12 @@ class Navbar extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Rise</h1>
-        { this.getLinks() }
-      </div>
-    );
+    return <div>
+        <Link to="/">
+          <h1>Rise</h1>
+        </Link>
+        {this.getLinks()}
+      </div>;
   }
 }
 
