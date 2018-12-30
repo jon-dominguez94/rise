@@ -25,8 +25,8 @@ class Navbar extends React.Component {
     } else {
       return (
         <div>
-          <Link to={'signup'}>Signup</Link>
-          <Link to={'login'}>Login</Link>
+          <Link to={'/signup'}>Signup</Link>
+          <Link to={'/login'}>Login</Link>
         </div>
       );
     }
@@ -41,3 +41,5 @@ class Navbar extends React.Component {
     );
   }
 }
+
+export default Navbar;

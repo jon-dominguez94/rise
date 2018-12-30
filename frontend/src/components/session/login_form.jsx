@@ -77,3 +77,5 @@ class LoginForm extends React.Component {
     );
   }
 }
+
+export default withRouter(LoginForm);
