@@ -9,3 +9,8 @@
   min-width: 300px;
   width: 20%;
 }
+
+.right {
+  background: #222;
+  width: 80%;
+}
