@@ -9,7 +9,7 @@
 bundle.js
 bundle.map.js
 
-/config/keys.js
+keys_dev.js
 config/master.key
 
 storage/
