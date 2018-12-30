@@ -8,17 +8,23 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 
-const App = () => (
-  <div>
-    <NavBarContainer />
-    <Switch>
-      <AuthRoute exact path="/" component={SplashPage} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+import '../css/app.css';
 
-      <ProtectedRoute exact path="/main" component={MainPage} />
-      <Redirect to="/main" />
-    </Switch>
+const App = () => (
+  <div className="overall">
+    <div className="left">
+      <NavBarContainer />
+    </div>
+    <div className="right">
+      <Switch>
+        <AuthRoute exact path="/" component={SplashPage} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+        <ProtectedRoute exact path="/main" component={MainPage} />
+        <Redirect to="/main" />
+      </Switch>
+    </div>
   </div>
 );
 

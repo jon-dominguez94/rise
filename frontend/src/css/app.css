@@ -1,0 +1,11 @@
+.overall {
+  display: flex;
+  background: red;
+  color: white;
+}
+
+.left {
+  background: #111;
+  min-width: 300px;
+  width: 20%;
+}
