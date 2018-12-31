@@ -1,3 +1,7 @@
+.signup-form-container {
+  height: 100%;
+}
+
 div[class^="signup-form"] {
   display: flex;
   flex-direction: column;
@@ -5,9 +9,22 @@ div[class^="signup-form"] {
   align-items: center;
 }
 
-.signup-form-container {
-  height: 100%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+.signup-input-area {
+  width: 250px;
+  height: 40px;
+  background: #aaa;
+  margin: 10px 0;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+}
+
+.signup-input-area input {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  margin: 0 15px;
+  color: white;
+  font-size: 24px;
 }

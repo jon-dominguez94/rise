@@ -66,25 +66,25 @@ class SignupForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
             <h1 className="header-one">Join us!</h1>
-            <div>
+            <div className="signup-input-area">
               <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
             </div>
-            <div>
+            <div className="signup-input-area">
               <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
             </div>
-            <div>
+            <div className="signup-input-area">
               <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
             </div>
-            <div>
+            <div className="signup-input-area">
               <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
             </div>
-            <div>
+            <div className="signup-input-area">
               <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
             </div>
-            <div>
+            <div className="signup-input-area">
               <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
             </div>
-            <div>
+            <div className="signup-input-area">
               <input type="submit" value="Submit" />
             </div>
             {this.renderErrors()}
