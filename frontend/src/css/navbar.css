@@ -1,0 +1,16 @@
+div[class^="navbar"]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-wrapper {
+  margin: 50px 25px;
+}
+
+.navbar-wrapper > hr {
+    width: 100%;
+}
+
+.navbar-links {
+}

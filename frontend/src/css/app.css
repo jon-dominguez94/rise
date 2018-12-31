@@ -1,13 +1,15 @@
 .overall {
   display: flex;
   background: red;
-  color: white;
+  color: #bbb;
 }
 
 .left {
   background: #111;
   min-width: 300px;
   width: 20%;
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 .right {
