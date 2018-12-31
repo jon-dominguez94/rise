@@ -1,25 +1,25 @@
-.signup-form-container {
+.session-form-container {
   height: 100%;
 }
 
-div[class^="signup-form"] {
+div[class^="session-form"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.signup-input-area {
+.session-input-area {
   width: 250px;
   height: 40px;
-  background: #aaa;
+  background: #cccccc;
   margin: 10px 0;
   border-radius: 3px;
   position: relative;
   display: flex;
 }
 
-.signup-input-area input {
+.session-input-area input {
   width: 100%;
   background: transparent;
   outline: none;
@@ -27,4 +27,13 @@ div[class^="signup-form"] {
   margin: 0 15px;
   color: white;
   font-size: 24px;
+  font-weight: 700;
+}
+
+.submit-btn{
+  width: 150px;
+  margin-top: 30px;
+}
+.submit-btn input{
+  color: #333;
 }

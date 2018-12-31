@@ -62,30 +62,30 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    return <div className="signup-form-container">
+    return <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
+          <div className="session-form">
             <h1 className="header-one">Join us!</h1>
-            <div className="signup-input-area">
+            <div className="session-input-area">
               <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
             </div>
-            <div className="signup-input-area">
+            <div className="session-input-area">
               <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
             </div>
-            <div className="signup-input-area">
+            <div className="session-input-area">
               <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
             </div>
-            <div className="signup-input-area">
+            <div className="session-input-area">
               <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
             </div>
-            <div className="signup-input-area">
+            <div className="session-input-area">
               <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
             </div>
-            <div className="signup-input-area">
+            <div className="session-input-area">
               <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
             </div>
-            <div className="signup-input-area">
-              <input type="submit" value="Submit" />
+            <div className="session-input-area submit-btn">
+              <input type="submit" value="Sign Up" />
             </div>
             {this.renderErrors()}
           </div>
