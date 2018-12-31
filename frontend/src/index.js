@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore({});
   }
 
+  // REMOVE FOR PRODUCTION!!
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 

@@ -9,11 +9,14 @@
   background: #111;
   min-width: 300px;
   width: 20%;
-  /* display: flex; */
-  /* justify-content: center; */
+  border-right: 1px solid #aaa;
 }
 
 .right {
   background: #222;
   width: 80%;
+}
+
+.header-one {
+  font-size: 32px;
 }

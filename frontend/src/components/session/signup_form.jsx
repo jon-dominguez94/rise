@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import '../../css/signup_form.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -61,52 +62,35 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    return (
-      <div className="login-form-container">
+    return <div className="signup-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
-            <input type="text"
-              value={this.state.fname}
-              onChange={this.update('fname')}
-              placeholder="First Name"
-            />
-            <br />
-            <input type="text"
-              value={this.state.lname}
-              onChange={this.update('lname')}
-              placeholder="Last Name"
-            />
-            <br />
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder='Password'
-            />
-            <br />
-            <input type="password"
-              value={this.state.password2}
-              onChange={this.update('password2')}
-              placeholder='Confirm Password'
-            />
-            <br />
-            <input type="text"
-              value={this.state.phone}
-              onChange={this.update('phone')}
-              placeholder="Phone"
-            />
-            <br />
-            <input type="submit" value="Submit" />
+          <div className="signup-form">
+            <h1 className="header-one">Join us!</h1>
+            <div>
+              <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
+            </div>
+            <div>
+              <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
+            </div>
+            <div>
+              <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
+            </div>
+            <div>
+              <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+            </div>
+            <div>
+              <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
+            </div>
+            <div>
+              <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
+            </div>
+            <div>
+              <input type="submit" value="Submit" />
+            </div>
             {this.renderErrors()}
           </div>
         </form>
-      </div>
-    );
+      </div>;
   }
 }
 
