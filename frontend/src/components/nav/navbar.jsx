@@ -18,7 +18,9 @@ class Navbar extends React.Component {
     if(this.props.loggedIn){
       return(
         <div className="navbar-links">
-          <button className="navbar-link" onClick={this.logoutUser}>Logout</button>
+          <span className="navbar-link">Hi, {this.props.user.fname}!</span>
+          <button className="navbar-link" onClick={this.logoutUser}>Sign Out</button>
+          <hr/>
           <NavLink className="navbar-link" to={'/profile'}>Profile</NavLink>
         </div>
       );
