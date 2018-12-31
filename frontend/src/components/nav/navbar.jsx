@@ -30,7 +30,7 @@ class Navbar extends React.Component {
             Login
           </NavLink>
           <NavLink className="navbar-link" to={"/signup"} >
-            Signup
+            Sign Up
           </NavLink>
         </div>;
     }
@@ -39,8 +39,8 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar-wrapper">
-        <Link className="navlink" to="/">
-          <h1>Rise</h1>
+        <Link className="navbar-link" to="/">
+          <h1 className="product-name">RISE</h1>
         </Link>
         <hr/>
         {this.getLinks()}

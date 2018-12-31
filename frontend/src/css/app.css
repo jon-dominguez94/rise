@@ -2,6 +2,7 @@
   display: flex;
   background: red;
   color: #aaa;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 .left {

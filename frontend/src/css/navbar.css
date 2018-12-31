@@ -18,13 +18,13 @@ div[class^="navbar"] {
 .navbar-links {
   width: 100%;
   align-items: flex-start !important;
-  font-size: 24px;
 }
 
 .navbar-link {
+  font-size: 24px;
   margin: 5px 10px;
 }
 
-.selected {
-  text-decoration: underline;
+.product-name {
+  font-size: 32px;
 }
