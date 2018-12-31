@@ -18,6 +18,10 @@ div[class^="navbar"] {
   font-size: 24px;
 }
 
-.navbar-links * {
+.navbar-link {
   margin: 5px 10px;
+}
+
+.selected {
+  text-decoration: underline;
 }
