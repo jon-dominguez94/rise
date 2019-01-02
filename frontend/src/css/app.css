@@ -1,19 +1,19 @@
 .overall {
   display: flex;
   background: red;
-  color: #aaa;
+  color: #cecece;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 .left {
-  background: #111;
+  background: #1c1d22;
   min-width: 300px;
   width: 20%;
   border-right: 1px solid #aaa;
 }
 
 .right {
-  background: #222;
+  background: #2a2b30;
   width: 80%;
 }
 
