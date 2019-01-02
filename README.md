@@ -1,6 +1,6 @@
 ## Rise - Your Career is Calling
 
-The app to keep your career on track!
+The app to keep your career on track! 
 
 [Link to Live Site](https://time-to-rise.herokuapp.com/#/)
 
