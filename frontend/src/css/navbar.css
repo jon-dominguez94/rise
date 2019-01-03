@@ -27,9 +27,8 @@ div[class^="navbar"] {
 }
 
 .bar-link {
-  height: 54px;
+  padding: 19px 0;
   font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
-  /* margin: 5px 10px; */
 }
