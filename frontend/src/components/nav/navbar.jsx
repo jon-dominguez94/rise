@@ -19,13 +19,17 @@ class Navbar extends React.Component {
       return(
         <div className="navbar-links">
           <span className="bar-link user-greet">Hi, {this.props.user.fname}!</span>
-          <button className="bar-link" onClick={this.logoutUser}>Sign Out</button>
-          <hr/>
           <NavLink className="bar-link" to={'/profile'}>Profile</NavLink>
+          <NavLink className="bar-link" to={'/goals'}>Goals</NavLink>
+          <NavLink className="bar-link" to={'/reports'}>Reports</NavLink>
+          <hr/>
+          <NavLink className="bar-link" to={'/reminder'}>Reminders</NavLink>
+          <button className="bar-link" onClick={this.logoutUser}>Sign Out</button>
         </div>
       );
     } else {
-      return <div className="navbar-links">
+      return(
+        <div className="navbar-links">
           <NavLink className="bar-link" to={"/login"} >
             Login
           </NavLink>
@@ -36,7 +40,8 @@ class Navbar extends React.Component {
             onClick={() => this.props.login({email: 'test@test.test', password: 'password'})}
             className="bar-link" 
           >Demo Login</button>
-        </div>;
+        </div>
+      );
     }
   }
 
