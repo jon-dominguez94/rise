@@ -8,11 +8,12 @@ const Entry = require('../../models/Entry');
 
 // router.get("/test", (req, res) => res.json({ msg: "This is the entry test route" }));
 
-router.get('/report_id/:entries', (req, res) => {
+router.get('/reports/:report_id', (req, res) => {
+    passport.authenticate('jwt', { session: false }),
     Entry.find({ report: req.params.report_id })
         .then(entries => res.json(entries))
         .catch(err =>
-            res.status(404).json({ noentriesfound: 'No entries found from that report' }
+            res.status(404).json({ no: 'No entries found from that report' }
             )
         );
 });
