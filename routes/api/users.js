@@ -59,22 +59,32 @@ router.post('/register', (req, res) => {
 
 router.patch('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   const email = req.body.email;
-  const { errors, isValid } = validateRegisterInput(req.body);
+  // const { errors, isValid } = validateRegisterInput(req.body);
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // if (!isValid) {
+  //   return res.status(400).json(errors);
+  // }
 
   User.findOne({ email })
     .then(user => {
-      user.fname = req.body.fname;
-      user.lname = req.body.lname;
-      user.password = req.body.password;
-      user.phone = req.body.phone;
+      user.fname = req.body.fname ? req.body.fname : user.fname;
+      user.lname = req.body.lname ? req.body.lname : user.lname;
+      user.password = req.body.password ? req.body.password : user.password;
+      user.phone = req.body.phone ? req.body.phone : user.phone;
+
+      if(req.body.password){
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(user.password, salt, (err, hash) => {
+            if (err) throw err;
+            user.password = hash;
+          });
+        });
+      }
+      
       user.save()
-        // .then(user => res.json(user))
-        .then(user => res.json({msg: "User successfully updated"}))
+        .then(user => res.json({ msg: "User successfully updated" }))
         .catch(err => console.log(err));
+      
     });
 });
 
