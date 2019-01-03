@@ -11,7 +11,9 @@ div[class^="session-form"] {
 }
 
 .session-title {
-  color: #5c5edc
+  color: #5c5edc;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .session-input-area {
@@ -52,6 +54,7 @@ div[class^="session-form"] {
   top: 100%;
   width: 100%;
   margin: 10px;
+  padding: 3px 0;
 }
 
 .errors-list {
