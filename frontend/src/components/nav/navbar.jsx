@@ -32,7 +32,10 @@ class Navbar extends React.Component {
           <NavLink className="bar-link" to={"/signup"} >
             Sign Up
           </NavLink>
-          <button className="bar-link" >Demo Login</button>
+          <button
+            onClick={() => this.props.login({email: 'test@test.test', password: 'password'})}
+            className="bar-link" 
+          >Demo Login</button>
         </div>;
     }
   }
