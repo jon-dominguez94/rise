@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
     return <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="session-form">
-            <h1 className="header-one">Welcome back!</h1>
+            <h1 className="session-title">Welcome back!</h1>
             <div className="session-input-area">
               <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
             </div>

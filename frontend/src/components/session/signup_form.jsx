@@ -74,7 +74,7 @@ class SignupForm extends React.Component {
     return <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="session-form">
-            <h1 className="header-one">Join us!</h1>
+            <h1 className="session-title">Join us!</h1>
             <div className="session-input-area">
               <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
             </div>

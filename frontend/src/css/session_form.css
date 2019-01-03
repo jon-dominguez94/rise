@@ -10,6 +10,10 @@ div[class^="session-form"] {
   position: relative;
 }
 
+.session-title {
+  color: #5c5edc
+}
+
 .session-input-area {
   width: 250px;
   height: 40px;
