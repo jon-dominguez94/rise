@@ -42,10 +42,17 @@ div[class^="session-form"] {
 
 .errors-container {
   border: 0.5px solid red;
-  background: rgba(255,204,204,0.7);
+  background: rgba(255,204,204,0.8);
   position: absolute;
   top: 100%;
   left: 0;
+  /* margin: 0 auto; */
+  
+}
+
+.errors-list {
+  color: red;
+  /* list-style-type: disc; */
 }
 
 .error-item {
