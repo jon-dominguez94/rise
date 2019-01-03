@@ -10,6 +10,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const users = require('./routes/api/users');
+const entries = require("./routes/api/entries");
+
 
 const bodyParser = require('body-parser');
 const passport = require('passport');
