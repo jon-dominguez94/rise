@@ -2,13 +2,7 @@
   "TemplateName": "RiseEmailTemplate",
   "FromEmailAddress": "timetorisenotification@gmail.com",
   "TemplateSubject": "Please confirm your email address to access Rise",
-  "TemplateContent": "<html>
-                      <head></head>
-                      <body style="font-family:sans-serif;">
-                        <h1 style="text-align:center">Your Career is Calling!</h1>
-                        <p>We here at Rise are happy to welcome you to our app! There's just one last step to complete before you can start receiving emails from us. Just click the following link to verify your email address. Once we confirm that you're really you, we will then be able to help you get your career back on track.</p>
-                      </body>
-                      </html>",
+  "TemplateContent": "<html><head></head><body style=\"font-family:sans-serif;\"><h1 style=\"text-align:center\">Your Career is Calling!</h1><p>We here at Rise are happy to welcome you to our app! There's just one last step to complete before you can start receiving emails from us. Just click the following link to verify your email address. Once we confirm that you're really you, we will then be able to help you get your career back on track.</p></body></html>",
   "SuccessRedirectionURL": "https://time-to-rise.herokuapp.com",
   "FailureRedirectionURL": "https://time-to-rise.herokuapp.com"
 }
