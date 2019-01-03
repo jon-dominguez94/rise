@@ -26,10 +26,10 @@ class Navbar extends React.Component {
     } else {
       return(
         <div className="navbar-links">
-          <NavLink className="bar-link" to={"/login"} activeStyle={{ color: '#5c5edc' }}>
+          <NavLink className="bar-link" to={"/login"} activeClassName="selected">
             Login
           </NavLink>
-          <NavLink className="bar-link" to={"/signup"} activeStyle={{ color: '#5c5edc' }}>
+          <NavLink className="bar-link" to={"/signup"} activeClassName="selected">
             Sign Up
           </NavLink>
           <button
