@@ -57,6 +57,27 @@ router.post('/register', (req, res) => {
   });
 });
 
+router.patch('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+  const email = req.body.email;
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ email })
+    .then(user => {
+      user.fname = req.body.fname;
+      user.lname = req.body.lname;
+      user.password = req.body.password;
+      user.phone = req.body.phone;
+      user.save()
+        // .then(user => res.json(user))
+        .then(user => res.json({msg: "User successfully updated"}))
+        .catch(err => console.log(err));
+    });
+});
+
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
