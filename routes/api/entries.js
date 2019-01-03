@@ -12,7 +12,7 @@ router.get('/report/:report_id', (req, res) => {
     Entry.find({ report: req.params.report_id })
         .then(entries => res.json(entries))
         .catch(err =>
-            res.status(404).json({ notweetsfound: 'No entries found from that report' }
+            res.status(404).json({ noentriesfound: 'No entries found from that report' }
             )
         );
 });
