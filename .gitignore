@@ -11,7 +11,7 @@ bundle.map.js
 
 keys_dev.js
 config/master.key
-
+.env 
 storage/
 
 ### OSX ###
