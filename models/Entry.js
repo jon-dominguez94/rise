@@ -15,12 +15,12 @@ const EntrySchema = new Schema({
     //     ref: 'goals'
     // },
     // role_id: {
-    //     type: Integer,
-    //     required: true
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'roles'
     // },
     // report_id: {
-    //     type: Integer,
-    //     required: true
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'reports'
     // },
     date: {
         type: Date,
