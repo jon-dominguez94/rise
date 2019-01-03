@@ -47,3 +47,7 @@ div[class^="session-form"] {
   top: 100%;
   left: 0;
 }
+
+.error-item {
+  padding: 2px 5px;
+}
