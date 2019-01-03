@@ -50,18 +50,24 @@ class SignupForm extends React.Component {
   }
 
   renderErrors() {
-    
-    return (
-      <div className="errors-container">
-        <ul className="errors-list">
-          {Object.keys(this.state.errors).map((error, i) => (
-            <li className="error-item" key={`error-${i}`}>
-              {this.state.errors[error]}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+    // debugger
+    if(Object.keys(this.state.errors).length === 0){
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <div className="errors-container">
+          <ul className="errors-list">
+            {Object.keys(this.state.errors).map((error, i) => (
+              <li className="error-item" key={`error-${i}`}>
+                {this.state.errors[error]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
   }
 
   render() {
