@@ -7,6 +7,7 @@ const keys = require('../../config/keys');
 const User = require('../../models/User');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const validText = require('../../validation/valid-text');
 
 router.get('/test', (req, res) => res.json({msg: "This is the users route"}));
 
@@ -67,12 +68,14 @@ router.patch('/profile', passport.authenticate('jwt', { session: false }), (req,
 
   User.findOne({ email })
     .then(user => {
-      user.fname = req.body.fname ? req.body.fname : user.fname;
-      user.lname = req.body.lname ? req.body.lname : user.lname;
-      user.password = req.body.password ? req.body.password : user.password;
-      user.phone = req.body.phone ? req.body.phone : user.phone;
+      const oldPw = user.password;
+      user.fname = validText(req.body.fname) ? req.body.fname : user.fname;
+      user.lname = validText(req.body.lname) ? req.body.lname : user.lname;
+      user.password = validText(req.body.password) ? req.body.password : user.password;
+      // user.password = 'password';
+      user.phone = validText(req.body.phone) ? req.body.phone : user.phone;
 
-      if(req.body.password){
+      if(user.password !== oldPw){
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(user.password, salt, (err, hash) => {
             if (err) throw err;
@@ -82,9 +85,8 @@ router.patch('/profile', passport.authenticate('jwt', { session: false }), (req,
       }
       
       user.save()
-        .then(user => res.json({ msg: "User successfully updated" }))
+        .then(user => res.json(user))
         .catch(err => console.log(err));
-      
     });
 });
 
