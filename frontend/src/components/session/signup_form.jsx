@@ -50,6 +50,7 @@ class SignupForm extends React.Component {
   }
 
   renderErrors() {
+    
     return (
       <div className="errors-container">
         <ul className="errors-list">

@@ -41,7 +41,9 @@ class Navbar extends React.Component {
     return (
       <div className="navbar-wrapper">
         <Link className="navbar-link" to="/">
-          <h1 className="header-one">RISE</h1>
+          <div className="logo-container">
+            <h1 className="header-one">RISE</h1>
+          </div>
         </Link>
         <hr/>
         {this.getLinks()}
