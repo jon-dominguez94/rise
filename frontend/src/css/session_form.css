@@ -41,6 +41,8 @@ div[class^="session-form"] {
 }
 
 .errors-container {
+  border: 0.5px solid red;
+  background: rgba(255,204,204,0.7);
   position: absolute;
   top: 100%;
   left: 0;
