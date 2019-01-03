@@ -11,8 +11,8 @@ const EntrySchema = new Schema({
         required: true
     },
     // goal_id: {
-    //     type: Integer,
-    //     required: true
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'goals'
     // },
     // role_id: {
     //     type: Integer,
