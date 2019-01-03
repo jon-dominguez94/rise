@@ -3,7 +3,7 @@ import ProfilePage from './profile_page';
 
 const mstp = state => {
   return {
-
+    user: state.session.user
   };
 };
 
