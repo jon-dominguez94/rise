@@ -26,7 +26,9 @@ div[class^="navbar"] {
   align-items: flex-start !important;
 }
 
-.navbar-link {
-  font-size: 24px;
-  margin: 5px 10px;
+.bar-link {
+  height: 54px;
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+  /* font-size: 24px;
+  margin: 5px 10px; */
 }

@@ -18,21 +18,21 @@ class Navbar extends React.Component {
     if(this.props.loggedIn){
       return(
         <div className="navbar-links">
-          <span className="navbar-link">Hi, {this.props.user.fname}!</span>
-          <button className="navbar-link" onClick={this.logoutUser}>Sign Out</button>
+          <span className="bar-link">Hi, {this.props.user.fname}!</span>
+          <button className="bar-link" onClick={this.logoutUser}>Sign Out</button>
           <hr/>
-          <NavLink className="navbar-link" to={'/profile'}>Profile</NavLink>
+          <NavLink className="bar-link" to={'/profile'}>Profile</NavLink>
         </div>
       );
     } else {
       return <div className="navbar-links">
-          <NavLink className="navbar-link" to={"/login"} >
+          <NavLink className="bar-link" to={"/login"} >
             Login
           </NavLink>
-          <NavLink className="navbar-link" to={"/signup"} >
+          <NavLink className="bar-link" to={"/signup"} >
             Sign Up
           </NavLink>
-          <button className="navbar-link" >Demo Login</button>
+          <button className="bar-link" >Demo Login</button>
         </div>;
     }
   }
@@ -40,7 +40,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="navbar-wrapper">
-        <Link className="navbar-link" to="/">
+        <Link to="/">
           <div className="logo-container">
             <h1 className="header-one">RISE</h1>
           </div>
