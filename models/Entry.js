@@ -7,7 +7,7 @@ const EntrySchema = new Schema({
         required: true
     },
     importance: {
-        type: String,
+        type: Integer,
         required: true
     },
     user_id: {

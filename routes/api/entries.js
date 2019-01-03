@@ -18,4 +18,17 @@ router.get('/report/:report_id', (req, res) => {
         );
 });
 
+router.post('/',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const newTweet = new Tweet({
+            description: req.body.description,
+            importance: req.body.importance,
+            user: req.user.id
+        });
+
+        newTweet.save().then(tweet => res.json(tweet));
+    }
+);
+
 module.exports = router;
