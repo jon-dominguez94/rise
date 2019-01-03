@@ -4,15 +4,21 @@ div[class^="navbar"] {
   align-items: center;
 }
 
+.logo-container {
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-wrapper {
-  margin: 50px 25px;
+  margin: 5px 25px;
 }
 
 .navbar-wrapper hr {
-    width: 100%;
-    height: 2px;
-    border: none;
-    background-color: #333;
+  width: 100%;
+  height: 2px;
+  border: none;
+  background-color: #333;
 }
 
 .navbar-links {
@@ -20,7 +26,13 @@ div[class^="navbar"] {
   align-items: flex-start !important;
 }
 
-.navbar-link {
-  font-size: 24px;
-  margin: 5px 10px;
+.bar-link {
+  padding: 19px 0;
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.user-greet {
+  color: #5c5edc;
 }
