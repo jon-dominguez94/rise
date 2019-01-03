@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Switch, Route, Link, NavLink } from 'react-router-dom';
+import HomeLinksContainer from './home_links_container';
 import '../../css/navbar.css';
 
 class Navbar extends React.Component {
@@ -17,15 +18,18 @@ class Navbar extends React.Component {
   getLinks(){
     if(this.props.loggedIn){
       return(
-        <div className="navbar-links">
-          <span className="bar-link user-greet">Hi, {this.props.user.fname}!</span>
-          <NavLink className="bar-link" to={'/profile'}>Profile</NavLink>
-          <NavLink className="bar-link" to={'/goals'}>Goals</NavLink>
-          <NavLink className="bar-link" to={'/reports'}>Reports</NavLink>
-          <hr/>
-          <NavLink className="bar-link" to={'/reminder'}>Reminders</NavLink>
-          <button className="bar-link" onClick={this.logoutUser}>Sign Out</button>
-        </div>
+      //   <div className="navbar-links">
+      //     <span className="bar-link user-greet">Hi, {this.props.user.fname}!</span>
+      //     <NavLink className="bar-link" to={'/profile'}>Profile</NavLink>
+      //     <NavLink className="bar-link" to={'/goals'}>Goals</NavLink>
+      //     <NavLink className="bar-link" to={'/reports'}>Reports</NavLink>
+      //     <hr/>
+      //     <NavLink className="bar-link" to={'/reminder'}>Reminders</NavLink>
+      //     <button className="bar-link" onClick={this.logoutUser}>Sign Out</button>
+      //   </div>
+        <Switch>
+          <Route exact path={'/home'} component={HomeLinksContainer}/>
+        </Switch>
       );
     } else {
       return(
