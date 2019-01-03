@@ -39,3 +39,7 @@ div[class^="session-form"] {
 .submit-btn input{
   color: #bdbdbd;
 }
+
+.errors-container {
+  position: absolute;
+}
