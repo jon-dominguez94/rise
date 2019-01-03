@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import NavBarContainer from './nav/navbar_container';
 import SplashPage from './main/splash_page';
@@ -13,7 +13,7 @@ import '../css/app.css';
 const App = () => (
   <div className="overall">
     <div className="left">
-      <NavBarContainer />
+      <Route path='/' component={NavBarContainer} />
     </div>
     <div className="right">
       <Switch>
