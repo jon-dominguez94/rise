@@ -21,7 +21,7 @@ router.get('/report/:report_id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        const newEntry = new Tweet({
+        const newEntry = new Entry({
             description: req.body.description,
             importance: req.body.importance,
             // report: req.report.id
