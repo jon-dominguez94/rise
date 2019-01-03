@@ -1,0 +1,70 @@
+.session-form-container {
+  height: 100%;
+}
+
+div[class^="session-form"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.session-title {
+  color: #5c5edc;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 18px;
+  margin: 15px;
+}
+
+.session-input-area {
+  width: 250px;
+  height: 40px;
+  background: #1c1d22;
+  margin: 10px 0;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+}
+
+.session-input-area input {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  margin: 0 15px;
+  color: #bdbdbd;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.submit-btn{
+  width: 150px;
+  margin-top: 30px;
+}
+
+.submit-btn input{
+  color: #bdbdbd;
+}
+
+.errors-container {
+  border: 0.5px solid rgb(172, 49, 49);
+  background: rgba(255,204,204,0.8);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  margin: 10px;
+  padding: 3px 0;
+}
+
+.errors-list {
+  color: rgb(172, 49, 49);
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+.error-item {
+  padding: 2px 5px;
+}

@@ -3,7 +3,7 @@
 The app to keep your career on track! 
 
 [Link to Live Site](https://time-to-rise.herokuapp.com/#/)
-
+ 
 ### Background and Overview
 
 At the end of a work review period it is difficult to recall all the great things an employee has accomplished, especially when things get a little crazy throughout the year. This application will allow users to track their work achievements throughout the year and aggregate that data/documents to highlight their accomplishments. Having easy access to this information will help an employee show their employer through various examples why they deserve that big raise or help ace an interview for a new position.

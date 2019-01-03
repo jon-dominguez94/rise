@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 
 import Navbar from './navbar';
 
@@ -8,4 +8,4 @@ const mstp = state => ({
   user: state.session.user
 });
 
-export default connect(mstp, { logout })(Navbar);
+export default connect(mstp, { logout, login })(Navbar);
