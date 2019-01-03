@@ -41,18 +41,19 @@ div[class^="session-form"] {
 }
 
 .errors-container {
-  border: 0.5px solid red;
+  border: 0.5px solid rgb(172, 49, 49);
   background: rgba(255,204,204,0.8);
   position: absolute;
-  top: 100%;
   left: 0;
-  /* margin: 0 auto; */
-  
+  top: 100%;
+  width: 100%;
+  margin: 10px;
 }
 
 .errors-list {
-  color: red;
-  /* list-style-type: disc; */
+  color: rgb(172, 49, 49);
+  list-style-position: inside;
+  list-style-type: disc;
 }
 
 .error-item {
