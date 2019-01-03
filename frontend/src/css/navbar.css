@@ -33,6 +33,6 @@ div[class^="navbar"] {
   font-weight: 600;
 }
 
-.user-greet {
+.bar-link:hover, .user-greet {
   color: #5c5edc;
 }
