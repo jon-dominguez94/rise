@@ -20,15 +20,16 @@ class Navbar extends React.Component {
       return(
         <Switch>
           <Route exact path={'/home'} component={HomeLinksContainer}/>
+          <Route exact path={'/profile'} component={HomeLinksContainer}/>
         </Switch>
       );
     } else {
       return(
         <div className="navbar-links">
-          <NavLink className="bar-link" to={"/login"} >
+          <NavLink className="bar-link" to={"/login"} activeStyle={{ color: '#5c5edc' }}>
             Login
           </NavLink>
-          <NavLink className="bar-link" to={"/signup"} >
+          <NavLink className="bar-link" to={"/signup"} activeStyle={{ color: '#5c5edc' }}>
             Sign Up
           </NavLink>
           <button
