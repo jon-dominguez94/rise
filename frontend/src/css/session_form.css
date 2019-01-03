@@ -7,7 +7,7 @@ div[class^="session-form"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
+  position: relative;
 }
 
 .session-input-area {
@@ -42,4 +42,6 @@ div[class^="session-form"] {
 
 .errors-container {
   position: absolute;
+  top: 100%;
+  left: 0;
 }
