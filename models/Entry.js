@@ -10,19 +10,19 @@ const EntrySchema = new Schema({
         type: Integer,
         required: true
     },
-    user_id: {
+    user: {
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
-    // goal_id: {
+    // goal: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'goals'
     // },
-    // role_id: {
+    // role: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'roles'
     // },
-    // report_id: {
+    // report: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'reports'
     // },
