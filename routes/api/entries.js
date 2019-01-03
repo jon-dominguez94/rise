@@ -24,6 +24,9 @@ router.post('/',
         const newTweet = new Tweet({
             description: req.body.description,
             importance: req.body.importance,
+            // report: req.report.id
+            // goal: req.goal.id
+            // role: req.role.id
             user: req.user.id
         });
 
