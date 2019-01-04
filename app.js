@@ -10,6 +10,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const users = require('./routes/api/users');
+const reports = require("./routes/api/reports");
 const entries = require('./routes/api/entries');
 
 
@@ -29,6 +30,7 @@ app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/users", users);
+app.use("/api/reports", reports);
 app.use("/api/entries", entries);
 
 const port = process.env.PORT || 5000;
