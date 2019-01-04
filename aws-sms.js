@@ -9,6 +9,7 @@ AWS.config.update({
 });
 var sns = new AWS.SNS();
 
+// example params
 var params = {
   Message: 'Time to update your achievements on Rise!',
   MessageStructure: 'string',
