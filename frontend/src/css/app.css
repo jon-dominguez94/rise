@@ -1,22 +1,35 @@
 .overall {
   display: flex;
   background: red;
-  color: #aaa;
+  color: #bdbdbd;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 .left {
-  background: #111;
+  background: #1c1d22;
   min-width: 300px;
   width: 20%;
-  border-right: 1px solid #aaa;
+  border-right: 1px solid #bdbdbd;
 }
 
 .right {
-  background: #222;
+  background: #2a2b30;
   width: 80%;
 }
 
 .header-one {
   font-size: 32px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #2a2b30;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #2a2b30;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #2a2b30;
 }
