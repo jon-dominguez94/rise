@@ -10,9 +10,9 @@ AWS.config.update({
 var sns = new AWS.SNS();
 
 var params = {
-  Message: 'Time to update your profile on Rise!',
+  Message: 'Time to update your achievements on Rise!',
   MessageStructure: 'string',
-  PhoneNumber: '+18313453689'
+  PhoneNumber: '+12345678910'
 };
 
 sns.publish(params, function(err, data) {
@@ -29,6 +29,15 @@ sns.publish(params, function(err, data) {
 // // BiWeekly timer
 // const BiWeeklyIntervale = setInterval(reminderFunc, 1209600000)
 
-var j = schedule.scheduleJob(`* * ${hour} * ${day}`, function(){
-  console.log('The answer to life, the universe, and everything!');
+var rule = new schedule.RecurrenceRule();
+rule.dayOfWeek = 5
+rule.hour = 16;
+rule.minute = 0;
+ 
+var j = schedule.scheduleJob(rule, function(){
+  console.log('Today is recognized by Rebecca Black!');
 });
+
+// var j = schedule.scheduleJob(`* * ${hour} * ${day}`, function(){
+//   console.log('The answer to life, the universe, and everything!');
+// });
