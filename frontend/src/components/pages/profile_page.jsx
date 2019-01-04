@@ -13,6 +13,9 @@ class ProfilePage extends React.Component{
       password2: '',
       phone: props.user.phone
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
 
@@ -26,15 +29,13 @@ class ProfilePage extends React.Component{
     e.preventDefault();
 
     let user = {
+      email: this.state.email,
       fname: this.state.fname,
       lname: this.state.lname,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2,
-      phone: this.state.phone,
+      phone: this.state.phone
     };
 
-    this.props.signup(user);
+    this.props.updateUser(user);
   }
 
   render() {
@@ -50,7 +51,7 @@ class ProfilePage extends React.Component{
               <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
             </div>
             <div className="session-input-area">
-              <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
+              <input type="text" value={this.state.email} readOnly/>
             </div>
             <div className="session-input-area">
               <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
