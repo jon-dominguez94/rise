@@ -60,14 +60,20 @@ router.post('/register', (req, res) => {
 
 router.patch('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   const email = req.body.email;
+  console.log(req.body);
   // const { errors, isValid } = validateRegisterInput(req.body);
 
   // if (!isValid) {
   //   return res.status(400).json(errors);
   // }
 
-  User.findOne({ email })
+  User.findOne({ email: req.body.email })
     .then(user => {
+
+      if (!user) {
+        return res.status(404).json({ email: 'This user does not exist' });
+      }
+
       const oldPw = user.password;
       user.fname = validText(req.body.fname) ? req.body.fname : user.fname;
       user.lname = validText(req.body.lname) ? req.body.lname : user.lname;

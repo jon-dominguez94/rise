@@ -1,5 +1,6 @@
 import { 
   RECEIVE_CURRENT_USER,
+  RECEIVE_UPDATED_USER,
   RECEIVE_USER_LOGOUT,
   RECEIVE_USER_SIGN_IN
 } from '../actions/session_actions';
@@ -17,6 +18,9 @@ export default function(state = initialState, action) {
         isAuthenticated: !!action.currentUser,
         user: action.currentUser
       };
+    case RECEIVE_UPDATED_USER:
+      const newInfo = Object.assign({}, state.session.user, action.currentUser);
+      return Object.assign({}, state, newInfo);
     case RECEIVE_USER_LOGOUT:
       return {
         isAuthenticated: false,
