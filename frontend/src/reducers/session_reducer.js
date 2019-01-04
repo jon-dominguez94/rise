@@ -20,11 +20,11 @@ export default function(state = initialState, action) {
       };
     case RECEIVE_UPDATED_USER:
       const newUserInfo = {
-        fname: action.currentUser.fname,
-        lname: action.currentUser.lname,
-        phone: action.currentUser.phone,
+        fname: action.currentUser.data.fname,
+        lname: action.currentUser.data.lname,
+        phone: action.currentUser.data.phone,
       }
-      const newInfo = Object.assign({}, state.session.user, newUserInfo);
+      const newInfo = Object.assign({}, state.user, newUserInfo);
       return {
         ...state, 
         user: newInfo

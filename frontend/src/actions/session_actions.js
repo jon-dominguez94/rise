@@ -40,10 +40,10 @@ export const signup = user => dispatch => (
 
 export const updateUser = user => dispatch => (
   APIUtil.updateUser(user)
-  .then(user => dispatch(receiveUpdatedUser(user)))
-  .catch(err => {
-    dispatch(receiveErrors(err.response.data));
-  })
+  .then(
+    user => dispatch(receiveUpdatedUser(user)),
+    err => dispatch(receiveErrors(err.response.data))
+  )
 );
 
 export const login = user => dispatch => (
