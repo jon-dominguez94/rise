@@ -19,7 +19,7 @@ router.get('/report/:report_id', (req, res) => {
 });
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
+    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const newEntry = new Entry({
             description: req.body.description,
