@@ -6,8 +6,10 @@ div[class^="navbar"] {
 
 .logo-container {
   height: 120px;
+  width: 100%;
   display: flex;
   align-items: center;
+  background: url('../logo.png');
 }
 
 .navbar-wrapper {

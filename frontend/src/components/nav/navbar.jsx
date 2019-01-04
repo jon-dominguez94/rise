@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import HomeLinksContainer from './home_links_container';
 import '../../css/navbar.css';
+import logo from '../../logo.png';
 
 class Navbar extends React.Component {
   constructor(props){
@@ -46,7 +47,8 @@ class Navbar extends React.Component {
       <div className="navbar-wrapper">
         <Link to="/">
           <div className="logo-container">
-            <h1 className="header-one">RISE</h1>
+          <img src={logo} alt=""/>
+            {/* <h1 className="header-one">RISE</h1> */}
           </div>
         </Link>
         <hr/>
