@@ -33,7 +33,7 @@ app.use("/api/users", users);
 app.use("/api/reports", reports);
 app.use("/api/entries", entries);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
