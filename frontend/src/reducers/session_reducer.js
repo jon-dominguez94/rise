@@ -19,8 +19,16 @@ export default function(state = initialState, action) {
         user: action.currentUser
       };
     case RECEIVE_UPDATED_USER:
-      const newInfo = Object.assign({}, state.session.user, action.currentUser);
-      return Object.assign({}, state, newInfo);
+      const newUserInfo = {
+        fname: action.currentUser.fname,
+        lname: action.currentUser.lname,
+        phone: action.currentUser.phone,
+      }
+      const newInfo = Object.assign({}, state.session.user, newUserInfo);
+      return {
+        ...state, 
+        user: newInfo
+      };
     case RECEIVE_USER_LOGOUT:
       return {
         isAuthenticated: false,
