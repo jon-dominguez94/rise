@@ -38,6 +38,8 @@ var j = schedule.scheduleJob(rule, function(){
   console.log('Today is recognized by Rebecca Black!');
 });
 
+j.cancel();
+
 // var j = schedule.scheduleJob(`* * ${hour} * ${day}`, function(){
 //   console.log('The answer to life, the universe, and everything!');
 // });
