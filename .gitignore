@@ -8,9 +8,13 @@
 *.sqlite
 bundle.js
 bundle.map.js
+.env
 
 keys_dev.js
 config/master.key
+
+.env
+
 
 storage/
 
