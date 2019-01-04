@@ -47,7 +47,7 @@ class Navbar extends React.Component {
       <div className="navbar-wrapper">
         <Link to="/">
           <div className="logo-container">
-          <img src={logo} alt=""/>
+          <img className="logo-pic" src={logo} alt=""/>
             {/* <h1 className="header-one">RISE</h1> */}
           </div>
         </Link>

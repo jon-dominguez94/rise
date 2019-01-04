@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ProfilePage from './profile_page';
+import { updateUser } from '../../actions/session_actions';
 
 const mstp = state => {
   return {
@@ -9,7 +10,7 @@ const mstp = state => {
 
 const mdtp = dispatch => {
   return {
-
+    updateUser: user => dispatch(updateUser(user))
   };
 };
 
