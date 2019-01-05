@@ -1,40 +1,41 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import '../../css/session_form.css';
+import '../../css/profile.css';
 
-class SignupForm extends React.Component {
-  constructor(props) {
+class ProfilePage extends React.Component{
+  constructor(props){
     super(props);
-
+    // debugger
     this.state = {
-      fname: '',
-      lname: '',
-      email: '',
+      fname: props.user.fname,
+      lname: props.user.lname,
+      email: props.user.email,
       password: '',
       password2: '',
-      phone: '',
-      errors: {}
+      phone: props.user.phone,
+      errors: {},
+      msg: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    this.update = this.update.bind(this);
+    this.setMsg = this.setMsg.bind(this);
   }
 
-  // componentDidMount(){
-  //   console.log('signup mounted');
-  // }
-
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
-
     this.setState({ errors: nextProps.errors });
   }
 
+  // componentDidUpdate(prevProps){
+  //   console.log(this.state);
+  //   if(prevProps !== this.props) {
+  //     this.setState({ msg: '' });
+  //   }
+  // }
+
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.currentTarget.value,
+      msg: ''
     });
   }
 
@@ -42,20 +43,26 @@ class SignupForm extends React.Component {
     e.preventDefault();
 
     let user = {
+      email: this.state.email,
       fname: this.state.fname,
       lname: this.state.lname,
-      email: this.state.email,
+      phone: this.state.phone,
       password: this.state.password,
       password2: this.state.password2,
-      phone: this.state.phone,
     };
 
-    this.props.signup(user);
+    this.props.updateUser(user)
+    .then(() => {
+      if (Object.keys(this.state.errors).length === 0){
+        this.setMsg('Updated Successfully'); 
+      } else {
+        this.setMsg('Please correct errors listed below');
+      }
+    });
   }
 
   renderErrors() {
-    // debugger
-    if(Object.keys(this.state.errors).length === 0){
+    if (Object.keys(this.state.errors).length === 0) {
       return (
         <div></div>
       );
@@ -74,11 +81,32 @@ class SignupForm extends React.Component {
     }
   }
 
+  renderMsg(){
+    if(this.state.msg === ''){
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <div className="msg-container">
+          <p>{this.state.msg}</p>
+        </div>
+      );
+    }
+  }
+
+  setMsg(msg){
+    this.setState({
+      msg
+    });
+  }
+
   render() {
-    return <div className="session-form-container">
+    return (
+      <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="session-form">
-            <h1 className="session-title">Join us!</h1>
+            <h1 className="session-title">Your info</h1>
             <div className="session-input-area">
               <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
             </div>
@@ -86,7 +114,7 @@ class SignupForm extends React.Component {
               <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
             </div>
             <div className="session-input-area">
-              <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
+              <input type="text" value={this.state.email} readOnly onClick={() => this.setMsg("Can't edit email")}/>
             </div>
             <div className="session-input-area">
               <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
@@ -98,13 +126,15 @@ class SignupForm extends React.Component {
               <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
             </div>
             <div className="session-input-area submit-btn">
-              <input type="submit" value="Sign Up" />
+              <input type="submit" value="Update" />
             </div>
             {this.renderErrors()}
           </div>
         </form>
-      </div>;
+        {this.renderMsg()}
+      </div>
+    );
   }
 }
 
-export default withRouter(SignupForm);
+export default ProfilePage;
