@@ -57,16 +57,8 @@ router.post('/register', (req, res) => {
           newUser.password = hash;
           newUser.save()
           .then(user => {
+            res.json(user)
             
-            const newReminder = new Reminder({
-              user: user.id,
-            });
-            newReminder.save()
-              .then(reminder => res.json({
-                reminder: reminder, 
-                user: user
-              }))
-
             var params = {
               EmailAddress: req.body.email,
               TemplateName: "RiseEmailTemplate"
