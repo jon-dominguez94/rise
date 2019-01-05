@@ -51,8 +51,8 @@ class ProfilePage extends React.Component{
       password2: this.state.password2,
     };
 
-    this.props.updateUser(user);
-    // .then(() => this.set)
+    this.props.updateUser(user)
+    .then(() => this.setMsg('Update Successfully'));
   }
 
   renderErrors() {
