@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const keys = require('../../config/keys');
 const User = require('../../models/User');
+const Reminder = require('../../models/Reminder')
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const validateUpdateInput = require('../../validation/update');
@@ -51,10 +52,21 @@ router.post('/register', (req, res) => {
           if(err) throw err;
           newUser.password = hash;
           newUser.save()
-          .then(user => res.json(user))
+          .then(user => {
+            const newReminder = new Reminder({
+              user: user.id,
+            });
+            newReminder.save()
+              .then(reminder => res.json({
+                reminder: reminder, 
+                user: user
+              }))
+
+          })
           .catch(err => console.log(err));
         });
       });
+
     }
   });
 });
