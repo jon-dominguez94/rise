@@ -7,7 +7,7 @@ class GoalsPage extends React.Component{
 
   render() {
     return (
-      <div></div>
+      <div>Goals</div>
     );
   }
 }
