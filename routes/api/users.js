@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const keys = require('../../config/keys');
 const User = require('../../models/User');
-const Reminder = require('../../models/Reminder')
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const validateUpdateInput = require('../../validation/update');
@@ -57,16 +56,8 @@ router.post('/register', (req, res) => {
           newUser.password = hash;
           newUser.save()
           .then(user => {
+            res.json(user)
             
-            const newReminder = new Reminder({
-              user: user.id,
-            });
-            newReminder.save()
-              .then(reminder => res.json({
-                reminder: reminder, 
-                user: user
-              }))
-
             var params = {
               EmailAddress: req.body.email,
               TemplateName: "RiseEmailTemplate"
@@ -150,7 +141,17 @@ router.post('/login', (req, res) => {
     bcrypt.compare(password, user.password)
     .then(isMatch => {
       if(isMatch){
-        const payload = { id: user.id, fname: user.fname, lname: user.lname, email: user.email, phone: user.phone };
+        const payload = { 
+          id: user.id, 
+          fname: user.fname, 
+          lname: user.lname, 
+          email: user.email, 
+          phone: user.phone, 
+          emailReminder: user.emailReminder,
+          smsReminder: user.smsReminder,
+          dayOfWeek: user.dayOfWeek,
+          hour: user.hour
+        };
 
         jwt.sign(
           payload,
