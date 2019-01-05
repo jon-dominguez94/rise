@@ -5,7 +5,7 @@ const HomeLinks = props => (
   <div className="navbar-links">
     <span className="bar-link user-greet">Hello, {props.user.fname}!</span>
 
-    <NavLink className="bar-link" to={"/profile"} activeClassName="selected">
+    <NavLink className="bar-link" to={"/profile/account"} activeClassName="selected">
       Profile
     </NavLink>
     <NavLink className="bar-link" to={"/goals"} activeClassName="selected">
@@ -14,7 +14,7 @@ const HomeLinks = props => (
     <NavLink className="bar-link" to={"/roles"} activeClassName="selected">
       Roles
     </NavLink>
-    <NavLink className="bar-link" to={"/info"} activeClassName="selected">
+    <NavLink className="bar-link" to={"/profile/account"} activeClassName="selected">
       Account Info
     </NavLink>
     <hr />
