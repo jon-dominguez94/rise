@@ -22,7 +22,7 @@ class Navbar extends React.Component {
       return(
         <Switch>
           <Route exact path={'/home'} component={HomeLinksContainer}/>
-          <Route exact path={'/profile'} component={ProfileLinksContainer}/>
+          <Route path={'/profile'} component={ProfileLinksContainer}/>
         </Switch>
       );
     } else {
