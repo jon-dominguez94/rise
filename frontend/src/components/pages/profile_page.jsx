@@ -12,15 +12,21 @@ class ProfilePage extends React.Component{
       password: '',
       password2: '',
       phone: props.user.phone,
-      errors: {}
+      errors: {},
+      msg: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.setMsg = this.setMsg.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ errors: nextProps.errors });
+  }
+
+  componentDidUpdate(){
+    console.log(this.state);
   }
 
   update(field) {
@@ -64,6 +70,12 @@ class ProfilePage extends React.Component{
     }
   }
 
+  setMsg(msg){
+    this.setState({
+      msg
+    });
+  }
+
   render() {
     return <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
@@ -76,7 +88,7 @@ class ProfilePage extends React.Component{
               <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
             </div>
             <div className="session-input-area">
-              <input type="text" value={this.state.email} readOnly />
+              <input type="text" value={this.state.email} readOnly onClick={() => this.setMsg("Can't edit email")}/>
             </div>
             <div className="session-input-area">
               <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
