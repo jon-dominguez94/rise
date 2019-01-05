@@ -50,14 +50,21 @@ router.post('/register', (req, res) => {
           if(err) throw err;
           newUser.password = hash;
           newUser.save()
-          .then(user => res.json(user))
+          .then(user => {
+            const newReminder = new Reminder({
+              user: user.id,
+            });
+            newReminder.save()
+              .then(reminder => res.json({
+                reminder: reminder, 
+                user: user
+              }))
+
+          })
           .catch(err => console.log(err));
         });
       });
 
-      const newReminder = new Reminder();
-      newReminder.save()
-        .then(reminder => res.json(reminder))
     }
   });
 });
