@@ -8,6 +8,8 @@ const User = require('../../models/User');
 const Reminder = require('../../models/Reminder')
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const validateUpdateInput = require('../../validation/update');
+const validText = require('../../validation/valid-text');
 
 router.get('/test', (req, res) => res.json({msg: "This is the users route"}));
 
@@ -67,6 +69,50 @@ router.post('/register', (req, res) => {
 
     }
   });
+});
+
+router.patch('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+  const { errors, isValid } = validateUpdateInput(req.body);
+  
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ email: req.body.email })
+    .then(user => {
+
+      if (!user) {
+        return res.status(404).json({ email: 'This user does not exist' });
+      }
+      console.log(user);
+      const oldPw = user.password;
+      user.fname = validText(req.body.fname) ? req.body.fname : user.fname;
+      user.lname = validText(req.body.lname) ? req.body.lname : user.lname;
+      user.password = validText(req.body.password) ? req.body.password : user.password;
+      user.phone = validText(req.body.phone) ? req.body.phone : user.phone;
+      
+      console.log(user);
+      if(user.password !== oldPw){
+        // console.log('diff passwords');
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(user.password, salt, (err, hash) => {
+            if (err) throw err;
+            user.password = hash;
+            console.log(user);
+            user.save()
+            .then(user => res.json(user))
+            .catch(err => console.log(err));
+          });
+        });
+      } else {
+        console.log(user);
+        // console.log('same passwords');
+        user.save()
+          .then(user => res.json(user))
+          .catch(err => console.log(err));
+      }
+      // console.log(user.password);
+    });
 });
 
 router.post('/login', (req, res) => {
