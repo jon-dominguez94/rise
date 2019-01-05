@@ -1,6 +1,6 @@
 import React from 'react';
-import settingsLogo from '../../settings.png';
-import '../../css/settings.css';
+import settingsLogo from '../../../settings.png';
+import '../../../css/settings.css';
 
 export default function profile_splash_page() {
   return (
