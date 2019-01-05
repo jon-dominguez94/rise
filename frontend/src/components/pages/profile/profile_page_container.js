@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProfilePage from './profile_page';
-import { updateUser } from '../../actions/session_actions';
+import { updateUser } from '../../../actions/session_actions';
 
 const mstp = state => {
   return {
