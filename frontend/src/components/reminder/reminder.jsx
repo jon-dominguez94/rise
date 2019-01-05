@@ -31,7 +31,7 @@ class Reminder extends React.Component {
       <div className="reminder-container">
 
         <div className="email-text-selector">
-
+          
         </div>
 
         <div className="day-of-week-selector-container">
