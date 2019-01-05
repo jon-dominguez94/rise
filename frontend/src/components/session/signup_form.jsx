@@ -20,6 +20,10 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  // componentDidMount(){
+  //   console.log('signup mounted');
+  // }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.signedIn === true) {
       this.props.history.push('/login');

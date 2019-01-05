@@ -25,13 +25,17 @@ class ProfilePage extends React.Component{
     this.setState({ errors: nextProps.errors });
   }
 
-  componentDidUpdate(){
-    console.log(this.state);
-  }
+  // componentDidUpdate(prevProps){
+  //   console.log(this.state);
+  //   if(prevProps !== this.props) {
+  //     this.setState({ msg: '' });
+  //   }
+  // }
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.currentTarget.value,
+      msg: ''
     });
   }
 
@@ -48,6 +52,7 @@ class ProfilePage extends React.Component{
     };
 
     this.props.updateUser(user);
+    // .then(() => this.set)
   }
 
   renderErrors() {
@@ -70,6 +75,20 @@ class ProfilePage extends React.Component{
     }
   }
 
+  renderMsg(){
+    if(this.state.msg === ''){
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <div className="msg-container">
+          <p>{this.state.msg}</p>
+        </div>
+      );
+    }
+  }
+
   setMsg(msg){
     this.setState({
       msg
@@ -77,7 +96,8 @@ class ProfilePage extends React.Component{
   }
 
   render() {
-    return <div className="session-form-container">
+    return (
+      <div className="session-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="session-form">
             <h1 className="session-title">Your info</h1>
@@ -105,7 +125,9 @@ class ProfilePage extends React.Component{
             {this.renderErrors()}
           </div>
         </form>
-      </div>;
+        {this.renderMsg()}
+      </div>
+    );
   }
 }
 
