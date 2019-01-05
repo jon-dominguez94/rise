@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import HomeLinksContainer from './home_links_container';
+import ProfileLinksContainer from './profile_links_container';
 import '../../css/navbar.css';
 import logo from '../../logo.png';
 
@@ -21,7 +22,7 @@ class Navbar extends React.Component {
       return(
         <Switch>
           <Route exact path={'/home'} component={HomeLinksContainer}/>
-          <Route exact path={'/profile'} component={HomeLinksContainer}/>
+          <Route exact path={'/profile'} component={ProfileLinksContainer}/>
         </Switch>
       );
     } else {
