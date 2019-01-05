@@ -5,19 +5,35 @@ class Reminder extends React.Component {
     super(props);
 
     this.state = {
-      dayOfWeek: '',
-      hour: '',
-      minute: '',
-      emailReminder: true,
-      smsReminder: false
+      dayOfWeek: props.user.dayOfWeek,
+      hour: props.user.hour,
+      minute: props.user.minute,
+      emailReminder: props.user.emailReminder,
+      smsReminder: props.user.smsReminder
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
+
+  toggleEmail(){
+    this.setState(prevState => ({
+      emailReminder: !prevState.emailReminder,
+    }));
+  }
+
+  toggleText(){
+    this.setState(prevState => ({
+      smsReminder: !prevState.smsReminder,
+    }));
   }
 
   handleSubmit(e){
     e.preventDefault()
+    let user;
 
+
+    this.props.updateUser(user)
   }
 
   handleUpdate(field){
@@ -34,12 +50,12 @@ class Reminder extends React.Component {
         <div className="email-text-selector">
           <label>
             Email
-            <input checked={this.state.emailReminder} type="checkbox" value=""/>
+            <input onChange={this.toggleEmail} checked={this.state.emailReminder} type="checkbox"/>
           </label>
 
           <label>
             Text Message
-            <input checked={this.state.smsReminder} type="checkbox"/>
+            <input onChange={this.toggleText} checked={this.state.smsReminder} type="checkbox"/>
           </label>
         </div>
 
