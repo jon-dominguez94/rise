@@ -52,7 +52,13 @@ class ProfilePage extends React.Component{
     };
 
     this.props.updateUser(user)
-    .then(() => this.setMsg('Update Successfully'));
+    .then(() => {
+      if (Object.keys(this.state.errors).length === 0){
+        this.setMsg('Updated Successfully'); 
+      } else {
+        this.setMsg('Please correct errors listed below');
+      }
+    });
   }
 
   renderErrors() {

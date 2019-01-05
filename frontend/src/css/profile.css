@@ -4,5 +4,8 @@
   right: 0;
   margin: 50px;
   padding: 15px 25px;
-  border: 0.5px solid powderblue;
+  border: 0.5px solid #5c5edc;
+  color: #5c5edc;
+  background: rgba(176, 224, 230, 0.5);
+  /* background: rgba(0,0,0,1); */
 }
