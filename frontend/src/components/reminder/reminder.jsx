@@ -29,6 +29,11 @@ class Reminder extends React.Component {
   render(){
     return(
       <div className="reminder-container">
+
+        <div className="email-text-selector">
+
+        </div>
+
         <div className="day-of-week-selector-container">
           <select 
           value={this.state.dayOfWeek}
