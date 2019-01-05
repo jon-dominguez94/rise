@@ -28,6 +28,22 @@ const UserSchema = new Schema({
     },
     required: [true, 'User phone number is required']
   },
+  emailReminder: {
+    type: Boolean,
+    default: true
+  },
+  smsReminder: {
+    type: Boolean,
+    default: true
+  },
+  dayOfWeek: {
+    type: Number,
+    default: 5
+  },
+  hour: {
+    type: Number,
+    default: 17
+  },
   date: {
     type: Date,
     default: Date.now
