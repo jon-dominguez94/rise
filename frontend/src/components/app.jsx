@@ -9,6 +9,8 @@ import SignupFormContainer from './session/signup_form_container';
 
 import MainPage from './main/main_page';
 import ProfilePageContainer from '../components/pages/profile/profile_page_container';
+import GoalsPageContainer from '../components/pages/goals/goals_page_container';
+import RolesPageContainer from '../components/pages/goals/goals_page_container';
 import ProfileSplashPage from './pages/profile/profile_splash_page';
 
 import '../css/app.css';
@@ -27,7 +29,7 @@ const App = () => (
         <ProtectedRoute exact path="/home" component={MainPage} />
         <ProtectedRoute exact path="/profile" component={ProfileSplashPage} />
         <ProtectedRoute exact path="/profile/account" component={ProfilePageContainer} />
-        <ProtectedRoute exact path="/profile/goals" component={ProfilePageContainer} />
+        <ProtectedRoute exact path="/profile/goals" component={GoalsPageContainer} />
         <ProtectedRoute exact path="/profile/roles" component={ProfilePageContainer} />
         <Redirect to="/home" />
       </Switch>
