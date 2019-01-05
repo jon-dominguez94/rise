@@ -43,4 +43,5 @@ div[class^="navbar"] {
 
 .bar-link:hover, .user-greet, .selected {
   color: #5c5edc;
+  text-transform: capitalize;
 }
