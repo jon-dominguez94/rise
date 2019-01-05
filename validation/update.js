@@ -3,11 +3,12 @@ const validText = require('./valid-text');
 
 module.exports = function validateUpdateInput(data) {
   let errors = {};
-  
+
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
   data.phone = validText(data.phone) ? data.phone : '';
 
+  // console.log(data);
 
   if(!Validator.isEmpty(data.password)){
     if (!Validator.isLength(data.password, { min: 6, max: 30 })) {

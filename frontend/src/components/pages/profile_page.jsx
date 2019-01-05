@@ -32,7 +32,9 @@ class ProfilePage extends React.Component{
       email: this.state.email,
       fname: this.state.fname,
       lname: this.state.lname,
-      phone: this.state.phone
+      phone: this.state.phone,
+      password: this.state.password,
+      password2: this.state.password2,
     };
 
     this.props.updateUser(user);
