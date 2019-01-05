@@ -4,8 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { logout } from './actions/session_actions';
-import './css/reset.css';
+import { logout, updateUser } from './actions/session_actions';
+import './css/reset.css'; 
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // REMOVE FOR PRODUCTION!!
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.updateUser = updateUser;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

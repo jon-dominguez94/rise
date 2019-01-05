@@ -1,6 +1,9 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Switch, Route, Link, NavLink } from 'react-router-dom';
+import HomeLinksContainer from './home_links_container';
+import ProfileLinksContainer from './profile_links_container';
 import '../../css/navbar.css';
+import logo from '../../logo.png';
 
 class Navbar extends React.Component {
   constructor(props){
@@ -17,26 +20,26 @@ class Navbar extends React.Component {
   getLinks(){
     if(this.props.loggedIn){
       return(
-        <div className="navbar-links">
-          <span className="bar-link user-greet">Hi, {this.props.user.fname}!</span>
-          <button className="bar-link" onClick={this.logoutUser}>Sign Out</button>
-          <hr/>
-          <NavLink className="bar-link" to={'/profile'}>Profile</NavLink>
-        </div>
+        <Switch>
+          <Route exact path={'/home'} component={HomeLinksContainer}/>
+          <Route exact path={'/profile'} component={ProfileLinksContainer}/>
+        </Switch>
       );
     } else {
-      return <div className="navbar-links">
-          <NavLink className="bar-link" to={"/login"} >
+      return(
+        <div className="navbar-links">
+          <NavLink className="bar-link" to={"/login"} activeClassName="selected">
             Login
           </NavLink>
-          <NavLink className="bar-link" to={"/signup"} >
+          <NavLink className="bar-link" to={"/signup"} activeClassName="selected">
             Sign Up
           </NavLink>
           <button
             onClick={() => this.props.login({email: 'test@test.test', password: 'password'})}
             className="bar-link" 
           >Demo Login</button>
-        </div>;
+        </div>
+      );
     }
   }
 
@@ -45,7 +48,8 @@ class Navbar extends React.Component {
       <div className="navbar-wrapper">
         <Link to="/">
           <div className="logo-container">
-            <h1 className="header-one">RISE</h1>
+          <img className="logo-pic" src={logo} alt=""/>
+            {/* <h1 className="header-one">RISE</h1> */}
           </div>
         </Link>
         <hr/>
