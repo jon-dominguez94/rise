@@ -80,17 +80,23 @@ router.patch('/profile', passport.authenticate('jwt', { session: false }), (req,
       user.phone = validText(req.body.phone) ? req.body.phone : user.phone;
 
       if(user.password !== oldPw){
+        // console.log('diff passwords');
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(user.password, salt, (err, hash) => {
             if (err) throw err;
             user.password = hash;
+            user.save()
+              .then(user => res.json(user))
+              .catch(err => console.log(err));
           });
         });
+      } else {
+        // console.log('same passwords');
+        user.save()
+          .then(user => res.json(user))
+          .catch(err => console.log(err));
       }
-      
-      user.save()
-        .then(user => res.json(user))
-        .catch(err => console.log(err));
+      // console.log(user.password);
     });
 });
 
