@@ -14,11 +14,11 @@ const ReminderSchema = new Schema({
     type: Boolean,
     default: true
   },
-  remindOnDay: {
+  dayOfWeek: {
     type: Number,
     default: 5
   },
-  remindOnHour: {
+  hour: {
     type: Number,
     default: 17
   },
