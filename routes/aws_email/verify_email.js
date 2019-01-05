@@ -1,9 +1,7 @@
 require("dotenv").config();
 
 const AWS = require("aws-sdk");
-
 const ses = new AWS.SES();
-
 
 var params = {
   EmailAddress: "mark.kopec@gmail.com",
@@ -14,3 +12,4 @@ ses.sendCustomVerificationEmail(params, function(err, data) {
   // an error occurred
   else console.log(data); // successful response
 });
+
