@@ -3,9 +3,9 @@ import {connect} from 'react-redux'
 import Reminder from './reminder';
 
 const mapStateToProps = (state) => {
-
+  const reminder = this.state.reminder
   return{
-
+    reminder
   }
 }
 

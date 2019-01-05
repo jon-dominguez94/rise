@@ -8,14 +8,15 @@ class Reminder extends React.Component {
       dayOfWeek: '',
       hour: '',
       minute: '',
-      emailReminder: '',
-      smsReminder: ''
+      emailReminder: true,
+      smsReminder: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault()
 
   }
 
@@ -31,7 +32,15 @@ class Reminder extends React.Component {
       <div className="reminder-container">
 
         <div className="email-text-selector">
-          
+          <label>
+            Email
+            <input checked={this.state.emailReminder} type="checkbox" value=""/>
+          </label>
+
+          <label>
+            Text Message
+            <input checked={this.state.smsReminder} type="checkbox"/>
+          </label>
         </div>
 
         <div className="day-of-week-selector-container">
@@ -44,7 +53,7 @@ class Reminder extends React.Component {
             <option value={2}>Tuesday</option>
             <option value={3}>Wednesday</option>
             <option value={4}>Thursday</option>
-            <option selected value={5}>Friday</option>
+            <option value={5}>Friday</option>
             <option value={6}>Saturday</option>
           </select>
         </div>
@@ -63,7 +72,7 @@ class Reminder extends React.Component {
             <option value={6}>7:00 AM</option>
             <option value={7}>8:00 AM</option>
             <option value={8}>9:00 AM</option>
-            <option selected value={9}>10:00 AM</option>
+            <option value={9}>10:00 AM</option>
             <option value={10}>11:00 AM</option>
             <option value={11}>12:00 PM</option>
             <option value={12}>1:00 PM</option>
