@@ -1,5 +1,5 @@
 import React from 'react';
-import settingsLogo from '../../../settings.png';
+import settingsLogo from '../../../profile.png';
 import '../../../css/settings.css';
 
 export default function profile_splash_page() {
