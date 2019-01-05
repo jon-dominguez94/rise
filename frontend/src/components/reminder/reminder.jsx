@@ -20,13 +20,14 @@ class Reminder extends React.Component {
   }
 
   handleUpdate(){
-    
+
   }
 
 
   render(){
     return(
       <div>
+        
         <select 
         value={this.state.dayOfWeek}
         onChange={this.handleUpdate}
@@ -40,8 +41,34 @@ class Reminder extends React.Component {
           <option value={6}>Saturday</option>
         </select>
 
-        <select className="hour-selector">
-
+        <select 
+        value={this.state.hour}
+        onChange={this.handleUpdate}
+        className="hour-selector">
+          <option value={0}>1:00 AM</option>
+          <option value={1}>2:00 AM</option>
+          <option value={2}>3:00 AM</option>
+          <option value={3}>4:00 AM</option>
+          <option value={4}>5:00 AM</option>
+          <option value={5}>6:00 AM</option>
+          <option value={6}>7:00 AM</option>
+          <option value={7}>8:00 AM</option>
+          <option value={8}>9:00 AM</option>
+          <option selected value={9}>10:00 AM</option>
+          <option value={10}>11:00 AM</option>
+          <option value={11}>12:00 PM</option>
+          <option value={12}>1:00 PM</option>
+          <option value={13}>2:00 PM</option>
+          <option value={14}>3:00 PM</option>
+          <option value={15}>4:00 PM</option>
+          <option value={16}>5:00 PM</option>
+          <option value={17}>6:00 PM</option>
+          <option value={18}>7:00 PM</option>
+          <option value={19}>8:00 PM</option>
+          <option value={20}>9:00 PM</option>
+          <option value={21}>10:00 PM</option>
+          <option value={22}>11:00 PM</option>
+          <option value={23}>12:00 PM</option>
         </select>
       </div>
     )
