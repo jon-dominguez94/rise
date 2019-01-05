@@ -29,5 +29,5 @@ const ReminderSchema = new Schema({
 });
 
 
-const Reminder = mongoose.model("reminders", ReminderSchema);
+const Reminder = mongoose.model("reminder", ReminderSchema);
 module.exports = Reminder; 
