@@ -1,0 +1,12 @@
+.settings-logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.settings-logo {
+  width: 50%;
+  height: auto;
+}
