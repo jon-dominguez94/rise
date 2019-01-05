@@ -8,8 +8,6 @@ module.exports = function validateUpdateInput(data) {
   data.password2 = validText(data.password2) ? data.password2 : '';
   data.phone = validText(data.phone) ? data.phone : '';
 
-  // console.log(data);
-
   if(!Validator.isEmpty(data.password)){
     if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
       errors.password = 'Password must be between 6 and 30 characters';

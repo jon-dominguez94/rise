@@ -61,8 +61,7 @@ router.post('/register', (req, res) => {
 
 router.patch('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
   const { errors, isValid } = validateUpdateInput(req.body);
-  console.log(req.body);
-  console.log(errors);
+  
   if (!isValid) {
     return res.status(400).json(errors);
   }

@@ -4,7 +4,8 @@ import { updateUser } from '../../actions/session_actions';
 
 const mstp = state => {
   return {
-    user: state.session.user
+    user: state.session.user,
+    errors: state.errors.session
   };
 };
 
