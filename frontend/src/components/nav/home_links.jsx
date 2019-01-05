@@ -6,7 +6,6 @@ const HomeLinks = (props) => (
     <span className="bar-link user-greet">Hello, {props.user.fname}!</span>
     <NavLink className="bar-link" to={'/home'} activeClassName="selected">Home</NavLink>
     <NavLink className="bar-link" to={'/profile'} activeClassName="selected">Profile</NavLink>
-    <NavLink className="bar-link" to={'/goals'} activeClassName="selected">Goals</NavLink>
     <NavLink className="bar-link" to={'/reports'} activeClassName="selected">Reports</NavLink>
     <hr />
     <NavLink className="bar-link" to={'/reminders'} activeClassName="selected">Reminders</NavLink>
