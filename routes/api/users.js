@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -10,6 +12,8 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const validateUpdateInput = require('../../validation/update');
 const validText = require('../../validation/valid-text');
+const AWS = require("aws-sdk");
+const ses = new AWS.SES();
 
 router.get('/test', (req, res) => res.json({msg: "This is the users route"}));
 
@@ -53,6 +57,7 @@ router.post('/register', (req, res) => {
           newUser.password = hash;
           newUser.save()
           .then(user => {
+            
             const newReminder = new Reminder({
               user: user.id,
             });
@@ -61,6 +66,17 @@ router.post('/register', (req, res) => {
                 reminder: reminder, 
                 user: user
               }))
+
+            var params = {
+              EmailAddress: req.body.email,
+              TemplateName: "RiseEmailTemplate"
+            };
+
+            ses.sendCustomVerificationEmail(params, function (err, data) {
+              if (err) console.log(err, err.stack);
+              // an error occurred
+              else console.log(data); // successful response
+            });
 
           })
           .catch(err => console.log(err));
