@@ -5,7 +5,7 @@ export const writeEntry = data => {
 };
 
 export const getReportEntries = id => {
-    return axios.get(`/api/entries/user/${id}`)
+    return axios.get(`/api/entries/reports/${id}`)
 };
 
 // export const writeTweet = data => {

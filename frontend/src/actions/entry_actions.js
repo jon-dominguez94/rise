@@ -8,13 +8,19 @@ export const receiveReportEntries = entries => ({
     entries
 });
 
-export const receiveNewEntry = ENTRY => ({
+export const receiveNewEntry = entry => ({
     type: RECEIVE_NEW_ENTRY,
-    ENTRY
+    entry
 });
 
 export const fetchReportEntries = id => dispatch => (
     getReportEntries(id)
         .then(entries => dispatch(receiveReportEntries(entries)))
+        .catch(err => console.log(err))
+);
+
+export const createEntry = data => dispatch => (
+    getReportEntries(data)
+        .then(entry => dispatch(receiveNewEntry(entry)))
         .catch(err => console.log(err))
 );
