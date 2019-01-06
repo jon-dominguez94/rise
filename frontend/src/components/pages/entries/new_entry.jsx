@@ -15,6 +15,12 @@ class NewEntry extends React.Component{
     //     e.preventDefault
     // }
 
+    update(){
+        return e => this.setState({
+            description: e.currentTarget.value
+        })
+    }
+
     render(){
         return (
             <div>
@@ -23,6 +29,7 @@ class NewEntry extends React.Component{
                 <form>
                     <input
                         value={this.state.description}
+                        // onChange={this.update()}
                         placeholder="Write description"
                     />
                     <label>Rating
