@@ -1,6 +1,5 @@
 require("dotenv").config();
 
-
 class AWSEmail {
 
   constructor(emailAddress) {
