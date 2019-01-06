@@ -13,7 +13,7 @@ router.get('/report/:report_id', (req, res) => {
     Entry.find({ report: req.params.report_id })
         .then(entries => res.json(entries))
         .catch(err =>
-            res.status(404).json({ noentryfound: 'No entries found from that report' }
+            res.status(404).json({ noentriesfound: 'No entries found from that report' }
             )
         );
 });
@@ -33,5 +33,13 @@ router.post('/',
         newEntry.save().then(entry => res.json(entry));
     }
 );
+
+router.get('/:id', (req, res) => {
+    Tweet.findById(req.params.id)
+        .then(tweet => res.json(tweet))
+        .catch(err =>
+            res.status(404).json({ noentryfound: 'No entry found with that ID' })
+        );
+});
 
 module.exports = router;
