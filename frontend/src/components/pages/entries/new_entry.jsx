@@ -27,7 +27,7 @@ class NewEntry extends React.Component{
 
     render(){
         return (
-            <div className='entry-form'>
+            <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
                 <form>
                     <input
