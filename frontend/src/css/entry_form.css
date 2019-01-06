@@ -31,8 +31,9 @@
 
 }
 
-.entry-dropdown option{
-    
+.entry-dropdown {
+    font-size: 14px;
+    font-weight: 500;
 }
 
 
@@ -45,11 +46,14 @@
     cursor: pointer;
     margin-left: 60px;
     font-size: 14px;
+    font-weight: 500;
     border-radius: 3px;
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 5px;
     padding-bottom: 5px;
+    text-transform: uppercase;
+
 }
 .entry-submit-button input:hover{
     background-color: #5c5edc;
@@ -61,4 +65,5 @@
     align-items: center;
     padding: 12px;
     justify-content: space-between;
+    text-transform: uppercase;
 }

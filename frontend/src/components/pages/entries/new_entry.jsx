@@ -20,9 +20,14 @@ class NewEntry extends React.Component{
     //     this.setState({ photoFile: e.currentTarget.files[0] });
     // }
 
-    update(){
+    updateDescription(){
         return e => this.setState({
             description: e.currentTarget.value
+        })
+    }
+    updateImportance(){
+        return e => this.setState({
+            importance: e.currentTarget.value
         })
     }
 
@@ -33,7 +38,7 @@ class NewEntry extends React.Component{
                 <form>
                     <textarea
                         value={this.state.description}
-                        onChange={this.update()}
+                        onChange={this.updateDescription()}
                         placeholder="Write description"
                         className="entry-description"
                     />
@@ -42,7 +47,7 @@ class NewEntry extends React.Component{
                     <label>Importance
                     <select
                         value={this.state.importance}
-                        onChange={this.update()}>
+                        onChange={this.updateImportance()}>
 
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -52,7 +57,7 @@ class NewEntry extends React.Component{
                     </select>
                     </label>
                     </div>
-                    <div className='entry-dropdown'>  
+                    {/* <div className='entry-dropdown'>  
                     <label>Goal
                     <select>
                         <option value="1">1</option>
@@ -73,7 +78,7 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
-                    </div>
+                    </div> */}
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
                         <div className="entry-submit-button">
                             <input type="submit" value="Submit" />
