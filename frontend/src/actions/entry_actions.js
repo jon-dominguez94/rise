@@ -12,3 +12,9 @@ export const receiveNewEntry = ENTRY => ({
     type: RECEIVE_NEW_ENTRY,
     ENTRY
 });
+
+export const fetchReportEntries = id => dispatch => (
+    getReportEntries(id)
+        .then(entries => dispatch(receiveReportEntries(entries)))
+        .catch(err => console.log(err))
+);
