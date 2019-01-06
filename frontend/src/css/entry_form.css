@@ -25,7 +25,6 @@
     cursor: pointer;
     border: none; 
     outline: none;
-
 }
 
 .entry-dropdown option{
@@ -41,8 +40,12 @@
     outline: none;
     cursor: pointer;
 }
+.entry-submit-button input:hover{
+    background-color: #5c5edc;
+
+}
 
 .dropdowns{
     display: flex;
-
+    padding-top: 10px;
 }
