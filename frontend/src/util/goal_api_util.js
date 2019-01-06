@@ -15,7 +15,7 @@ export const writeGoal = data => {
   });
 };
 
-export const updateGoal = goal => {
+export const updateUserGoal = goal => {
   return axios({
     method: 'patch',
     url: `/api/goals/${goal.id}`,
