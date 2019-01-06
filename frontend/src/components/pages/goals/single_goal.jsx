@@ -4,8 +4,8 @@ class SingleGoal extends React.Component{
   render() {
     return (
       <div>
-        <h3>{this.props.title}</h3>
-        <h3>{this.props.description}</h3>
+        <h3>{this.props.goal.title}</h3>
+        <h3>{this.props.goal.description}</h3>
       </div>
     );
   }
