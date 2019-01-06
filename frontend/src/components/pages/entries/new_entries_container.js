@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createEntry } from '../../../actions/entry_actions';
+import { withRouter } from 'react-router';
 
 
 const mapStateToProps = (state) => {
@@ -8,3 +9,11 @@ const mapStateToProps = (state) => {
         newEntry: state.entries.new
     };
 };
+
+const mapDispatchToProps = dispatch => {
+    return {
+        createEntry: data => dispatch(createEntry(data))
+    };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewEntry));
