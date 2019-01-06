@@ -63,11 +63,11 @@ router.post('/register', (req, res) => {
               TemplateName: "RiseEmailTemplate"
             };
 
-            ses.sendCustomVerificationEmail(params, function (err, data) {
-              if (err) console.log(err, err.stack);
-              // an error occurred
-              else console.log(data); // successful response
-            });
+            // ses.sendCustomVerificationEmail(params, function (err, data) {
+            //   if (err) console.log(err, err.stack);
+            //   // an error occurred
+            //   else console.log(data); // successful response
+            // });
 
           })
           .catch(err => console.log(err));
