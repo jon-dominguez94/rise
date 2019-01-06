@@ -28,14 +28,12 @@ class Reminder extends React.Component {
   }
 
   toggleEmail(){
-    // debugger
     this.setState({
       emailReminder: !this.state.emailReminder
     })
   }
 
   toggleText(){
-    // debugger
     this.setState({
       smsReminder: !this.state.smsReminder
     })
@@ -48,7 +46,6 @@ class Reminder extends React.Component {
     user.hour = this.state.hour
     user.emailReminder = this.state.emailReminder
     user.smsReminder = this.state.smsReminder
-    // debugger
 
     this.props.updateUser(user)
   }
