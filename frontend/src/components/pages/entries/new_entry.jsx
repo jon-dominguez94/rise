@@ -11,11 +11,13 @@ class NewEntry extends React.Component{
             description: "",
             importance: ""
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ newTweet: nextProps.newTweet.text });
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ newTweet: nextProps.newTweet.text });
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -39,6 +41,7 @@ class NewEntry extends React.Component{
     }
 
     render(){
+        debugger
         return (
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
@@ -55,7 +58,6 @@ class NewEntry extends React.Component{
                     <select
                         value={this.state.importance}
                         onChange={this.update('importance')}>
-
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
