@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.8.1",
+    "aws-sdk": "^2.384.0",
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",

@@ -7,15 +7,12 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: process.env.AWS_REGION
 });
-
-AWS.config.update({ region: 'us-west-2' });
 var sns = new AWS.SNS();
 
 // example params
 var params = {
   Message: 'Time to update your achievements on Rise!',
   MessageStructure: 'string',
-  // PhoneNumber: '+15106038483'
   PhoneNumber: '+18313453689'
 };
 
@@ -34,9 +31,9 @@ rule.hour = 12;
 rule.minute = 48;
  
 //this part sends messages on a recurring schedule
-// var j = schedule.scheduleJob(rule, function(){
-//   console.log('The scheduler worked');
-// });
+var j = schedule.scheduleJob(rule, function(){
+  console.log('The scheduler worked');
+});
 // var j = schedule.scheduleJob(rule, sns.publish(params).bind(this));
 
 // j();
