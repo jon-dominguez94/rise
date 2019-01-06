@@ -1,9 +1,9 @@
 
 .entry-description{
     background: #1c1d22;
-    height: 150px;
+    height: 300px;
     color: #bdbdbd;
-    width: 300px;
+    width: 500px;
     border: none; 
     outline: none;
     border-radius: 3px;
@@ -29,4 +29,8 @@
     border: none; 
     outline: none;
     cursor: pointer;
+}
+
+.dropdowns{
+    
 }

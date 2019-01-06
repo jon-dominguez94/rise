@@ -37,6 +37,7 @@ class NewEntry extends React.Component{
                         placeholder="Write description"
                         className="entry-description"
                     />
+                    <div className='dropdowns'>
                     <div className='entry-dropdown'>  
                     <label>Importance
                     <select
@@ -72,6 +73,7 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
+                    </div>
                     </div>
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
                     <div className="entry-submit-button">
