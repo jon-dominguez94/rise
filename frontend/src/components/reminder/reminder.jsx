@@ -16,31 +16,36 @@ class Reminder extends React.Component {
     this.state = {
       dayOfWeek: props.user.dayOfWeek,
       hour: props.user.hour,
-      minute: props.user.minute,
+      // minute: props.user.minute,
       emailReminder: props.user.emailReminder,
       smsReminder: props.user.smsReminder
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.toggleText = this.toggleText.bind(this);
+    this.toggleEmail = this.toggleEmail.bind(this);
   }
 
   toggleEmail(){
-    this.setState(prevState => ({
-      emailReminder: !prevState.emailReminder,
-    }));
+    this.setState({
+      emailReminder: !this.state.emailReminder
+    })
   }
 
   toggleText(){
-    this.setState(prevState => ({
-      smsReminder: !prevState.smsReminder,
-    }));
+    this.setState({
+      smsReminder: !this.state.smsReminder
+    })
   }
 
   handleSubmit(e){
     e.preventDefault()
-    let user;
-
+    let user = this.props.user 
+    user.dayOfWeek = this.state.dayOfWeek
+    user.hour = this.state.hour
+    user.emailReminder = this.state.emailReminder
+    user.smsReminder = this.state.smsReminder
 
     this.props.updateUser(user)
   }
