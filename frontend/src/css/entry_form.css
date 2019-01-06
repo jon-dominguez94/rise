@@ -1,13 +1,22 @@
+.entry-form-container {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    top: 80px;
+}
 
 .entry-description{
     background: #1c1d22;
-    height: 300px;
+    height: 400px;
     color: #bdbdbd;
-    width: 500px;
+    width: 700px;
     border: none; 
     outline: none;
     border-radius: 3px;
-
+    font-size: 18px;
+    padding: 20px;
 }
 
 .entry-form-container select {
@@ -19,8 +28,10 @@
 
 }
 
-.entry-dropdown {
+.entry-dropdown option{
+    
 }
+
 
 .entry-submit-button input{
     color: #bdbdbd;
@@ -32,5 +43,6 @@
 }
 
 .dropdowns{
-    
+    display: flex;
+
 }
