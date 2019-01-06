@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../css/entry_form.css';
+import { withRouter } from 'react-router-dom';
 
 
 class NewEntry extends React.Component{
@@ -12,23 +13,29 @@ class NewEntry extends React.Component{
         }
     }
 
-    // handleSubmit(e){
-    //     e.preventDefault
-    // }
+    componentWillReceiveProps(nextProps) {
+        this.setState({ newTweet: nextProps.newTweet.text });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        let entry = {
+            description: this.state.description,
+            importance: this.state.importance,
+        };
+
+        this.props.createEntry(entry);
+    }
 
     // handleFile(e) {
     //     this.setState({ photoFile: e.currentTarget.files[0] });
     // }
 
-    updateDescription(){
+    update(field) {
         return e => this.setState({
-            description: e.currentTarget.value
-        })
-    }
-    updateImportance(){
-        return e => this.setState({
-            importance: e.currentTarget.value
-        })
+            [field]: e.currentTarget.value
+        });
     }
 
     render(){
@@ -38,7 +45,7 @@ class NewEntry extends React.Component{
                 <form>
                     <textarea
                         value={this.state.description}
-                        onChange={this.updateDescription()}
+                        onChange={this.update('description')}
                         placeholder="Write description"
                         className="entry-description"
                     />
@@ -47,7 +54,7 @@ class NewEntry extends React.Component{
                     <label>Importance
                     <select
                         value={this.state.importance}
-                        onChange={this.updateImportance()}>
+                        onChange={this.update('importance')}>
 
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -92,4 +99,4 @@ class NewEntry extends React.Component{
 
 }
 
-export default NewEntry 
+export default withRouter(NewEntry)
