@@ -20,7 +20,7 @@ export const fetchReportEntries = id => dispatch => (
 );
 
 export const createEntry = data => dispatch => (
-    getReportEntries(data)
+    writeEntry(data)
         .then(entry => dispatch(receiveNewEntry(entry)))
         .catch(err => console.log(err))
 );
