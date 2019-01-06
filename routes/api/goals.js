@@ -10,7 +10,7 @@ router.get("/test", (req, res) => res.json({ msg: "This is the goals route" }));
 
 router.get(
   "/user/:user_id",
-  // passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Goal.find({ user: req.params.user_id })
       .then(goals => {
