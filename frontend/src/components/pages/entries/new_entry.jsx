@@ -21,7 +21,10 @@ class NewEntry extends React.Component{
                 New Entry
 
                 <form>
-
+                    <input
+                        value={this.state.description}
+                        placeholder="Write description"
+                    />
                 </form>
             </div>
         )
