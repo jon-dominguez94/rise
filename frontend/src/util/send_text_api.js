@@ -7,13 +7,16 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: process.env.AWS_REGION
 });
+
+AWS.config.update({ region: 'us-west-2' });
 var sns = new AWS.SNS();
 
 // example params
 var params = {
   Message: 'Time to update your achievements on Rise!',
   MessageStructure: 'string',
-  PhoneNumber: '+12345678910'
+  // PhoneNumber: '+15106038483'
+  PhoneNumber: '+18313453689'
 };
 
 //This sends the text message via aws SNS
@@ -25,13 +28,17 @@ sns.publish(params, function(err, data) {
 
 var rule = new schedule.RecurrenceRule();
 
-// example of rules for Friday at 3:00pm
-rule.dayOfWeek = 5
-rule.hour = 16;
-rule.minute = 0;
+// example of rules for Saturday at 3:40pm
+rule.dayOfWeek = 7
+rule.hour = 12;
+rule.minute = 48;
  
-var j = schedule.scheduleJob(rule, function(){
-  console.log('The scheduler worked');
-});
+//this part sends messages on a recurring schedule
+// var j = schedule.scheduleJob(rule, function(){
+//   console.log('The scheduler worked');
+// });
+// var j = schedule.scheduleJob(rule, sns.publish(params).bind(this));
 
-j.cancel();
+// j();
+// Cancels the scheduled messages
+// j.cancel();

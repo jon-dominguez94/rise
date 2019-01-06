@@ -1,4 +1,13 @@
 import React from 'react'
+import "../../css/reminder.scss";
+import Input from '@material-ui/core/Input';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import FilledInput from '@material-ui/core/FilledInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 class Reminder extends React.Component {
   constructor(props){
@@ -7,31 +16,36 @@ class Reminder extends React.Component {
     this.state = {
       dayOfWeek: props.user.dayOfWeek,
       hour: props.user.hour,
-      minute: props.user.minute,
+      // minute: props.user.minute,
       emailReminder: props.user.emailReminder,
       smsReminder: props.user.smsReminder
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.toggleText = this.toggleText.bind(this);
+    this.toggleEmail = this.toggleEmail.bind(this);
   }
 
   toggleEmail(){
-    this.setState(prevState => ({
-      emailReminder: !prevState.emailReminder,
-    }));
+    this.setState({
+      emailReminder: !this.state.emailReminder
+    })
   }
 
   toggleText(){
-    this.setState(prevState => ({
-      smsReminder: !prevState.smsReminder,
-    }));
+    this.setState({
+      smsReminder: !this.state.smsReminder
+    })
   }
 
   handleSubmit(e){
     e.preventDefault()
-    let user;
-
+    let user = this.props.user 
+    user.dayOfWeek = this.state.dayOfWeek
+    user.hour = this.state.hour
+    user.emailReminder = this.state.emailReminder
+    user.smsReminder = this.state.smsReminder
 
     this.props.updateUser(user)
   }
@@ -47,6 +61,29 @@ class Reminder extends React.Component {
     return(
       <div className="reminder-container">
 
+        <form  autoComplete="off">
+          <FormControl >
+            <InputLabel>Day</InputLabel>
+            <Select
+              value={this.state.dayOfWeek}
+              onChange={this.handleUpdate("dayOfWeek")}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={0}>Sunday</MenuItem>
+              <MenuItem value={1}>Monday</MenuItem>
+              <MenuItem value={2}>Tuesday</MenuItem>
+              <MenuItem value={3}>Wednesday</MenuItem>
+              <MenuItem value={4}>Thursday</MenuItem>
+              <MenuItem value={5}>Friday</MenuItem>
+              <MenuItem value={6}>Saturday</MenuItem>
+            </Select>
+          </FormControl>
+          </form>
+
+
+       
         <div className="email-text-selector">
           <label>
             Email

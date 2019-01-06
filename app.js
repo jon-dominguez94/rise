@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === "production") {
 const users = require('./routes/api/users');
 const reports = require("./routes/api/reports");
 const entries = require('./routes/api/entries');
+const goals = require('./routes/api/goals');
 
 
 const bodyParser = require('body-parser');
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/reports", reports);
 app.use("/api/entries", entries);
+app.use("/api/goals", goals);
 
 const port = process.env.PORT || 3001;
 
