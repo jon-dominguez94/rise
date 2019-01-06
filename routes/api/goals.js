@@ -10,10 +10,16 @@ router.get("/test", (req, res) => res.json({ msg: "This is the goals route" }));
 
 router.get(
   "/user/:user_id",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Goal.find({ user: req.params.user_id })
-      .then(goals => res.json(goals))
+      .then(goals => {
+        goalsObject = {};
+        goals.forEach(goal => {
+          goalsObject[goal._id] = goal;
+        });
+        res.json(goalsObject)
+      })
       .catch(err => res.status(404).json({ nogoalsfound: "No goals found" }));
   }
 );
