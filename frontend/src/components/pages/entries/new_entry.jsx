@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../css/entry_form.css';
 
 
 class NewEntry extends React.Component{

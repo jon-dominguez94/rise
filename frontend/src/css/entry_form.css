@@ -1,5 +1,7 @@
-.entry-description{
 
+.entry-description{
+    background: #1c1d22;
+    color: white;
 }
 
 .entry-form-container{
@@ -7,9 +9,9 @@
 }
 
 .entry-dropdown{
-
+    /* background: #1c1d22; */
 }
 
 .entry-submit-button{
-    
+
 }
