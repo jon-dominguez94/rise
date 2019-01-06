@@ -54,6 +54,8 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
+                    <input type="submit" value="Create Entry" />
+
                 </form>
             </div>
         )
