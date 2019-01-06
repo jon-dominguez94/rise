@@ -5,18 +5,35 @@ class Reminder extends React.Component {
     super(props);
 
     this.state = {
-      dayOfWeek: '',
-      hour: '',
-      minute: '',
-      emailReminder: '',
-      smsReminder: ''
+      dayOfWeek: props.user.dayOfWeek,
+      hour: props.user.hour,
+      minute: props.user.minute,
+      emailReminder: props.user.emailReminder,
+      smsReminder: props.user.smsReminder
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  handleSubmit(){
+  toggleEmail(){
+    this.setState(prevState => ({
+      emailReminder: !prevState.emailReminder,
+    }));
+  }
 
+  toggleText(){
+    this.setState(prevState => ({
+      smsReminder: !prevState.smsReminder,
+    }));
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+    let user;
+
+
+    this.props.updateUser(user)
   }
 
   handleUpdate(field){
@@ -31,7 +48,15 @@ class Reminder extends React.Component {
       <div className="reminder-container">
 
         <div className="email-text-selector">
-          
+          <label>
+            Email
+            <input onChange={this.toggleEmail} checked={this.state.emailReminder} type="checkbox"/>
+          </label>
+
+          <label>
+            Text Message
+            <input onChange={this.toggleText} checked={this.state.smsReminder} type="checkbox"/>
+          </label>
         </div>
 
         <div className="day-of-week-selector-container">
@@ -44,7 +69,7 @@ class Reminder extends React.Component {
             <option value={2}>Tuesday</option>
             <option value={3}>Wednesday</option>
             <option value={4}>Thursday</option>
-            <option selected value={5}>Friday</option>
+            <option value={5}>Friday</option>
             <option value={6}>Saturday</option>
           </select>
         </div>
@@ -63,7 +88,7 @@ class Reminder extends React.Component {
             <option value={6}>7:00 AM</option>
             <option value={7}>8:00 AM</option>
             <option value={8}>9:00 AM</option>
-            <option selected value={9}>10:00 AM</option>
+            <option value={9}>10:00 AM</option>
             <option value={10}>11:00 AM</option>
             <option value={11}>12:00 PM</option>
             <option value={12}>1:00 PM</option>
