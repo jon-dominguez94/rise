@@ -49,7 +49,17 @@ class GoalsPage extends React.Component{
         <div className="goals-page-wrapper">
           <div className="goal-form-wrapper">
             <form className="goal-form">
-              <input type="text"/>
+              <input type="text"
+                value={this.state.title}
+                onChange={this.update('title')}
+                placeholder="Title"
+              />
+              <textarea
+                value={this.state.description}
+                onChange={this.update('description')}
+                placeholder="Description"
+              ></textarea>
+              <input type="submit" value="Submit"/>
             </form>
           </div>
           {this.state.goals.map(goal => (
