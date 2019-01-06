@@ -2,14 +2,16 @@
 .entry-description{
     background: #1c1d22;
     color: white;
+    height: 150px;
+    width: 40%;
 }
 
 .entry-form-container{
 
 }
 
-.entry-dropdown{
-    /* background: #1c1d22; */
+.entry-dropdown select{
+    background: #1c1d22;
 }
 
 .entry-submit-button{

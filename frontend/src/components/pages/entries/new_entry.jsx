@@ -31,18 +31,18 @@ class NewEntry extends React.Component{
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
                 <form>
-                    <input
+                    <textarea
                         value={this.state.description}
                         onChange={this.update()}
-                        placeholder="Write description"
+                        // placeholder="Write description"
                         className="entry-description"
                     />
                     <div className='entry-dropdown'>  
                     <label>Importance
                     <select
-                        value={this.state.description}
+                        value={this.state.importance}
                         onChange={this.update()}>
-                        
+
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
