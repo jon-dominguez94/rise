@@ -13,6 +13,7 @@ import GoalsPageContainer from '../components/pages/goals/goals_page_container';
 import RolesPageContainer from '../components/pages/roles/roles_page_container';
 import ProfileSplashPage from './pages/profile/profile_splash_page';
 import ReportsSplashPage from '../components/pages/reports/reports_page_container';
+import ReportPage from '../components/pages/reports/reports_page';
 
 import ReminderContainer from '../components/reminder/reminder_container';
 
@@ -35,7 +36,8 @@ const App = () => (
         <ProtectedRoute exact path="/profile/goals" component={GoalsPageContainer} />
         <ProtectedRoute exact path="/profile/roles" component={RolesPageContainer} />
         <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
-
+        <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
+        <ProtectedRoute path="/reports/:id" component={ReportPage} />
         <ProtectedRoute exact path="/reminders" component={ReminderContainer} />
         <Redirect to="/home" />
       </Switch>
