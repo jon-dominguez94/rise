@@ -9,14 +9,15 @@ class NewEntry extends React.Component{
 
         this.state = {
             description: "",
-            importance: ""
+            importance: 1,
+            newEntry: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
     // componentWillReceiveProps(nextProps) {
-    //     this.setState({ newTweet: nextProps.newTweet.text });
+    //     this.setState({ newEntry: nextProps.newEntry.description });
     // }
 
     handleSubmit(e) {
@@ -24,10 +25,12 @@ class NewEntry extends React.Component{
 
         let entry = {
             description: this.state.description,
-            importance: this.state.importance,
+            importance: this.state.importance
         };
 
         this.props.createEntry(entry);
+        this.setState({ description: '', importance: 1 });
+
     }
 
     // handleFile(e) {
@@ -41,7 +44,7 @@ class NewEntry extends React.Component{
     }
 
     render(){
-        debugger
+        // debugger
         return (
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
@@ -66,7 +69,7 @@ class NewEntry extends React.Component{
                     </select>
                     </label>
                     </div>
-                    {/* <div className='entry-dropdown'>  
+                    <div className='entry-dropdown'>  
                     <label>Goal
                     <select>
                         <option value="1">1</option>
@@ -87,7 +90,7 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
-                    </div> */}
+                    </div>
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
                         <div className="entry-submit-button">
                             <input type="submit" value="Submit" />

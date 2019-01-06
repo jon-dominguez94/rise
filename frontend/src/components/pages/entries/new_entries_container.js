@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = (state) => {
+    debugger
     return {
         // userId: state.session.user.userId,
         newEntry: state.entries.new
