@@ -1,4 +1,4 @@
-import react from 'React';
+import React from 'react';
 
 
 class NewEntry extends React.Component{
@@ -15,6 +15,10 @@ class NewEntry extends React.Component{
         return (
             <div>
                 New Entry
+
+                <form>
+
+                </form>
             </div>
         )
     }
