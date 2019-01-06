@@ -91,16 +91,14 @@ router.patch('/profile', passport.authenticate('jwt', { session: false }), (req,
       if (!user) {
         return res.status(404).json({ email: 'This user does not exist' });
       }
-      console.log(user);
+      
       const oldPw = user.password;
       user.fname = validText(req.body.fname) ? req.body.fname : user.fname;
       user.lname = validText(req.body.lname) ? req.body.lname : user.lname;
       user.password = validText(req.body.password) ? req.body.password : user.password;
       user.phone = validText(req.body.phone) ? req.body.phone : user.phone;
       
-      console.log(user);
       if(user.password !== oldPw){
-        // console.log('diff passwords');
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(user.password, salt, (err, hash) => {
             if (err) throw err;
@@ -112,13 +110,10 @@ router.patch('/profile', passport.authenticate('jwt', { session: false }), (req,
           });
         });
       } else {
-        console.log(user);
-        // console.log('same passwords');
         user.save()
           .then(user => res.json(user))
           .catch(err => console.log(err));
       }
-      // console.log(user.password);
     });
 });
 
