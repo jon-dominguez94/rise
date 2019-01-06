@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import HomeLinksContainer from './home_links_container';
 import ProfileLinksContainer from './profile_links_container';
+import ReportLinksContainer from './report_links_container';
 import '../../css/navbar.css';
 import logo from '../../logo.png';
 
@@ -23,7 +24,7 @@ class Navbar extends React.Component {
         <Switch>
           <Route exact path={'/home'} component={HomeLinksContainer}/>
           <Route path={'/profile'} component={ProfileLinksContainer}/>
-          {/* <Route path={'/reports'} component={ReportsLinksContainer} /> */}
+          <Route path={'/reports'} component={ReportLinksContainer} />
         </Switch>
       );
     } else {
