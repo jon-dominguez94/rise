@@ -35,4 +35,26 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   .then(goal => res.json(goal));
 });
 
+router.patch("/:goal_id", passport.authenticate("jwt", { session: false }), (req, res) => {
+  const { errors, isValid } = validateGoalInput(req.body);
+
+  if(!isValid){
+    return res.status(400).json(errors);
+  }
+
+  Goal.findOne({ _id: req.params.goal_id })
+  .then(goal => {
+    if (!goal) {
+      return res.status(404).json({ goal: 'This goal does not exist' });
+    }
+
+    goal.title = req.body.title;
+    goal.description = req.body.description;
+
+    goal.save()
+    .then(goal => res.json(goal))
+    .catch(err => console.log(err));
+  });
+});
+
 module.exports = router;
