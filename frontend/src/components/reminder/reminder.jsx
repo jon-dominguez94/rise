@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../css/reminder.scss";
 
 class Reminder extends React.Component {
   constructor(props){
