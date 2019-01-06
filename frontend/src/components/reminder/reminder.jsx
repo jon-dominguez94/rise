@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../css/reminder.scss";
+import merge from 'lodash/merge';
 import Input from '@material-ui/core/Input';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FilledInput from '@material-ui/core/FilledInput';
@@ -16,7 +17,7 @@ class Reminder extends React.Component {
     this.state = {
       dayOfWeek: props.user.dayOfWeek,
       hour: props.user.hour,
-      minute: props.user.minute,
+      // minute: props.user.minute,
       emailReminder: props.user.emailReminder,
       smsReminder: props.user.smsReminder
     };
@@ -28,13 +29,14 @@ class Reminder extends React.Component {
   }
 
   toggleEmail(){
+    // debugger
     this.setState({
       emailReminder: !this.state.emailReminder
     })
   }
 
   toggleText(){
-    debugger
+    // debugger
     this.setState({
       smsReminder: !this.state.smsReminder
     })
@@ -42,8 +44,12 @@ class Reminder extends React.Component {
 
   handleSubmit(e){
     e.preventDefault()
-    let user;
-
+    let user = this.props.user 
+    user.dayOfWeek = this.state.dayOfWeek
+    user.hour = this.state.hour
+    user.emailReminder = this.state.emailReminder
+    user.smsReminder = this.state.smsReminder
+    // debugger
 
     this.props.updateUser(user)
   }
