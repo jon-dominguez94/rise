@@ -11,6 +11,10 @@ class NewEntry extends React.Component{
         }
     }
 
+    // handleSubmit(e){
+    //     e.preventDefault
+    // }
+
     render(){
         return (
             <div>
