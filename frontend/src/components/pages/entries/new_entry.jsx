@@ -70,7 +70,9 @@ class NewEntry extends React.Component{
                     </label>
                     </div>
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
+                    <div className="entry-submit-button">
                     <input type="submit" value="Create Entry" />
+                    </div>
                 </form>
             </div>
         )
