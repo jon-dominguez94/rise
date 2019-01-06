@@ -6,8 +6,12 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout, updateUser } from './actions/session_actions';
 import './css/reset.css'; 
+import axios from 'axios';
+import * as GoalAPI from '../src/util/goal_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.axios = axios;
+  window.GoalAPI = GoalAPI;
   let store;
 
   if(localStorage.jwtToken){

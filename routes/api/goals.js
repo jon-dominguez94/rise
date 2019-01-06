@@ -9,7 +9,7 @@ const validateGoalInput = require('../../validation/goals');
 router.get("/test", (req, res) => res.json({ msg: "This is the goals route" }));
 
 router.get(
-  "/:user_id",
+  "/user/:user_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Goal.find({ user: req.params.user_id })
