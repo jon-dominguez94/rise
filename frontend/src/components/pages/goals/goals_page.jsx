@@ -34,8 +34,8 @@ class GoalsPage extends React.Component{
       title: this.state.title,
       description: this.state.description
     };
-    this.props.composeGoal(newGoal);
-    this.setState({ title: '', description: ''});
+    this.props.composeGoal(newGoal)
+    .then(() => this.setState({ title: '', description: ''}));
   }
 
   render() {
@@ -48,7 +48,7 @@ class GoalsPage extends React.Component{
       return (
         <div className="goals-page-wrapper">
           <div className="goal-form-wrapper">
-            <form className="goal-form">
+            <form className="goal-form" onSubmit={this.handleSubmit}>
               <input type="text"
                 value={this.state.title}
                 onChange={this.update('title')}
