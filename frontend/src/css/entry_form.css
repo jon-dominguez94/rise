@@ -25,6 +25,10 @@
     cursor: pointer;
     border: none; 
     outline: none;
+    font-size: 12px;
+    margin-left: 8px;
+    border-radius: 3px;
+
 }
 
 .entry-dropdown option{
@@ -39,6 +43,13 @@
     border: none; 
     outline: none;
     cursor: pointer;
+    margin-left: 60px;
+    font-size: 14px;
+    border-radius: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .entry-submit-button input:hover{
     background-color: #5c5edc;
@@ -47,5 +58,7 @@
 
 .dropdowns{
     display: flex;
-    padding-top: 10px;
+    align-items: center;
+    padding: 12px;
+    justify-content: space-between;
 }
