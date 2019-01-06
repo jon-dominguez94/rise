@@ -3,18 +3,30 @@
     background: #1c1d22;
     height: 150px;
     color: #bdbdbd;
-    width: 40%;
+    width: 300px;
+    border: none; 
+    outline: none;
+    border-radius: 3px;
+
 }
 
 .entry-form-container select {
-  color: #bdbdbd;
-
-}
-
-.entry-dropdown select{
+    color: #bdbdbd;
     background: #1c1d22;
+    cursor: pointer;
+    border: none; 
+    outline: none;
+
 }
 
-.entry-submit-button{
+.entry-dropdown {
+}
 
+.entry-submit-button input{
+    color: #bdbdbd;
+    background: #1c1d22;
+    background: #1c1d22;
+    border: none; 
+    outline: none;
+    cursor: pointer;
 }
