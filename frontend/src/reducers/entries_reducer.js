@@ -5,7 +5,7 @@ const EntriesReducer = (state = { report: {}, new: undefined }, action) => {
     let newState = Object.assign({}, state);
     switch(action.type){
         case RECEIVE_NEW_ENTRY:
-            newState.new = action.entry.data
+            newState.new = action.entry.data;
             return newState;
         case RECEIVE_REPORT_ENTRIES:
             newState.report = action.entries.data;
