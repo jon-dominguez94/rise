@@ -15,6 +15,10 @@ class NewEntry extends React.Component{
     //     e.preventDefault
     // }
 
+    // handleFile(e) {
+    //     this.setState({ photoFile: e.currentTarget.files[0] });
+    // }
+
     update(){
         return e => this.setState({
             description: e.currentTarget.value
@@ -29,7 +33,7 @@ class NewEntry extends React.Component{
                 <form>
                     <input
                         value={this.state.description}
-                        // onChange={this.update()}
+                        onChange={this.update()}
                         placeholder="Write description"
                     />
                     <label>Rating
@@ -43,7 +47,7 @@ class NewEntry extends React.Component{
                     </label>
 
                     <label>Goal
-                    <select>
+                    <select >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -53,7 +57,7 @@ class NewEntry extends React.Component{
                     </label>
 
                     <label>Role
-                    <select>
+                    <select >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
