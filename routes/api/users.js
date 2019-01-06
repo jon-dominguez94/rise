@@ -92,11 +92,17 @@ router.patch('/profile', passport.authenticate('jwt', { session: false }), (req,
         return res.status(404).json({ email: 'This user does not exist' });
       }
       
+      debugger
       const oldPw = user.password;
       user.fname = validText(req.body.fname) ? req.body.fname : user.fname;
       user.lname = validText(req.body.lname) ? req.body.lname : user.lname;
       user.password = validText(req.body.password) ? req.body.password : user.password;
       user.phone = validText(req.body.phone) ? req.body.phone : user.phone;
+      user.dayOfWeek = req.body.dayOfWeek
+      user.hour = req.body.hour
+      user.emailReminder = req.body.emailReminder
+      user.smsReminder = req.body.smsReminder
+      debugger
       
       if(user.password !== oldPw){
         bcrypt.genSalt(10, (err, salt) => {
