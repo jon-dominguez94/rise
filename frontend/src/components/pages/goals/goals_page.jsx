@@ -29,7 +29,7 @@ class GoalsPage extends React.Component{
         <div>
           <h2>All goals</h2>
           {this.state.goals.map(goal => (
-            <SingleGoal key={goal.id} title={goal.title} description={goal.description} />
+            <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
         </div>
       );
