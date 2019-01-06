@@ -37,7 +37,7 @@ class NewEntry extends React.Component{
                         placeholder="Write description"
                     />
                     <label>Rating
-                    <select>
+                    <select className='entry-dropdown'>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -47,7 +47,7 @@ class NewEntry extends React.Component{
                     </label>
 
                     <label>Goal
-                    <select >
+                    <select className='entry-dropdown'>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -57,7 +57,7 @@ class NewEntry extends React.Component{
                     </label>
 
                     <label>Role
-                    <select >
+                    <select className='entry-dropdown'>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
