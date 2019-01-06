@@ -6,8 +6,12 @@ class GoalsPage extends React.Component{
     super(props);
 
     this.state = {
+      title: '',
+      description: '',
       goals: []
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount(){
@@ -18,16 +22,36 @@ class GoalsPage extends React.Component{
     this.setState({ goals: newState.goals });
   }
 
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let newGoal = {
+      title: this.state.title,
+      description: this.state.description
+    };
+    this.props.composeGoal(newGoal);
+    this.setState({ title: '', description: ''});
+  }
+
   render() {
     if(this.state.goals.length === 0){
       return (
-        <div>No goals yet!</div>
+        <div className="no-goals"></div>
       );
     }
     else {
       return (
-        <div>
-          <h2>All goals</h2>
+        <div className="goals-page-wrapper">
+          <div className="goal-form-wrapper">
+            <form className="goal-form">
+              <input type="text"/>
+            </form>
+          </div>
           {this.state.goals.map(goal => (
             <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
