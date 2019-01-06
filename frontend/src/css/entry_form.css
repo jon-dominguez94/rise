@@ -1,12 +1,13 @@
 
 .entry-description{
     background: #1c1d22;
-    color: white;
     height: 150px;
+    color: #bdbdbd;
     width: 40%;
 }
 
-.entry-form-container{
+.entry-form-container select {
+  color: #bdbdbd;
 
 }
 

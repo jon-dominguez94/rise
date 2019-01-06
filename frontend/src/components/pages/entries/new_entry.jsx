@@ -34,7 +34,7 @@ class NewEntry extends React.Component{
                     <textarea
                         value={this.state.description}
                         onChange={this.update()}
-                        // placeholder="Write description"
+                        placeholder="Write description"
                         className="entry-description"
                     />
                     <div className='entry-dropdown'>  
