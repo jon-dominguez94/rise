@@ -1,6 +1,5 @@
 import React from 'react'
 import "../../css/reminder.scss";
-import merge from 'lodash/merge';
 import Input from '@material-ui/core/Input';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import FilledInput from '@material-ui/core/FilledInput';
