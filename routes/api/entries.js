@@ -34,12 +34,12 @@ router.post('/',
     }
 );
 
-router.get('/:id', (req, res) => {
-    Tweet.findById(req.params.id)
-        .then(tweet => res.json(tweet))
-        .catch(err =>
-            res.status(404).json({ noentryfound: 'No entry found with that ID' })
-        );
-});
+// router.get('/:id', (req, res) => {
+//     Tweet.findById(req.params.id)
+//         .then(tweet => res.json(tweet))
+//         .catch(err =>
+//             res.status(404).json({ noentryfound: 'No entry found with that ID' })
+//         );
+// });
 
 module.exports = router;
