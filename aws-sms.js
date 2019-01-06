@@ -13,7 +13,7 @@ var sns = new AWS.SNS();
 var params = {
   Message: 'Time to update your achievements on Rise!',
   MessageStructure: 'string',
-  PhoneNumber: '+12345678910'
+  PhoneNumber: '+18313453689'
 };
 
 sns.publish(params, function(err, data) {
