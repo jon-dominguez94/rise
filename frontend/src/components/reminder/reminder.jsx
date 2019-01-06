@@ -1,5 +1,13 @@
 import React from 'react'
 import "../../css/reminder.scss";
+import Input from '@material-ui/core/Input';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import FilledInput from '@material-ui/core/FilledInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 class Reminder extends React.Component {
   constructor(props){
@@ -48,6 +56,29 @@ class Reminder extends React.Component {
     return(
       <div className="reminder-container">
 
+        <form  autoComplete="off">
+          <FormControl >
+            <InputLabel>Day</InputLabel>
+            <Select
+              value={this.state.dayOfWeek}
+              onChange={this.handleUpdate("dayOfWeek")}
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={0}>Sunday</MenuItem>
+              <MenuItem value={1}>Monday</MenuItem>
+              <MenuItem value={2}>Tuesday</MenuItem>
+              <MenuItem value={3}>Wednesday</MenuItem>
+              <MenuItem value={4}>Thursday</MenuItem>
+              <MenuItem value={5}>Friday</MenuItem>
+              <MenuItem value={6}>Saturday</MenuItem>
+            </Select>
+          </FormControl>
+          </form>
+
+
+       
         <div className="email-text-selector">
           <label>
             Email
