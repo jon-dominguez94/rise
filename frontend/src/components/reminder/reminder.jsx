@@ -23,18 +23,21 @@ class Reminder extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.toggleText = this.toggleText.bind(this);
+    this.toggleEmail = this.toggleEmail.bind(this);
   }
 
   toggleEmail(){
-    this.setState(prevState => ({
-      emailReminder: !prevState.emailReminder,
-    }));
+    this.setState({
+      emailReminder: !this.state.emailReminder
+    })
   }
 
   toggleText(){
-    this.setState(prevState => ({
-      smsReminder: !prevState.smsReminder,
-    }));
+    debugger
+    this.setState({
+      smsReminder: !this.state.smsReminder
+    })
   }
 
   handleSubmit(e){
