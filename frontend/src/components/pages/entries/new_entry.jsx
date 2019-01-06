@@ -37,8 +37,10 @@ class NewEntry extends React.Component{
                         placeholder="Write description"
                         className="entry-description"
                     />
+
+                    <div className='entry-dropdown'>  
                     <label>Rating
-                    <select className='entry-dropdown'>
+                    <select>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -46,9 +48,11 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
+                    </div>
 
+                    <div className='entry-dropdown'>  
                     <label>Goal
-                    <select className='entry-dropdown'>
+                    <select>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -56,9 +60,11 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
+                    </div>
 
+                    <div className='entry-dropdown'>  
                     <label>Role
-                    <select className='entry-dropdown'>
+                    <select>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -66,6 +72,8 @@ class NewEntry extends React.Component{
                         <option value="5">5</option>
                     </select>
                     </label>
+                    </div>
+
 
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
 
