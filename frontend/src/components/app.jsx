@@ -16,6 +16,9 @@ import ReportsSplashPage from '../components/pages/reports/reports_page_containe
 
 import ReminderContainer from '../components/reminder/reminder_container';
 
+import NewEntryContainer from '../components/entry/reminder_container';
+import ReportEntriesContainer from '../components/entry/reminder_container';
+
 import '../css/app.css';
 
 const App = () => (
@@ -37,7 +40,7 @@ const App = () => (
         <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
 
         <ProtectedRoute exact path="/new_entry" component={NewEntryContainer} />
-        <ProtectedRoute exact path="/reports/:id" component={ReportsEntryContainer} />
+        <ProtectedRoute exact path="/reports/:id" component={ReportEntriesContainer} />
 
         <ProtectedRoute exact path="/reminders" component={ReminderContainer} />
         <Redirect to="/home" />
