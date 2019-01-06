@@ -5,7 +5,8 @@ import GoalsPage from './goals_page';
 const mstp = state => {
   return {
     user: state.session.user,
-    goals: Object.values(state.goals)
+    goals: Object.values(state.goals),
+    errors: state.errors.goals
   };
 };
 

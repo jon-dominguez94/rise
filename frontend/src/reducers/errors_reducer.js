@@ -5,5 +5,5 @@ import GoalErrorsReducer from './goal_errors_reducer';
 
 export default combineReducers({
   session: SessionErrorsReducer,
-  goal: GoalErrorsReducer
+  goals: GoalErrorsReducer
 });

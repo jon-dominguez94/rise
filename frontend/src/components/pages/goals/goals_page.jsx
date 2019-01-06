@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleGoal from './single_goal';
+import '../../../css/goal.css';
 
 class GoalsPage extends React.Component{
   constructor(props){
@@ -8,7 +9,8 @@ class GoalsPage extends React.Component{
     this.state = {
       title: '',
       description: '',
-      goals: []
+      goals: [],
+      errors : {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +21,11 @@ class GoalsPage extends React.Component{
   }
 
   componentWillReceiveProps(newState){
-    this.setState({ goals: newState.goals });
+    console.log(newState);
+    this.setState({ 
+      goals: newState.goals,
+      errors: newState.errors
+    });
   }
 
   update(field) {
@@ -35,7 +41,36 @@ class GoalsPage extends React.Component{
       description: this.state.description
     };
     this.props.composeGoal(newGoal)
-    .then(() => this.setState({ title: '', description: ''}));
+    // .then(res => console.log(res.errors));
+    .then(res => {
+      if(res.errors === undefined){
+        this.setState({ title: '', description: ''});
+      }
+    });
+  }
+
+  renderErrors() {
+    // debugger
+    if (Object.keys(this.state.errors).length === 0) {
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        // <div className="errors-container">
+        <div>
+          {/* <ul className="errors-list"> */}
+          <ul>
+            {Object.keys(this.state.errors).map((error, i) => (
+              <li key={`error-${i}`}>
+              {/* <li className="error-item" key={`error-${i}`}> */}
+                {this.state.errors[error]}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -48,23 +83,26 @@ class GoalsPage extends React.Component{
       return (
         <div className="goals-page-wrapper">
           <div className="goal-form-wrapper">
-            <form className="goal-form" onSubmit={this.handleSubmit}>
-              <input type="text"
-                value={this.state.title}
-                onChange={this.update('title')}
-                placeholder="Title"
-              />
-              <textarea
-                value={this.state.description}
-                onChange={this.update('description')}
-                placeholder="Description"
-              ></textarea>
-              <input type="submit" value="Submit"/>
+            <form onSubmit={this.handleSubmit}>
+                <div className="goal-form">
+                <input type="text"
+                  value={this.state.title}
+                  onChange={this.update('title')}
+                  placeholder="Title"
+                />
+                <textarea
+                  value={this.state.description}
+                  onChange={this.update('description')}
+                  placeholder="Description"
+                ></textarea>
+                <input type="submit" value="Submit"/>
+                </div>
             </form>
           </div>
           {this.state.goals.map(goal => (
             <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
+          {this.renderErrors()}
         </div>
       );
     }
