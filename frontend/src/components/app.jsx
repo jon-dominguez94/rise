@@ -16,8 +16,8 @@ import ReportsSplashPage from '../components/pages/reports/reports_page_containe
 
 import ReminderContainer from '../components/reminder/reminder_container';
 
-import NewEntryContainer from '../components/entry/reminder_container';
-import ReportEntriesContainer from '../components/entry/reminder_container';
+import NewEntryContainer from '../components/entry/new_entry';
+import ReportEntriesContainer from '../components/entry/report_entries';
 
 import '../css/app.css';
 
