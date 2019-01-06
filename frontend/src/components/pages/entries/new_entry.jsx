@@ -38,8 +38,11 @@ class NewEntry extends React.Component{
                         className="entry-description"
                     />
                     <div className='entry-dropdown'>  
-                    <label>Rating
-                    <select>
+                    <label>Importance
+                    <select
+                        value={this.state.description}
+                        onChange={this.update()}>
+                        
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
