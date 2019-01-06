@@ -5,6 +5,7 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout, updateUser } from './actions/session_actions';
+import { fetchUserGoals, updateGoal } from './actions/goal_actions';
 import './css/reset.css'; 
 import axios from 'axios';
 import * as GoalAPI from '../src/util/goal_api_util';
@@ -38,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.updateUser = updateUser;
+  window.fetchUserGoals = fetchUserGoals;
+  window.updateGoal = updateGoal;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

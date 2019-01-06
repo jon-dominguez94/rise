@@ -13,12 +13,14 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Goal.find({ user: req.params.user_id })
+      .sort({ date: -1 })
       .then(goals => {
         goalsObject = {};
         goals.forEach(goal => {
           goalsObject[goal._id] = goal;
         });
-        res.json(goalsObject)
+        res.json(goalsObject);
+        // res.json(goals);
       })
       .catch(err => res.status(404).json({ nogoalsfound: "No goals found" }));
   }
