@@ -35,7 +35,7 @@ class NewEntry extends React.Component{
                     </select>
                     </label>
 
-                    <label>Goals
+                    <label>Goal
                     <select>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -45,7 +45,7 @@ class NewEntry extends React.Component{
                     </select>
                     </label>
 
-                    <label>Roles
+                    <label>Role
                     <select>
                         <option value="1">1</option>
                         <option value="2">2</option>
