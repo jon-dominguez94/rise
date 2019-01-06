@@ -21,4 +21,4 @@ class NewEntry extends React.Component{
 
 }
 
-export default NewEntry
+export default NewEntry 
