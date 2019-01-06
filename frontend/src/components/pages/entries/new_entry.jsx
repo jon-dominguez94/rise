@@ -35,6 +35,7 @@ class NewEntry extends React.Component{
                         value={this.state.description}
                         onChange={this.update()}
                         placeholder="Write description"
+                        className="entry-description"
                     />
                     <label>Rating
                     <select className='entry-dropdown'>
