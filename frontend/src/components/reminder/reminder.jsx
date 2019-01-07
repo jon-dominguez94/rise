@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../css/reminder.scss";
+import "../../css/reminder.css";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
