@@ -1,16 +1,12 @@
 import React from 'react'
 import "../../css/reminder.scss";
-import Input from '@material-ui/core/Input';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import FilledInput from '@material-ui/core/FilledInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 class Reminder extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -18,89 +14,89 @@ class Reminder extends React.Component {
       hour: props.user.hour,
       // minute: props.user.minute,
       emailReminder: props.user.emailReminder,
-      smsReminder: props.user.smsReminder
+      smsReminder: props.user.smsReminder,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.toggleText = this.toggleText.bind(this);
     this.toggleEmail = this.toggleEmail.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  toggleEmail(){
+  handleChange(event) {
+    event.preventDefault()
+    this.setState({ emailReminder: !this.state.emailReminder });
+    let user = this.props.user;
+    user.emailReminder = this.state.emailReminder;
+    this.props.updateUser(user);
+  };
+
+  toggleEmail() {
     this.setState({
       emailReminder: !this.state.emailReminder
-    })
-  }
-
-  toggleText(){
-    this.setState({
-      smsReminder: !this.state.smsReminder
-    })
-  }
-
-  handleSubmit(e){
-    e.preventDefault()
-    let user = this.props.user 
-    user.dayOfWeek = this.state.dayOfWeek
-    user.hour = this.state.hour
-    user.emailReminder = this.state.emailReminder
-    user.smsReminder = this.state.smsReminder
-
-    this.props.updateUser(user)
-  }
-
-  handleUpdate(field){
-    return e => this.setState({
-      [field]: e.currentTarget.value
     });
   }
 
+  toggleText() {
+    this.setState({
+      smsReminder: !this.state.smsReminder
+    });
+  }
 
-  render(){
-    return(
+  handleSubmit(e) {
+    e.preventDefault()
+    let user = this.props.user;
+    user.dayOfWeek = this.state.dayOfWeek;
+    user.hour = this.state.hour;
+    user.emailReminder = this.state.emailReminder;
+    user.smsReminder = this.state.smsReminder;
+
+    this.props.updateUser(user);
+  }
+
+  handleUpdate(field) {
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
+  }
+
+  render() {
+    return (
       <div className="reminder-container">
+          <FormControlLabel
+            control={
+              <Switch
+                checked={this.state.emailReminder}
+                onChange={this.handleChange}
+                value="emailReminder"
+                color="primary"
+              />
+            }
+            label="Email"
+          />
+  
 
-        <form  autoComplete="off">
-          <FormControl >
-            <InputLabel>Day</InputLabel>
-            <Select
-              value={this.state.dayOfWeek}
-              onChange={this.handleUpdate("dayOfWeek")}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={0}>Sunday</MenuItem>
-              <MenuItem value={1}>Monday</MenuItem>
-              <MenuItem value={2}>Tuesday</MenuItem>
-              <MenuItem value={3}>Wednesday</MenuItem>
-              <MenuItem value={4}>Thursday</MenuItem>
-              <MenuItem value={5}>Friday</MenuItem>
-              <MenuItem value={6}>Saturday</MenuItem>
-            </Select>
-          </FormControl>
-          </form>
-
-
-       
         <div className="email-text-selector">
-          <label>
-            Email
-            <input onChange={this.toggleEmail} checked={this.state.emailReminder} type="checkbox"/>
-          </label>
+  
 
           <label>
             Text Message
-            <input onChange={this.toggleText} checked={this.state.smsReminder} type="checkbox"/>
+            <input
+              onChange={this.toggleText}
+              checked={this.state.smsReminder}
+              type="checkbox"
+            />
           </label>
         </div>
 
         <div className="day-of-week-selector-container">
-          <select 
-          value={this.state.dayOfWeek}
-          onChange={this.handleUpdate("dayOfWeek")}
-          className="day-of-week-selector">
+          <select
+            value={this.state.dayOfWeek}
+            onChange={this.handleUpdate("dayOfWeek")}
+            className="day-of-week-selector"
+          >
             <option value={0}>Sunday</option>
             <option value={1}>Monday</option>
             <option value={2}>Tuesday</option>
@@ -112,10 +108,11 @@ class Reminder extends React.Component {
         </div>
 
         <div className="hour-selector-container">
-          <select 
-          value={this.state.hour}
-          onChange={this.handleUpdate("hour")}
-          className="hour-selector">
+          <select
+            value={this.state.hour}
+            onChange={this.handleUpdate("hour")}
+            className="hour-selector"
+          >
             <option value={0}>1:00 AM</option>
             <option value={1}>2:00 AM</option>
             <option value={2}>3:00 AM</option>
@@ -144,10 +141,12 @@ class Reminder extends React.Component {
         </div>
 
         <div className="update-preferences-button">
-          <button id="update-preferences" onClick={this.handleSubmit}>Update Preferences</button>
+          <button id="update-preferences" onClick={this.handleSubmit}>
+            Update Preferences
+          </button>
         </div>
       </div>
-    )
+    );
   }
 }
 

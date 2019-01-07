@@ -58,16 +58,16 @@ router.post('/register', (req, res) => {
           .then(user => {
             res.json(user)
             
-            var params = {
-              EmailAddress: req.body.email,
-              TemplateName: "RiseEmailTemplate"
-            };
+            // var params = {
+            //   EmailAddress: req.body.email,
+            //   TemplateName: "RiseEmailTemplate"
+            // };
 
-            ses.sendCustomVerificationEmail(params, function (err, data) {
-              if (err) console.log(err, err.stack);
-              // an error occurred
-              else console.log(data); // successful response
-            });
+            // ses.sendCustomVerificationEmail(params, function (err, data) {
+            //   if (err) console.log(err, err.stack);
+            //   // an error occurred
+            //   else console.log(data); // successful response
+            // });
 
           })
           .catch(err => console.log(err));
