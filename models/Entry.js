@@ -23,6 +23,10 @@ const EntrySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'roles'
     },
+    project: {
+        type: Schema.Types.ObjectId,
+        ref: 'project'
+    },
     report: {
         type: Schema.Types.ObjectId, 
         ref: 'reports',
