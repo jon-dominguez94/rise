@@ -90,14 +90,21 @@ class Reminder extends React.Component {
     user.emailReminder = this.state.emailReminder;
     user.smsReminder = this.state.smsReminder;
 
+    let oldPhone = this.props.user.phone
+    let newNumber = "+1" + oldPhone.slice(0,3) + oldPhone.slice(4,7) + oldPhone.slice(8,12)
+
     var params = {
       Message: 'Time to update your achievements on Rise 10!',
       MessageStructure: 'string',
-      PhoneNumber: '+18313453689'
+      PhoneNumber: newNumber
     };
 
+
     var rule = new schedule.RecurrenceRule();
-    rule.minute = 12
+    rule.minute = 0
+    rule.dayOfWeek = this.state.dayOfWeek
+    rule.hour = this.state.hour
+
     var j = schedule.scheduleJob(rule, function(){
       AWS.config.update({
         accessKeyId: keys.AWS_ACCESS_KEY_ID,
