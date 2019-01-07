@@ -12,6 +12,7 @@ const EntrySchema = new Schema({
     },
     user: {
         type: Schema.Types.ObjectId,
+        required: true, 
         ref: 'users'
     },
     goal: {
@@ -24,7 +25,8 @@ const EntrySchema = new Schema({
     },
     report: {
         type: Schema.Types.ObjectId, 
-        ref: 'reports'
+        ref: 'reports',
+        required: true
     },
     date: {
         type: Date,
