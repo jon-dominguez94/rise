@@ -22,6 +22,7 @@ class ReportLinks extends React.Component {
   // }
 
   render() {
+    debugger
     return (
       <div className="navbar-links">
         <span className="bar-link user-greet">Hello, {this.props.user.fname}!</span>
@@ -30,7 +31,7 @@ class ReportLinks extends React.Component {
           <SingleReportLink key={report.id} report={report}/>
         ))}
       </div>
-    );
+    )
   }
 }
 
