@@ -10,7 +10,9 @@ class NewEntry extends React.Component{
         this.state = {
             description: "",
             importance: 1,
-            newEntry: ""
+            goal: [],
+            role: [],
+            project: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
 

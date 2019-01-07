@@ -10,6 +10,7 @@
 .entry-description{
     background: #1c1d22;
     height: 400px;
+    resize: none;
     color: #bdbdbd;
     width: 700px;
     border: none; 
