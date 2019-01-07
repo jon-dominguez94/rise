@@ -1,4 +1,33 @@
+
 .text-color {
   color: #bebebe;
   border-color: #bebebe;
+}
+
+.reminder-container {
+  width: 340px;
+  margin: auto;
+  margin-top: 15%;
+  /* background-color: #bdbdbd; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 375px;
+  justify-content: space-around;
+  padding: 20px 0;
+  border-radius: 7px;
+  padding-bottom: 15px;
+}
+
+.save-preferences-button {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.email-selector {
+  width: 150px;
+}
+
+.MuiTypography-body1-41 {
+  color: #bebebe important!;
 }
