@@ -84,7 +84,7 @@ class GoalsPage extends React.Component{
         <div className="goals-page-wrapper">
           <div className="goal-form-wrapper">
             <form onSubmit={this.handleSubmit}>
-                <div className="goal-form">
+              <div className="goal-form">
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
@@ -95,8 +95,8 @@ class GoalsPage extends React.Component{
                   onChange={this.update('description')}
                   placeholder="Description"
                 ></textarea>
-                <input type="submit" value="Submit"/>
-                </div>
+                <input type="submit" value="Create Goal"/>
+              </div>
             </form>
           </div>
           {this.state.goals.map(goal => (
