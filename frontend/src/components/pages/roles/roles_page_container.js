@@ -1,24 +1,26 @@
 import { connect } from "react-redux";
 import { fetchUserRoles, updateRole, composeRole } from '../../../actions/role_actions';
 import RolesPage from "./roles_page";
+import ProfileElement from "../profile/profile_element";
 
 const mstp = state => {
   return {
     user: state.session.user,
-    roles: Object.values(state.roles),
-    errors: state.errors.roles
+    elements: Object.values(state.roles),
+    errors: state.errors.roles,
+    label: 'Role'
   };
 };
 
 const mdtp = dispatch => {
   return {
-    fetchUserRoles: id => dispatch(fetchUserRoles(id)),
-    updateRole: role => dispatch(updateRole(role)),
-    composeRole: data => dispatch(composeRole(data))
+    fetchUserElements: id => dispatch(fetchUserRoles(id)),
+    updateElement: role => dispatch(updateRole(role)),
+    composeElement: data => dispatch(composeRole(data))
   };
 };
 
 export default connect(
   mstp,
   mdtp
-)(RolesPage);
+)(ProfileElement);
