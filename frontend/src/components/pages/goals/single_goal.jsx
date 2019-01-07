@@ -7,7 +7,8 @@ class SingleGoal extends React.Component {
     this.state = {
       id: this.props.goal.id,
       title: props.goal.title,
-      description: props.goal.description
+      description: props.goal.description,
+      msg: ''
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,15 +17,34 @@ class SingleGoal extends React.Component {
   update(field) {
     return e =>
       this.setState({
-        [field]: e.currentTarget.value
+        [field]: e.currentTarget.value,
+        msg: ''
       });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log(this.props.goal);
     let newGoal = Object.assign({}, this.props.goal, this.state);
-    this.props.updateGoal(newGoal);
+    this.props.updateGoal(newGoal)
+      .then(res => {
+        if (res.errors === undefined) {
+          this.setState({ msg: 'Success' });
+        }
+      });
+  }
+
+  renderMsg() {
+    if (this.state.msg === '') {
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <div className="msg-container">
+          <p>{this.state.msg}</p>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -46,6 +66,7 @@ class SingleGoal extends React.Component {
               <input type="submit" value="Update Goal" />
             </div>
           </form>
+          {this.renderMsg()}
         </div>
       </div>
     );
