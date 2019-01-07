@@ -5,6 +5,7 @@ import reports from './reports_reducer';
 
 import goals from './goals_reducer';
 import roles from './roles_reducer';
+import projects from './projects_reducer';
 import entries from './entries_reducer';
 
 const RootReducer = combineReducers({
@@ -13,6 +14,7 @@ const RootReducer = combineReducers({
   reports,
   goals,
   roles,
+  projects,
   entries
 });
 
