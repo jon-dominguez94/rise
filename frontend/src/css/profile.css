@@ -78,6 +78,11 @@
 
 .profile-submit-btn {
   /* text-transform: uppercase; */
+  font-weight: 500;
+}
+
+.profile-submit-btn:hover {
+  color: #5c5edc;
 }
 
 .show {
