@@ -22,7 +22,7 @@ class ReportLinks extends React.Component {
   // }
 
   render() {
-    debugger
+    // debugger
     return (
       <div className="navbar-links">
         <span className="bar-link user-greet">Hello, {this.props.user.fname}!</span>

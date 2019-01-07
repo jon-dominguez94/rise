@@ -5,7 +5,7 @@ import report_links_container from './report_links_container';
 class SingleReportLink extends React.Component {
   render() {
     return (
-        <NavLink className="bar-link" to={`/reports/${this.props.report.week}`} activeClassName="selected">
+        <NavLink className="bar-link" to={`/reports/${this.props.report._id}`} activeClassName="selected">
           Week {this.props.report.week}
         </NavLink>
     );
