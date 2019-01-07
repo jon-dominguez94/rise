@@ -99,28 +99,34 @@ class NewEntry extends React.Component{
                     </label>
                     </div>
 
-                    <div className='entry-dropdown'>  
-                    <label>Role
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    </label>
-                    </div>
-                    <div className='entry-dropdown'>  
-                    <label>Project
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    </label>
-                    </div>
+                        <div className='entry-dropdown'>
+                            <label>Role
+                        <select
+                            value={this.state.role}
+                            onChange={this.update('role')}>
+                            {this.props.roles.map(role => {
+                                return (
+                                    <option key={role.id} value={role.title}>{role.title}</option>
+                                )
+                                })}
+                        </select>
+                            </label>
+                        </div>
+
+                        <div className='entry-dropdown'>
+                            <label>Project
+                        <select
+                            value={this.state.project}
+                            onChange={this.update('project')}>
+                            {this.props.projects.map(project => {
+                                return (
+                                    <option key={project.id} value={project.title}>{project.title}</option>
+                                )
+                            })}
+                        </select>
+                            </label>
+                        </div>
+
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
                         <div className="entry-submit-button">
                             <input type="submit" value="Submit" />
