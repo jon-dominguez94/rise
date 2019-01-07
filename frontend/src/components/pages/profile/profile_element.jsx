@@ -86,6 +86,7 @@ class ProfileElement extends React.Component {
       return (
         <div className="grps-page-wrapper">
           <div className="all-elements-container">
+            <span className="el-label">New {this.props.label}</span>
             <div className="input-background">
               <div className="element-form-wrapper">
                 <form onSubmit={this.handleSubmit}>
@@ -106,6 +107,7 @@ class ProfileElement extends React.Component {
               </div>
             </div>
           </div>
+          <span className="el-label">New {this.props.label}</span>
           {this.state.elements.map(element => (
             <ElementItem key={element._id} element={element} label={this.props.label} updateElement={this.props.updateElement} />
           ))}

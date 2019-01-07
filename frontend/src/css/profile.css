@@ -16,10 +16,14 @@
   position: relative;
 }
 
-.grps-page-wrapper, .element-form {
+.grps-page-wrapper, .element-form, .all-elements-container {
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.all-elements-container {
+  align-items: center;
 }
 
 .grps-page-wrapper {
@@ -34,7 +38,7 @@
 .input-background {
   padding: 10px;
   margin-bottom: 20px;
-  /* color: white; */
+  width: 100%;
   background: #1c1d22;
   border-radius: 3px;
 }
@@ -45,4 +49,5 @@
   resize: none;
   border: none;
   outline: none;
+  font-size: 14px;
 }
