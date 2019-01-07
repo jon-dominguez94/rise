@@ -12,11 +12,18 @@
   border-radius: 3px;
 }
 
-.grps-page-wrapper {
+.grps-page-wrapper, .element-form {
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.grps-page-wrapper {
+  align-items: center;
 }
 
 .ib {
   /* display: inline-block; */
-  width: 240px;
+  width: 230px;
+  position: relative;
 }
