@@ -5,6 +5,10 @@
   font-weight: 600;
 }
 
+.report-link:hover {
+  color: #5c5edc;
+}
+
 .report-links {
   width: 100%;
   display: flex;
@@ -12,7 +16,7 @@
 }
 
 .report-input-field::placeholder {
-  color: rgb(177, 177, 177);
+  color: rgb(153, 153, 153);
 }
 
 .report-input-field {
@@ -30,7 +34,7 @@
 }
 
 .reports-arrow {
-  height: 10px;
+  height: 13px;
   width: 15px;
 }
 
