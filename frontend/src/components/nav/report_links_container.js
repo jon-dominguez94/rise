@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchUserReports } from '../../actions/report_actions';
+import { fetchUserReports, composeReport } from '../../actions/report_actions';
 import ReportLinks from "./report_links";
 
 const mstp = state => ({
@@ -9,7 +9,8 @@ const mstp = state => ({
 
 const mdtp = dispatch => {
   return {
-    fetchUserReports: id => dispatch(fetchUserReports(id))
+    fetchUserReports: id => dispatch(fetchUserReports(id)),
+    composeReport: data => dispatch(composeReport(data))
   };
 };
 
