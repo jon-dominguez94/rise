@@ -100,7 +100,7 @@ class GoalsPage extends React.Component{
             </form>
           </div>
           {this.state.goals.map(goal => (
-            <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
+            <SingleGoal key={goal._id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
           {this.renderErrors()}
         </div>

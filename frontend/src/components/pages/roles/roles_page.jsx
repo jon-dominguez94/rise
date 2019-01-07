@@ -100,7 +100,7 @@ class RolesPage extends React.Component {
             </form>
           </div>
           {this.state.roles.map(role => (
-            <SingleRole key={role.id} role={role} updateRole={this.props.updateRole} />
+            <SingleRole key={role._id} role={role} updateRole={this.props.updateRole} />
           ))}
           {this.renderErrors()}
         </div>

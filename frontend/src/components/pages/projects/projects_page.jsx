@@ -100,7 +100,7 @@ class ProjectsPage extends React.Component {
             </form>
           </div>
           {this.state.projects.map(project => (
-            <SingleProject key={project.id} project={project} updateProject={this.props.updateProject} />
+            <SingleProject key={project._id} project={project} updateProject={this.props.updateProject} />
           ))}
           {this.renderErrors()}
         </div>
