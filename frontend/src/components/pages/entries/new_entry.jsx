@@ -14,6 +14,7 @@ class NewEntry extends React.Component{
             role: "",
             project: ""
         }
+        
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
@@ -93,6 +94,17 @@ class NewEntry extends React.Component{
                     </div>
                     <div className='entry-dropdown'>  
                     <label>Role
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    </label>
+                    </div>
+                    <div className='entry-dropdown'>  
+                    <label>Project
                     <select>
                         <option value="1">1</option>
                         <option value="2">2</option>
