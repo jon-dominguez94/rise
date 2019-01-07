@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: 35px;
+  margin: 40px 35px;
   padding: 15px 25px;
   border: 0.5px solid #5c5edc;
   color: #5c5edc;
@@ -28,7 +28,7 @@
 
 .grps-page-wrapper {
   align-items: center;
-  padding: 100px;
+  padding: 100px 150px;
 }
 
 .all-elements-container {
