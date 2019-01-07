@@ -10,14 +10,19 @@ class NewEntry extends React.Component{
         this.state = {
             description: "",
             importance: 1,
-            goal: [],
-            role: [],
-            project: []
+            goal: "",
+            role: "",
+            project: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
+    componentWillMount() {
+        this.props.fetchUserGoals(this.props.user.id);
+        this.props.fetchUserProjects(this.props.user.id);
+        this.props.fetchUserRoles(this.props.user.id);
+    }
     // componentWillReceiveProps(nextProps) {
     //     this.setState({ newEntry: nextProps.newEntry.description });
     // }
@@ -27,7 +32,12 @@ class NewEntry extends React.Component{
 
         let entry = {
             description: this.state.description,
-            importance: this.state.importance
+            importance: this.state.importance,
+            user: this.props.user.id,
+            report: this.props.report.id,
+            goal: this.props.goal.id,
+            role: this.props.role.id,
+            project: this.props.project.id
         };
 
         this.props.createEntry(entry);
