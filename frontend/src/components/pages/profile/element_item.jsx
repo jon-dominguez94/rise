@@ -30,7 +30,7 @@ class ElementItem extends React.Component {
     this.props.updateElement(newElement)
       .then(res => {
         if (res.errors === undefined) {
-          this.setState({ msg: 'Successful' });
+          this.setState({ msg: 'Success' });
         } else {
           this.setState({ msg: 'Please correct errors listed below' });
         }
@@ -38,7 +38,7 @@ class ElementItem extends React.Component {
       .then(() => {
         setTimeout(() => {
           this.setState({ msg: '' })
-        }, 1500);
+        }, 2000);
       });
   }
 
@@ -57,28 +57,24 @@ class ElementItem extends React.Component {
   }
 
   render() {
-    return (
-      <div className="all-elements-container">
-        <div className="element-form-wrapper">
-          <form onSubmit={this.handleSubmit}>
-            <div className="element-form">
-              <input type="text"
-                value={this.state.title}
-                onChange={this.update('title')}
-                placeholder="Title"
-              />
-              <textarea
-                value={this.state.description}
-                onChange={this.update('description')}
-                placeholder="Description"
-              ></textarea>
-              <input type="submit" value={this.label} />
-            </div>
-          </form>
-          {this.renderMsg()}
+    return <div className="all-elements-container">
+        <div className="input-background">
+          <div className="element-form-wrapper">
+            <form onSubmit={this.handleSubmit}>
+              <div className="element-form">
+                <input type="text" value={this.state.title} onChange={this.update("title")} placeholder="Title" />
+                <div className="elem-desc">
+                  <hr />
+                  <textarea value={this.state.description} onChange={this.update("description")} placeholder="Description" />
+                  {/* <input type="submit" value={this.label} /> */}
+                  <button className="profile-submit-btn">{this.label}</button>
+               </div>
+              </div>
+            </form>
+            {this.renderMsg()}
+          </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
