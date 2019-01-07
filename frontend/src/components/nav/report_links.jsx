@@ -1,6 +1,9 @@
 import React from 'react';
 import SingleReportLink from './single_report_links';
 import '../../css/report_links.css';
+import reportsArrow from '../../arrow.png';
+import { NavLink } from 'react-router-dom';
+
 
 class ReportLinks extends React.Component {
   constructor(props) {
@@ -51,7 +54,11 @@ class ReportLinks extends React.Component {
     return (
       <div className="navbar-links">
       <div className="report-links">
-        <span className="bar-link user-greet">{this.props.user.fname}'s Reports</span>
+        <span className="home-reports-links">
+        <NavLink className="bar-link" to={'/home'} activeClassName="selected">Home</NavLink>
+        <div className="reports-arrow-container"><img className="reports-arrow" src={reportsArrow} alt="" /></div>
+        <div className="username-reports">Reports</div>
+        </span>
       </div>
         <hr />
         <div className="report-links">
@@ -62,7 +69,7 @@ class ReportLinks extends React.Component {
               onChange={this.update('week')}
               placeholder="Week Number"
             />
-            <input type="submit" value="Create Report" />
+            <input type="submit" value="New Report" />
           </div>
         </form>
         </div>

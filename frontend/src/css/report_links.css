@@ -12,9 +12,34 @@
 }
 
 .report-input-field::placeholder {
-  color: gray;
+  color: rgb(177, 177, 177);
 }
 
 .report-input-field {
   padding-left: 15px;
+}
+
+.home-reports-links {
+  display: flex;
+  justify-content: center;
+}
+
+.home-reports-links > div {
+  display: flex;
+  align-items: center;
+}
+
+.reports-arrow {
+  height: 10px;
+  width: 15px;
+}
+
+.reports-arrow-container {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.username-reports {
+  color: #5c5edc;
+  font-weight: bold;
 }
