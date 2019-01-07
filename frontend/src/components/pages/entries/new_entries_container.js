@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
+import NewEntry from './new_entry';
 import { createEntry } from '../../../actions/entry_actions';
 import { fetchUserGoals } from '../../../actions/goal_actions';
 import { fetchUserRoles } from '../../../actions/role_actions';
 import { fetchUserProjects } from '../../../actions/project_actions';
-import { withRouter } from 'react-router-dom';
+import { fetchUserReports } from '../../../actions/report_actions';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     let reportId = ownProps.match.params.id;
     return {
         user: state.session.user,
-        report: state.entities.reports[reportId],
+        report: state.reports[reportId],
         goals: Object.values(state.goals),
         roles: Object.values(state.roles),
         projects: Object.values(state.projects)
@@ -22,8 +23,9 @@ const mapDispatchToProps = dispatch => {
         createEntry: data => dispatch(createEntry(data)),
         fetchUserGoals: id => dispatch(fetchUserGoals(id)),
         fetchUserProjects: id => dispatch(fetchUserProjects(id)),
-        fetchUserRoles: id => dispatch(fetchUserRoles(id))
+        fetchUserRoles: id => dispatch(fetchUserRoles(id)),
+        fetchUserReports: id => dispatch(fetchUserReports(id))
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewEntry));
+export default connect(mapStateToProps, mapDispatchToProps)(NewEntry);

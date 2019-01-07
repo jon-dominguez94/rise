@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../css/entry_form.css';
-import { withRouter } from 'react-router-dom';
 
 
 class NewEntry extends React.Component{
@@ -14,7 +13,7 @@ class NewEntry extends React.Component{
             role: "",
             project: ""
         }
-        
+
         this.handleSubmit = this.handleSubmit.bind(this);
 
     }
@@ -23,7 +22,10 @@ class NewEntry extends React.Component{
         this.props.fetchUserGoals(this.props.user.id);
         this.props.fetchUserProjects(this.props.user.id);
         this.props.fetchUserRoles(this.props.user.id);
+        this.props.fetchUserReports(this.props.user.id);
     }
+
+    
     // componentWillReceiveProps(nextProps) {
     //     this.setState({ newEntry: nextProps.newEntry.description });
     // }
@@ -57,6 +59,7 @@ class NewEntry extends React.Component{
     }
 
     render(){
+        
         return (
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
@@ -81,17 +84,21 @@ class NewEntry extends React.Component{
                     </select>
                     </label>
                     </div>
+
                     <div className='entry-dropdown'>  
                     <label>Goal
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                        <select
+                            value={this.state.goal}
+                            onChange={this.update('goal')}>
+                            { this.props.goals.map( goal => {
+                            return (
+                                <option key={goal.id} value={goal.title}>{goal.title}</option>
+                            )
+                        })}
+                        </select>
                     </label>
                     </div>
+
                     <div className='entry-dropdown'>  
                     <label>Role
                     <select>
@@ -127,4 +134,4 @@ class NewEntry extends React.Component{
 
 }
 
-export default withRouter(NewEntry)
+export default NewEntry;
