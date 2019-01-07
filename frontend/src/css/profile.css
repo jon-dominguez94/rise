@@ -65,3 +65,17 @@
   border: none;
   background-color: #333;
 }
+
+.elem-desc {
+  display: flex;
+  flex-direction: column;
+  /* display: none; */
+}
+
+.elem-desc input {
+  /* white-space: nowrap; */
+}
+
+.show {
+  display: block;
+}
