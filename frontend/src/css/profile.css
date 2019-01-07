@@ -2,16 +2,94 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: 50px;
+  margin: 35px;
   padding: 15px 25px;
   border: 0.5px solid #5c5edc;
   color: #5c5edc;
-  /* background: rgba(176, 224, 230, 0.5); */
   background: rgba(28,29,34, 1);
-  /* background : rgb(28, 29, 34) */
   border-radius: 3px;
 }
 
-.goal-form {
+.ib {
+  /* display: inline-block; */
+  width: 230px;
   position: relative;
+}
+
+.grps-page-wrapper, .element-form, .all-elements-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.all-elements-container {
+  align-items: center;
+}
+
+.grps-page-wrapper {
+  align-items: center;
+  padding: 100px;
+}
+
+.all-elements-container {
+  width: 100%;
+}
+
+.input-background {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: #1c1d22;
+  border-radius: 3px;
+}
+
+.element-form-wrapper > form * {
+  color: #bdbdbd;
+  background: transparent;
+  resize: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.el-label {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #5c5edc;
+}
+
+.element-form hr {
+  width: 100%;
+  height: 2px;
+  border: none;
+  background-color: #333;
+}
+
+.elem-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.elem-desc textarea {
+  width: 100%;
+}
+
+.profile-submit-btn {
+  /* text-transform: uppercase; */
+  font-weight: 500;
+}
+
+.profile-submit-btn:hover {
+  color: #5c5edc;
+  font-size: 15px;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
