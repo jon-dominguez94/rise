@@ -13,6 +13,7 @@ const users = require('./routes/api/users');
 const reports = require("./routes/api/reports");
 const entries = require('./routes/api/entries');
 const goals = require('./routes/api/goals');
+const roles = require('./routes/api/roles');
 
 
 const bodyParser = require('body-parser');
@@ -34,6 +35,7 @@ app.use("/api/users", users);
 app.use("/api/reports", reports);
 app.use("/api/entries", entries);
 app.use("/api/goals", goals);
+app.use("/api/roles", roles);
 
 const port = process.env.PORT || 3001;
 

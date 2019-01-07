@@ -11,3 +11,7 @@
   /* background : rgb(28, 29, 34) */
   border-radius: 3px;
 }
+
+.goal-form {
+  position: relative;
+}
