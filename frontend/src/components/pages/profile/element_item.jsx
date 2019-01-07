@@ -30,7 +30,7 @@ class ElementItem extends React.Component {
     this.props.updateElement(newElement)
       .then(res => {
         if (res.errors === undefined) {
-          this.setState({ msg: 'Successful' });
+          this.setState({ msg: 'Success' });
         } else {
           this.setState({ msg: 'Please correct errors listed below' });
         }

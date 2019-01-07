@@ -105,11 +105,11 @@ class ProfileElement extends React.Component {
                 </form>
               </div>
             </div>
-          {this.renderErrors()}
           </div>
           {this.state.elements.map(element => (
             <ElementItem key={element._id} element={element} label={this.props.label} updateElement={this.props.updateElement} />
           ))}
+          {this.renderErrors()}
         </div>
       );
     }
