@@ -12,6 +12,11 @@
   border-radius: 3px;
 }
 
-.goal-form {
+.grps-page-wrapper {
   position: relative;
+}
+
+.ib {
+  /* display: inline-block; */
+  width: 240px;
 }

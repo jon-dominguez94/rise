@@ -47,6 +47,7 @@ class ProfileElement extends React.Component {
       .then(res => {
         if (res.errors === undefined) {
           this.setState({ title: '', description: '' });
+          // this.props.fetchUserElements(this.props.user.id);
         }
       });
   }
@@ -59,13 +60,13 @@ class ProfileElement extends React.Component {
       );
     } else {
       return (
-        // <div className="errors-container">
-        <div>
-          {/* <ul className="errors-list"> */}
-          <ul>
+        <div className="errors-container ib">
+        {/* <div> */}
+          <ul className="errors-list">
+          {/* <ul> */}
             {Object.keys(this.state.errors).map((error, i) => (
-              <li key={`error-${i}`}>
-                {/* <li className="error-item" key={`error-${i}`}> */}
+              // <li key={`error-${i}`}>
+                <li className="error-item" key={`error-${i}`}>
                 {this.state.errors[error]}
               </li>
             ))}
@@ -84,22 +85,24 @@ class ProfileElement extends React.Component {
     else {
       return (
         <div className="grps-page-wrapper">
-          <div className="grp-form-wrapper">
-            <form onSubmit={this.handleSubmit}>
-              <div className="grp-form">
-                <input type="text"
-                  value={this.state.title}
-                  onChange={this.update('title')}
-                  placeholder="Title"
-                />
-                <textarea
-                  value={this.state.description}
-                  onChange={this.update('description')}
-                  placeholder="Description"
-                ></textarea>
-                <input type="submit" value={this.label} />
-              </div>
-            </form>
+          <div className="all-elements-container">
+            <div className="element-form-wrapper">
+              <form onSubmit={this.handleSubmit}>
+                <div className="element-form">
+                  <input type="text"
+                    value={this.state.title}
+                    onChange={this.update('title')}
+                    placeholder="Title"
+                  />
+                  <textarea
+                    value={this.state.description}
+                    onChange={this.update('description')}
+                    placeholder="Description"
+                  ></textarea>
+                  <input type="submit" value={this.label} />
+                </div>
+              </form>
+            </div>
           </div>
           {this.state.elements.map(element => (
             <ElementItem key={element._id} element={element} label={this.props.label} updateElement={this.props.updateElement} />
