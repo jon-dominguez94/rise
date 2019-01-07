@@ -1,4 +1,15 @@
-.text-color {
-  color: #bebebe;
-  border-color: #bebebe;
+
+.reminder-container {
+  width: 340px;
+  margin: auto;
+  margin-top: 15%;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 352px;
+  justify-content: space-around;
+  padding: 20px 0;
+  border-radius: 7px;
+  padding-bottom: 15px;
 }

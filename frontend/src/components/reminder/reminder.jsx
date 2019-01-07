@@ -125,12 +125,12 @@ class Reminder extends React.Component {
       });
     }
 
-    if( this.state.emailReminder){
-      const Email = require('../../util/email/email')
-      const email = new Email(this.props.user.email)
-      var k = schedule.scheduleJob(rule, email.sendEmail())
-      // email.sendEmail();
-    }
+    // if( this.state.emailReminder){
+    //   const Email = require('../../util/email/email')
+    //   const email = new Email(this.props.user.email)
+    //   var k = schedule.scheduleJob(rule, email.sendEmail())
+    //   // email.sendEmail();
+    // }
 
     this.props.updateUser(user);
   }
