@@ -40,7 +40,8 @@ class ReportLinks extends React.Component {
       // .then(res => console.log(res.errors));
       .then(res => {
         if (res.errors === undefined) {
-          this.setState({ week: '' });
+          this.setState({ week: '', });
+          this.props.fetchUserReports(this.props.user.id);
         }
       });
   }
@@ -60,7 +61,7 @@ class ReportLinks extends React.Component {
             <input type="submit" value="Create Report" />
           </div>
         </form>
-        {this.props.reports.map(report => (
+        {this.state.reports.map(report => (
           <SingleReportLink key={report._id} report={report}/>
         ))}
       </div>
