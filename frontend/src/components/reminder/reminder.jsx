@@ -1,14 +1,40 @@
 import React from 'react'
-import "../../css/reminder.scss";
-
-import FormGroup from '@material-ui/core/FormGroup';
+import "../../css/reminder.css";
+import PropTypes from "prop-types";
+import ReactDOM from "react-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import keys from '../../special';
+import { withStyles, withTheme} from "@material-ui/core/styles";
+import Input from "@material-ui/core/Input";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import FilledInput from "@material-ui/core/FilledInput";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
 
 var AWS = require('aws-sdk');
 
 var schedule = require('node-schedule');
+
+
+const styles = theme => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 150
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2
+  },
+  
+});
 
 class Reminder extends React.Component {
   constructor(props) {
@@ -20,6 +46,7 @@ class Reminder extends React.Component {
       // minute: props.user.minute,
       emailReminder: props.user.emailReminder,
       smsReminder: props.user.smsReminder,
+      age: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,12 +56,12 @@ class Reminder extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    event.preventDefault()
-    this.setState({ emailReminder: !this.state.emailReminder });
-    let user = this.props.user;
-    user.emailReminder = this.state.emailReminder;
-    this.props.updateUser(user);
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked })
+  };
+
+  handleDropFormChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   toggleEmail() {
@@ -46,6 +73,12 @@ class Reminder extends React.Component {
   toggleText() {
     this.setState({
       smsReminder: !this.state.smsReminder
+    });
+  }
+
+  componentDidMount() {
+    this.setState({
+      labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
     });
   }
 
@@ -93,91 +126,143 @@ class Reminder extends React.Component {
   }
 
   render() {
+
+    const { classes } = this.props;
+
     return (
+    
       <div className="reminder-container">
-          <FormControlLabel
+
+        <div className="email-selector">
+          <FormControlLabel 
             control={
-              <Switch
-                checked={this.state.emailReminder}
-                onChange={this.handleChange}
-                value="emailReminder"
-                color="primary"
-              />
-            }
-            label="Email"
-          />
-  
-
-        <div className="email-text-selector">
-  
-
-          <label>
-            Text Message
-            <input
-              onChange={this.toggleText}
-              checked={this.state.smsReminder}
-              type="checkbox"
-            />
-          </label>
+              <Switch 
+                checked={this.state.emailReminder} 
+                onChange={this.handleChange("emailReminder")} 
+                value="emailReminder" 
+                color="primary" 
+                />} 
+            label="Email" />
         </div>
 
-        <div className="day-of-week-selector-container">
-          <select
-            value={this.state.dayOfWeek}
-            onChange={this.handleUpdate("dayOfWeek")}
-            className="day-of-week-selector"
+        <div className="sms-selector">
+          <FormControlLabel 
+            control={
+              <Switch 
+                checked={this.state.smsReminder} 
+                onChange={this.handleChange("smsReminder")} 
+                value="smsReminder" 
+                color="primary" 
+              />} 
+            label="Text Message" />
+        </div>
+
+        <div className="day-selector">
+          <form autoComplete="off">
+            <FormControl 
+              variant="outlined" 
+              className={classes.formControl}>
+              <InputLabel ref={ref => {
+                  this.InputLabelRef = ref;
+                }} htmlFor="outlined-age-simple">
+                Day
+              </InputLabel>
+
+              <Select 
+                selected classes={{
+                  root: 'text-color'
+                }}
+                className="drop" 
+                value={this.state.dayOfWeek} 
+                onChange={this.handleDropFormChange} 
+                input={<OutlinedInput 
+                labelWidth={this.state.labelWidth} 
+                name="dayOfWeek" id="outlined-age-simple" />}>
+      
+                <MenuItem value={0}>Sunday</MenuItem>
+                <MenuItem value={1}>Monday</MenuItem>
+                <MenuItem value={2}>Tuesday</MenuItem>
+                <MenuItem value={3}>Wednesday</MenuItem>
+                <MenuItem value={4}>Thursday</MenuItem>
+                <MenuItem value={5}>Friday</MenuItem>
+                <MenuItem value={6}>Saturday</MenuItem>
+              </Select>
+            </FormControl>
+          </form>
+        </div>
+
+        <div className="time-selector">
+          <form autoComplete="off">
+            <FormControl
+              variant="outlined"
+              className={classes.formControl}>
+              <InputLabel 
+                ref={ref => {
+                this.InputLabelRef = ref;
+              }} htmlFor="outlined-age-simple">
+                Time
+              </InputLabel>
+
+              <Select
+                selected classes={{
+                  root: 'text-color'}}
+                value={this.state.hour}
+                className={classes.select}
+                onChange={this.handleDropFormChange}
+                input={<OutlinedInput
+                  labelWidth={this.state.labelWidth}
+                  name="hour" id="outlined-age-simple" />}
+                labelStyle={{ color: '#ff0000' }}
+              >
+
+                <MenuItem value={0}>1:00 AM</MenuItem>
+                <MenuItem value={1}>2:00 AM</MenuItem>
+                <MenuItem value={2}>3:00 AM</MenuItem>
+                <MenuItem value={3}>4:00 AM</MenuItem>
+                <MenuItem value={4}>5:00 AM</MenuItem>
+                <MenuItem value={5}>6:00 AM</MenuItem>
+                <MenuItem value={6}>7:00 AM</MenuItem>
+                <MenuItem value={7}>8:00 AM</MenuItem>
+                <MenuItem value={8}>9:00 AM</MenuItem>
+                <MenuItem value={9}>10:00 AM</MenuItem>
+                <MenuItem value={10}>11:00 AM</MenuItem>
+                <MenuItem value={11}>12:00 PM</MenuItem>
+                <MenuItem value={12}>1:00 PM</MenuItem>
+                <MenuItem value={13}>2:00 PM</MenuItem>
+                <MenuItem value={14}>3:00 PM</MenuItem>
+                <MenuItem value={15}>4:00 PM</MenuItem>
+                <MenuItem value={16}>5:00 PM</MenuItem>
+                <MenuItem value={17}>6:00 PM</MenuItem>
+                <MenuItem value={18}>7:00 PM</MenuItem>
+                <MenuItem value={19}>8:00 PM</MenuItem>
+                <MenuItem value={20}>9:00 PM</MenuItem>
+                <MenuItem value={21}>10:00 PM</MenuItem>
+                <MenuItem value={22}>11:00 PM</MenuItem>
+                <MenuItem value={23}>12:00 PM</MenuItem>
+              </Select>
+            </FormControl>
+          </form>
+        </div>
+        
+
+        <div className="save-preferences-button">
+          <Button 
+            variant="contained" 
+            onClick={this.handleSubmit} 
+            color="primary" 
+            className={classes.button}
           >
-            <option value={0}>Sunday</option>
-            <option value={1}>Monday</option>
-            <option value={2}>Tuesday</option>
-            <option value={3}>Wednesday</option>
-            <option value={4}>Thursday</option>
-            <option value={5}>Friday</option>
-            <option value={6}>Saturday</option>
-          </select>
-        </div>
-
-        <div className="hour-selector-container">
-          <select
-            value={this.state.hour}
-            onChange={this.handleUpdate("hour")}
-            className="hour-selector"
-          >
-            <option value={0}>1:00 AM</option>
-            <option value={1}>2:00 AM</option>
-            <option value={2}>3:00 AM</option>
-            <option value={3}>4:00 AM</option>
-            <option value={4}>5:00 AM</option>
-            <option value={5}>6:00 AM</option>
-            <option value={6}>7:00 AM</option>
-            <option value={7}>8:00 AM</option>
-            <option value={8}>9:00 AM</option>
-            <option value={9}>10:00 AM</option>
-            <option value={10}>11:00 AM</option>
-            <option value={11}>12:00 PM</option>
-            <option value={12}>1:00 PM</option>
-            <option value={13}>2:00 PM</option>
-            <option value={14}>3:00 PM</option>
-            <option value={15}>4:00 PM</option>
-            <option value={16}>5:00 PM</option>
-            <option value={17}>6:00 PM</option>
-            <option value={18}>7:00 PM</option>
-            <option value={19}>8:00 PM</option>
-            <option value={20}>9:00 PM</option>
-            <option value={21}>10:00 PM</option>
-            <option value={22}>11:00 PM</option>
-            <option value={23}>12:00 PM</option>
-          </select>
-        </div>
-
-        <div className="update-preferences-button">
-          <button id="update-preferences" onClick={this.handleSubmit}>
-            Update Preferences
-          </button>
+            Save Preferences
+          </Button>
         </div>
       </div>
+
     );
   }
 }
 
-export default Reminder;
+Reminder.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Reminder);

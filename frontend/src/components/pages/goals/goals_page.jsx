@@ -1,6 +1,6 @@
 import React from 'react';
 import SingleGoal from './single_goal';
-import '../../../css/goal.css';
+import '../../../css/profile.css';
 
 class GoalsPage extends React.Component{
   constructor(props){
@@ -21,7 +21,7 @@ class GoalsPage extends React.Component{
   }
 
   componentWillReceiveProps(newState){
-    console.log(newState);
+    // console.log(newState);
     this.setState({ 
       goals: newState.goals,
       errors: newState.errors
@@ -74,17 +74,17 @@ class GoalsPage extends React.Component{
   }
 
   render() {
-    if(this.state.goals.length === 0){
+    if(this.state.goals === undefined){
       return (
-        <div className="no-goals"></div>
+        <div className="no-grps"></div>
       );
     }
     else {
       return (
-        <div className="goals-page-wrapper">
-          <div className="goal-form-wrapper">
+        <div className="grps-page-wrapper">
+          <div className="grp-form-wrapper">
             <form onSubmit={this.handleSubmit}>
-                <div className="goal-form">
+              <div className="grp-form">
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
@@ -95,12 +95,12 @@ class GoalsPage extends React.Component{
                   onChange={this.update('description')}
                   placeholder="Description"
                 ></textarea>
-                <input type="submit" value="Submit"/>
-                </div>
+                <input type="submit" value="Create Goal"/>
+              </div>
             </form>
           </div>
           {this.state.goals.map(goal => (
-            <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
+            <SingleGoal key={goal._id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
           {this.renderErrors()}
         </div>

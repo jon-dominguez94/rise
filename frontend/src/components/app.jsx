@@ -11,8 +11,10 @@ import MainPage from './main/main_page';
 import ProfilePageContainer from '../components/pages/profile/profile_page_container';
 import GoalsPageContainer from '../components/pages/goals/goals_page_container';
 import RolesPageContainer from '../components/pages/roles/roles_page_container';
+import ProjectsPageContainer from '../components/pages/projects/projects_page_container';
 import ProfileSplashPage from './pages/profile/profile_splash_page';
 import ReportsSplashPage from '../components/pages/reports/reports_page_container';
+import ReportPage from '../components/pages/reports/reports_page';
 
 import ReminderContainer from '../components/reminder/reminder_container';
 
@@ -37,7 +39,9 @@ const App = () => (
         <ProtectedRoute exact path="/profile/account" component={ProfilePageContainer} />
         <ProtectedRoute exact path="/profile/goals" component={GoalsPageContainer} />
         <ProtectedRoute exact path="/profile/roles" component={RolesPageContainer} />
+        <ProtectedRoute exact path="/profile/projects" component={ProjectsPageContainer} />
         <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
+        <ProtectedRoute path="/reports/:id" component={ReportPage} />
 
         <ProtectedRoute exact path="/reports/new_entry" component={NewEntryContainer} />
         {/* <ProtectedRoute exact path="/reports/:id" component={ReportEntriesContainer} /> */}
