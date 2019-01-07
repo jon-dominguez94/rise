@@ -74,7 +74,7 @@ class GoalsPage extends React.Component{
   }
 
   render() {
-    if(this.state.goals.length === 0){
+    if(this.state.goals === undefined){
       return (
         <div className="no-grps"></div>
       );
@@ -100,7 +100,7 @@ class GoalsPage extends React.Component{
             </form>
           </div>
           {this.state.goals.map(goal => (
-            <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
+            <SingleGoal key={goal._id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
           {this.renderErrors()}
         </div>
