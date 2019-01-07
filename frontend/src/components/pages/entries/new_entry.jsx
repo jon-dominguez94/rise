@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../../css/entry_form.css';
+import { withRouter } from 'react-router-dom';
 
 
 class NewEntry extends React.Component{
@@ -7,38 +9,58 @@ class NewEntry extends React.Component{
 
         this.state = {
             description: "",
-            importance: ""
+            importance: 1,
+            newEntry: ""
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+
     }
 
-    // handleSubmit(e){
-    //     e.preventDefault
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ newEntry: nextProps.newEntry.description });
     // }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        let entry = {
+            description: this.state.description,
+            importance: this.state.importance
+        };
+
+        this.props.createEntry(entry);
+        this.setState({ description: '', importance: 1 });
+
+    }
 
     // handleFile(e) {
     //     this.setState({ photoFile: e.currentTarget.files[0] });
     // }
 
-    update(){
+    update(field) {
         return e => this.setState({
-            description: e.currentTarget.value
-        })
+            [field]: e.currentTarget.value
+        });
     }
 
     render(){
+        // debugger
         return (
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
                 <form>
-                    <input
+                    <textarea
                         value={this.state.description}
-                        onChange={this.update()}
+                        onChange={this.update('description')}
                         placeholder="Write description"
                         className="entry-description"
                     />
+                    <div className='dropdowns'>
                     <div className='entry-dropdown'>  
-                    <label>Rating
-                    <select>
+                    <label>Importance
+                    <select
+                        value={this.state.importance}
+                        onChange={this.update('importance')}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -70,9 +92,11 @@ class NewEntry extends React.Component{
                     </label>
                     </div>
                     {/* <input className="post-file" type="file" onChange={this.handleFile.bind(this)} /> */}
-                    <div className="entry-submit-button">
-                    <input type="submit" value="Create Entry" />
+                        <div className="entry-submit-button">
+                            <input type="submit" value="Submit" />
+                        </div>
                     </div>
+
                 </form>
             </div>
         )
@@ -80,4 +104,4 @@ class NewEntry extends React.Component{
 
 }
 
-export default NewEntry 
+export default withRouter(NewEntry)
