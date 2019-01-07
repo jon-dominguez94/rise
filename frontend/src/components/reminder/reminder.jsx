@@ -4,6 +4,11 @@ import "../../css/reminder.scss";
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import keys from '../../special';
+
+var AWS = require('aws-sdk');
+const Email = require('../../util/email/email');
+var schedule = require('node-schedule');
 
 class Reminder extends React.Component {
   constructor(props) {
@@ -51,6 +56,35 @@ class Reminder extends React.Component {
     user.hour = this.state.hour;
     user.emailReminder = this.state.emailReminder;
     user.smsReminder = this.state.smsReminder;
+
+    var params = {
+      Message: 'Time to update your achievements on Rise 10!',
+      MessageStructure: 'string',
+      PhoneNumber: '+18313453689'
+    };
+
+    var rule = new schedule.RecurrenceRule();
+    rule.minute = 12
+    var j = schedule.scheduleJob(rule, function(){
+      AWS.config.update({
+        accessKeyId: keys.AWS_ACCESS_KEY_ID,
+        secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+        region: keys.AWS_REGION
+      });
+      AWS.config.update({ region: 'us-west-2' });
+      var sns = new AWS.SNS();
+      
+      console.log('begin message send')
+      sns.publish(params, function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else     console.log(data);           // successful response
+      })
+    
+      console.log('complete')
+    });
+
+    const email = new Email("mark.kopec@gmail.com")
+    email.sendEmail();
 
     this.props.updateUser(user);
   }
