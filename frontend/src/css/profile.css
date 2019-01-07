@@ -42,4 +42,6 @@
   color: white;
   background: transparent;
   resize: none;
+  border: none;
+  outline: none;
 }
