@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Goal = require('../../models/Goal');
-const validateGoalInput = require('../../validation/goals');
+const validateProfileInput = require('../../validation/profile');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the goals route" }));
 
@@ -27,7 +27,7 @@ router.get(
 );
 
 router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  const { errors, isValid } = validateGoalInput(req.body);
+  const { errors, isValid } = validateProfileInput(req.body);
 
   if(!isValid){
     return res.status(400).json(errors);
@@ -44,7 +44,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 });
 
 router.patch("/:goal_id", passport.authenticate("jwt", { session: false }), (req, res) => {
-  const { errors, isValid } = validateGoalInput(req.body);
+  const { errors, isValid } = validateProfileInput(req.body);
 
   if(!isValid){
     return res.status(400).json(errors);
