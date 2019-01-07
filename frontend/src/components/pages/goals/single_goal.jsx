@@ -5,6 +5,7 @@ class SingleGoal extends React.Component {
     super(props);
 
     this.state = {
+      id: this.props.goal.id,
       title: props.goal.title,
       description: props.goal.description
     };
@@ -21,17 +22,9 @@ class SingleGoal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let newGoal = {
-      title: this.state.title,
-      description: this.state.description
-    };
-    this.props.updateGoal(newGoal)
-      // .then(res => console.log(res.errors));
-      .then(res => {
-        if (res.errors === undefined) {
-          this.setState({ title: '', description: '' });
-        }
-      });
+    // console.log(this.props.goal);
+    let newGoal = Object.assign({}, this.props.goal, this.state);
+    this.props.updateGoal(newGoal);
   }
 
   render() {
