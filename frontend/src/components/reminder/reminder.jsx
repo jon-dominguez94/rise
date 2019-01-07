@@ -7,7 +7,7 @@ import Switch from '@material-ui/core/Switch';
 import keys from '../../special';
 
 var AWS = require('aws-sdk');
-const Email = require('../../util/email/email');
+
 var schedule = require('node-schedule');
 
 class Reminder extends React.Component {
@@ -82,10 +82,6 @@ class Reminder extends React.Component {
     
       console.log('complete')
     });
-
-    const email = new Email("mark.kopec@gmail.com")
-    email.sendEmail();
-
     this.props.updateUser(user);
   }
 
