@@ -1,15 +1,17 @@
 import React from 'react';
 
-class SingleRole extends React.Component {
+class ElementItem extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.props.role.id,
-      title: props.role.title,
-      description: props.role.description,
+      id: this.props.element.id,
+      title: props.element.title,
+      description: props.element.description,
       msg: ''
     };
+
+    this.label = `Update ${this.props.label}`;
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,8 +26,8 @@ class SingleRole extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let newRole = Object.assign({}, this.props.role, this.state);
-    this.props.updateRole(newRole)
+    let newElement = Object.assign({}, this.props.element, this.state);
+    this.props.updateElement(newElement)
       .then(res => {
         if (res.errors === undefined) {
           this.setState({ msg: 'Successful' });
@@ -56,10 +58,10 @@ class SingleRole extends React.Component {
 
   render() {
     return (
-      <div className="all-roles-container">
-        <div className="role-form-wrapper">
+      <div className="all-elements-container">
+        <div className="element-form-wrapper">
           <form onSubmit={this.handleSubmit}>
-            <div className="role-form">
+            <div className="element-form">
               <input type="text"
                 value={this.state.title}
                 onChange={this.update('title')}
@@ -70,7 +72,7 @@ class SingleRole extends React.Component {
                 onChange={this.update('description')}
                 placeholder="Description"
               ></textarea>
-              <input type="submit" value="UpdateRole" />
+              <input type="submit" value={this.label} />
             </div>
           </form>
           {this.renderMsg()}
@@ -80,4 +82,4 @@ class SingleRole extends React.Component {
   }
 }
 
-export default SingleRole;
+export default ElementItem;
