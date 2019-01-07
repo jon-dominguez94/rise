@@ -44,7 +44,6 @@ class NewEntry extends React.Component{
     }
 
     render(){
-        // debugger
         return (
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
