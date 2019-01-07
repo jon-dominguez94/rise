@@ -1,6 +1,4 @@
-.reminder-container {
-  display: grid;
-  grid-template-columns: auto, auto, auto;
-  grid-template-rows: auto, auto;
-  color: white;
+.text-color {
+  color: #bebebe;
+  border-color: #bebebe;
 }

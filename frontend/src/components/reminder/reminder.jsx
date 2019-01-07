@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
-import { withStyles, withTheme } from "@material-ui/core/styles";
+import { withStyles, withTheme} from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import FilledInput from "@material-ui/core/FilledInput";
@@ -19,7 +19,7 @@ import Button from "@material-ui/core/Button";
 const styles = theme => ({
   root: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -28,6 +28,7 @@ const styles = theme => ({
   selectEmpty: {
     marginTop: theme.spacing.unit * 2
   },
+  
 });
 
 class Reminder extends React.Component {
@@ -138,6 +139,9 @@ class Reminder extends React.Component {
               </InputLabel>
 
               <Select 
+                selected classes={{
+                  root: 'text-color'
+                }}
                 className="drop" 
                 value={this.state.dayOfWeek} 
                 onChange={this.handleDropFormChange} 
@@ -159,24 +163,27 @@ class Reminder extends React.Component {
 
         <div className="time-selector">
           <form autoComplete="off">
-            <FormControl 
-              variant="outlined" 
+            <FormControl
+              variant="outlined"
               className={classes.formControl}>
-
-              <InputLabel ref={ref => {
-                  this.InputLabelRef = ref;
-                }} htmlFor="outlined-age-simple">
-                Hour
+              <InputLabel 
+                ref={ref => {
+                this.InputLabelRef = ref;
+              }} htmlFor="outlined-age-simple">
+                Time
               </InputLabel>
-              <Select 
-                className="drop" 
-                value={this.state.hour} 
-                onChange={this.handleDropFormChange} 
-                input={
-                  <OutlinedInput 
-                    labelWidth={this.state.labelWidth} 
-                    name="dayOfWeek" 
-                    id="outlined-age-simple" />}>
+
+              <Select
+                selected classes={{
+                  root: 'text-color'}}
+                value={this.state.hour}
+                className={classes.select}
+                onChange={this.handleDropFormChange}
+                input={<OutlinedInput
+                  labelWidth={this.state.labelWidth}
+                  name="hour" id="outlined-age-simple" />}
+                labelStyle={{ color: '#ff0000' }}
+              >
 
                 <MenuItem value={0}>1:00 AM</MenuItem>
                 <MenuItem value={1}>2:00 AM</MenuItem>
@@ -206,6 +213,7 @@ class Reminder extends React.Component {
             </FormControl>
           </form>
         </div>
+        
 
         <div className="save-preferences-button">
           <Button 
