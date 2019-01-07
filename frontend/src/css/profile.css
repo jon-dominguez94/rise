@@ -69,13 +69,21 @@
 .elem-desc {
   display: flex;
   flex-direction: column;
-  /* display: none; */
+  align-items: center;
 }
 
-.elem-desc input {
-  /* white-space: nowrap; */
+.elem-desc textarea {
+  width: 100%;
+}
+
+.profile-submit-btn {
+  /* text-transform: uppercase; */
 }
 
 .show {
   display: block;
+}
+
+.hidden {
+  display: none;
 }

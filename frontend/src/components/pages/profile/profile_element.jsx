@@ -94,7 +94,7 @@ class ProfileElement extends React.Component {
                     <div className="elem-desc">
                       <hr />
                       <textarea value={this.state.description} onChange={this.update("description")} placeholder="Description" />
-                     <input type="submit" value={this.label} />
+                      <button className="profile-submit-btn">{this.label}</button>
                     </div>
                   </div>
                 </form>
