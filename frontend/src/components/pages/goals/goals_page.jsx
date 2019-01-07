@@ -1,6 +1,6 @@
 import React from 'react';
 import SingleGoal from './single_goal';
-import '../../../css/goal.css';
+import '../../../css/profile.css';
 
 class GoalsPage extends React.Component{
   constructor(props){
@@ -21,7 +21,7 @@ class GoalsPage extends React.Component{
   }
 
   componentWillReceiveProps(newState){
-    console.log(newState);
+    // console.log(newState);
     this.setState({ 
       goals: newState.goals,
       errors: newState.errors
@@ -100,7 +100,7 @@ class GoalsPage extends React.Component{
             </form>
           </div>
           {this.state.goals.map(goal => (
-            <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal} user={this.props.user.id}/>
+            <SingleGoal key={goal.id} goal={goal} updateGoal={this.props.updateGoal}/>
           ))}
           {this.renderErrors()}
         </div>

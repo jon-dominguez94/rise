@@ -1,4 +1,4 @@
-import { getUserRoles, writeRole, updateUserRole } from '../util/goal_api_util';
+import { getUserRoles, writeRole, updateUserRole } from '../util/role_api_util';
 
 export const RECEIVE_ROLES = "RECEIVE_ROLES";
 export const RECEIVE_NEW_ROLE = "RECEIVE_NEW_ROLE";
