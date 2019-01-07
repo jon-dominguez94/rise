@@ -83,24 +83,16 @@ class ProfileElement extends React.Component {
       );
     }
     else {
-      return (
-        <div className="grps-page-wrapper">
+      return <div className="grps-page-wrapper">
           <div className="all-elements-container">
             <div className="el-label">New {this.props.label}</div>
             <div className="input-background">
               <div className="element-form-wrapper">
                 <form onSubmit={this.handleSubmit}>
                   <div className="element-form">
-                    <input type="text"
-                      value={this.state.title}
-                      onChange={this.update('title')}
-                      placeholder="Title"
-                    />
-                    <textarea
-                      value={this.state.description}
-                      onChange={this.update('description')}
-                      placeholder="Description"
-                    ></textarea>
+                    <input type="text" value={this.state.title} onChange={this.update("title")} placeholder="Title" />
+                    <hr />
+                    <textarea value={this.state.description} onChange={this.update("description")} placeholder="Description" />
                     <input type="submit" value={this.label} />
                   </div>
                 </form>
@@ -109,11 +101,15 @@ class ProfileElement extends React.Component {
           </div>
           <div className="el-label">All {this.props.label}s</div>
           {this.state.elements.map(element => (
-            <ElementItem key={element._id} element={element} label={this.props.label} updateElement={this.props.updateElement} />
+            <ElementItem
+              key={element._id}
+              element={element}
+              label={this.props.label}
+              updateElement={this.props.updateElement}
+            />
           ))}
           {this.renderErrors()}
-        </div>
-      );
+        </div>;
     }
   }
 }
