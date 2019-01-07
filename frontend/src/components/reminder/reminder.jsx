@@ -156,55 +156,57 @@ class Reminder extends React.Component {
           </form>
         </div>
 
-        <form autoComplete="off">
-          <FormControl 
-            variant="outlined" 
-            className={classes.formControl}>
+        <div className="time-selector">
+          <form autoComplete="off">
+            <FormControl 
+              variant="outlined" 
+              className={classes.formControl}>
 
-            <InputLabel ref={ref => {
-                this.InputLabelRef = ref;
-              }} htmlFor="outlined-age-simple">
-              Hour
-            </InputLabel>
-            <Select 
-              className="drop" 
-              value={this.state.hour} 
-              onChange={this.handleDropFormChange} 
-              input={
-                <OutlinedInput 
-                  labelWidth={this.state.labelWidth} 
-                  name="dayOfWeek" 
-                  id="outlined-age-simple" />}>
+              <InputLabel ref={ref => {
+                  this.InputLabelRef = ref;
+                }} htmlFor="outlined-age-simple">
+                Hour
+              </InputLabel>
+              <Select 
+                className="drop" 
+                value={this.state.hour} 
+                onChange={this.handleDropFormChange} 
+                input={
+                  <OutlinedInput 
+                    labelWidth={this.state.labelWidth} 
+                    name="dayOfWeek" 
+                    id="outlined-age-simple" />}>
 
-              <MenuItem value={0}>1:00 AM</MenuItem>
-              <MenuItem value={1}>2:00 AM</MenuItem>
-              <MenuItem value={2}>3:00 AM</MenuItem>
-              <MenuItem value={3}>4:00 AM</MenuItem>
-              <MenuItem value={4}>5:00 AM</MenuItem>
-              <MenuItem value={5}>6:00 AM</MenuItem>
-              <MenuItem value={6}>7:00 AM</MenuItem>
-              <MenuItem value={7}>8:00 AM</MenuItem>
-              <MenuItem value={8}>9:00 AM</MenuItem>
-              <MenuItem value={9}>10:00 AM</MenuItem>
-              <MenuItem value={10}>11:00 AM</MenuItem>
-              <MenuItem value={11}>12:00 PM</MenuItem>
-              <MenuItem value={12}>1:00 PM</MenuItem>
-              <MenuItem value={13}>2:00 PM</MenuItem>
-              <MenuItem value={14}>3:00 PM</MenuItem>
-              <MenuItem value={15}>4:00 PM</MenuItem>
-              <MenuItem value={16}>5:00 PM</MenuItem>
-              <MenuItem value={17}>6:00 PM</MenuItem>
-              <MenuItem value={18}>7:00 PM</MenuItem>
-              <MenuItem value={19}>8:00 PM</MenuItem>
-              <MenuItem value={20}>9:00 PM</MenuItem>
-              <MenuItem value={21}>10:00 PM</MenuItem>
-              <MenuItem value={22}>11:00 PM</MenuItem>
-              <MenuItem value={23}>12:00 PM</MenuItem>
-            </Select>
-          </FormControl>
-        </form>
+                <MenuItem value={0}>1:00 AM</MenuItem>
+                <MenuItem value={1}>2:00 AM</MenuItem>
+                <MenuItem value={2}>3:00 AM</MenuItem>
+                <MenuItem value={3}>4:00 AM</MenuItem>
+                <MenuItem value={4}>5:00 AM</MenuItem>
+                <MenuItem value={5}>6:00 AM</MenuItem>
+                <MenuItem value={6}>7:00 AM</MenuItem>
+                <MenuItem value={7}>8:00 AM</MenuItem>
+                <MenuItem value={8}>9:00 AM</MenuItem>
+                <MenuItem value={9}>10:00 AM</MenuItem>
+                <MenuItem value={10}>11:00 AM</MenuItem>
+                <MenuItem value={11}>12:00 PM</MenuItem>
+                <MenuItem value={12}>1:00 PM</MenuItem>
+                <MenuItem value={13}>2:00 PM</MenuItem>
+                <MenuItem value={14}>3:00 PM</MenuItem>
+                <MenuItem value={15}>4:00 PM</MenuItem>
+                <MenuItem value={16}>5:00 PM</MenuItem>
+                <MenuItem value={17}>6:00 PM</MenuItem>
+                <MenuItem value={18}>7:00 PM</MenuItem>
+                <MenuItem value={19}>8:00 PM</MenuItem>
+                <MenuItem value={20}>9:00 PM</MenuItem>
+                <MenuItem value={21}>10:00 PM</MenuItem>
+                <MenuItem value={22}>11:00 PM</MenuItem>
+                <MenuItem value={23}>12:00 PM</MenuItem>
+              </Select>
+            </FormControl>
+          </form>
+        </div>
 
-        <div className="update-preferences-button">
+        <div className="save-preferences-button">
           <Button 
             variant="contained" 
             onClick={this.handleSubmit} 
