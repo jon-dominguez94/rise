@@ -47,6 +47,3 @@ class AWSEmail {
 
 module.exports = AWSEmail;
 
-const Email = require('./email');
-const email = new Email("mark.kopec@gmail.com")
-email.sendEmail();
