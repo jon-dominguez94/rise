@@ -10,10 +10,10 @@ const EntrySchema = new Schema({
         type: Number,
         required: true
     },
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'users'
-    // },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
     // goal: {
     //     type: Schema.Types.ObjectId,
     //     ref: 'goals'

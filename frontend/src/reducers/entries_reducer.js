@@ -1,6 +1,6 @@
 import { RECEIVE_REPORT_ENTRIES, RECEIVE_NEW_ENTRY } from '../actions/entry_actions';
 
-const EntriesReducer = (state = { report: {}, new: undefined }, action) => {
+const EntriesReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch(action.type){
