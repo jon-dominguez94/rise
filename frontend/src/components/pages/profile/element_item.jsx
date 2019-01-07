@@ -11,6 +11,8 @@ class ElementItem extends React.Component {
       msg: ''
     };
 
+    this.label = `Update ${this.props.label}`;
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
