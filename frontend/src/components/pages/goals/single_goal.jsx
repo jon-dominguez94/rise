@@ -28,8 +28,15 @@ class SingleGoal extends React.Component {
     this.props.updateGoal(newGoal)
       .then(res => {
         if (res.errors === undefined) {
-          this.setState({ msg: 'Success' });
+          this.setState({msg: 'Successful'});
+        } else {
+          this.setState({msg: 'Please correct errors listed below'});
         }
+      })
+      .then(() => {
+        setTimeout(() => {
+          this.setState({msg: ''})
+        }, 1500);
       });
   }
 
