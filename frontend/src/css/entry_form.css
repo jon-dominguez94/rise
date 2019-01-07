@@ -1,10 +1,12 @@
 .entry-form-container {
     display: flex;
     /* justify-content: center; */
+    box-sizing: border-box;
     align-items: center;
     flex-direction: column;
     position: relative;
     top: 80px;
+
 }
 
 .entry-description{
@@ -27,7 +29,7 @@
     border: none; 
     outline: none;
     font-size: 12px;
-    margin-left: 8px;
+    margin-left: 12px;
     border-radius: 3px;
 
 }
@@ -35,6 +37,13 @@
 .entry-dropdown {
     font-size: 14px;
     font-weight: 500;
+    margin-left: 10px;
+}
+
+.entry-dropdown1 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
 }
 
 
@@ -49,8 +58,8 @@
     font-size: 14px;
     font-weight: 500;
     border-radius: 3px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
     text-transform: uppercase;
@@ -58,13 +67,17 @@
 }
 .entry-submit-button input:hover{
     background-color: #5c5edc;
+}
 
+.entry-submit-button {
+    margin-right: 5px;
 }
 
 .dropdowns{
     display: flex;
     align-items: center;
-    padding: 12px;
+    padding-top: 12px;
+    /* padding: 12px; */
     justify-content: space-between;
     text-transform: uppercase;
 }

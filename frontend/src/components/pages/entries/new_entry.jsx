@@ -37,14 +37,14 @@ class NewEntry extends React.Component{
             description: this.state.description,
             importance: this.state.importance,
             user: this.props.user.id,
-            report: this.props.report.id,
-            goal: this.props.goal.id,
-            role: this.props.role.id,
-            project: this.props.project.id
+            report: this.props.report._id,
+            goal: this.props.goal._id,
+            role: this.props.role._id,
+            project: this.props.project._id
         };
 
         this.props.createEntry(entry);
-        this.setState({ description: '', importance: 1 });
+        // this.setState({ description: '', importance: 1 });
 
     }
 
@@ -71,7 +71,7 @@ class NewEntry extends React.Component{
                         className="entry-description"
                     />
                     <div className='dropdowns'>
-                    <div className='entry-dropdown'>  
+                    <div className='entry-dropdown1'>  
                     <label>Importance
                     <select
                         value={this.state.importance}
@@ -92,7 +92,7 @@ class NewEntry extends React.Component{
                             onChange={this.update('goal')}>
                             { this.props.goals.map( goal => {
                             return (
-                                <option key={goal.id} value={goal.title}>{goal.title}</option>
+                                <option key={goal._id} value={goal.id}>{goal.title}</option>
                             )
                         })}
                         </select>
@@ -106,7 +106,7 @@ class NewEntry extends React.Component{
                             onChange={this.update('role')}>
                             {this.props.roles.map(role => {
                                 return (
-                                    <option key={role.id} value={role.title}>{role.title}</option>
+                                    <option key={role._id} value={role.id}>{role.title}</option>
                                 )
                                 })}
                         </select>
@@ -120,7 +120,7 @@ class NewEntry extends React.Component{
                             onChange={this.update('project')}>
                             {this.props.projects.map(project => {
                                 return (
-                                    <option key={project.id} value={project.title}>{project.title}</option>
+                                    <option key={project._id} value={project.id}>{project.title}</option>
                                 )
                             })}
                         </select>
