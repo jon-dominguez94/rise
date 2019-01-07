@@ -74,7 +74,7 @@ class GoalsPage extends React.Component{
   }
 
   render() {
-    if(this.state.goals.length === 0){
+    if(this.state.goals === undefined){
       return (
         <div className="no-grps"></div>
       );

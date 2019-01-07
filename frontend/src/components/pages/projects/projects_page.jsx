@@ -74,7 +74,7 @@ class ProjectsPage extends React.Component {
   }
 
   render() {
-    if (this.state.projects.length === 0) {
+    if (this.state.projects === undefined) {
       return (
         <div className="no-grps"></div>
       );

@@ -74,7 +74,7 @@ class RolesPage extends React.Component {
   }
 
   render() {
-    if (this.state.roles.length === 0) {
+    if (this.state.roles === undefined) {
       return (
         <div className="no-roles"></div>
       );
