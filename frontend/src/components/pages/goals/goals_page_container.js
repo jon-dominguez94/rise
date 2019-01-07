@@ -7,7 +7,8 @@ const mstp = state => {
   return {
     user: state.session.user,
     elements: Object.values(state.goals),
-    errors: state.errors.goals
+    errors: state.errors.goals,
+    label: 'Goal'
   };
 };
 

@@ -13,6 +13,8 @@ class ProfileElement extends React.Component {
       errors: {}
     };
 
+    this.label = `Create ${this.props.label}`;
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
