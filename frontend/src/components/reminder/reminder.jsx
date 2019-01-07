@@ -1,7 +1,5 @@
 import React from 'react'
 import "../../css/reminder.scss";
-
-import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
@@ -24,13 +22,10 @@ class Reminder extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    event.preventDefault()
-    this.setState({ emailReminder: !this.state.emailReminder });
-    let user = this.props.user;
-    user.emailReminder = this.state.emailReminder;
-    this.props.updateUser(user);
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked })
   };
+
 
   toggleEmail() {
     this.setState({
@@ -69,7 +64,7 @@ class Reminder extends React.Component {
             control={
               <Switch
                 checked={this.state.emailReminder}
-                onChange={this.handleChange}
+                onChange={this.handleChange('emailReminder')}
                 value="emailReminder"
                 color="primary"
               />
@@ -80,15 +75,17 @@ class Reminder extends React.Component {
 
         <div className="email-text-selector">
   
-
-          <label>
-            Text Message
-            <input
-              onChange={this.toggleText}
-              checked={this.state.smsReminder}
-              type="checkbox"
-            />
-          </label>
+          <FormControlLabel
+            control={
+              <Switch
+                checked={this.state.smsReminder}
+                onChange={this.handleChange('smsReminder')}
+                value="smsReminder"
+                color="primary"
+              />
+            }
+            label="Text Message"
+          />
         </div>
 
         <div className="day-of-week-selector-container">
