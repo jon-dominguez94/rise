@@ -34,12 +34,15 @@
 }
 
 .input-background {
-  padding: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
   /* color: white; */
+  background: #1c1d22;
+  border-radius: 3px;
 }
 
 .element-form-wrapper > form * {
-  color: white;
+  color: #bdbdbd;
   background: transparent;
   resize: none;
   border: none;
