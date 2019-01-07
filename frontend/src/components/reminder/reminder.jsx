@@ -100,41 +100,81 @@ class Reminder extends React.Component {
 
     return (
       <div className="reminder-container">
+
         <div className="email-selector">
-          <FormControlLabel control={<Switch checked={this.state.emailReminder} onChange={this.handleChange("emailReminder")} value="emailReminder" color="primary" />} label="Email" />
+          <FormControlLabel 
+            control={
+              <Switch 
+                checked={this.state.emailReminder} 
+                onChange={this.handleChange("emailReminder")} 
+                value="emailReminder" 
+                color="primary" 
+                />} 
+            label="Email" />
         </div>
+
         <div className="sms-selector">
-          <FormControlLabel control={<Switch checked={this.state.smsReminder} onChange={this.handleChange("smsReminder")} value="smsReminder" color="primary" />} label="Text Message" />
+          <FormControlLabel 
+            control={
+              <Switch 
+                checked={this.state.smsReminder} 
+                onChange={this.handleChange("smsReminder")} 
+                value="smsReminder" 
+                color="primary" 
+              />} 
+            label="Text Message" />
+        </div>
+
+        <div className="day-selector">
+          <form autoComplete="off">
+            <FormControl 
+              variant="outlined" 
+              className={classes.formControl}>
+              <InputLabel ref={ref => {
+                  this.InputLabelRef = ref;
+                }} htmlFor="outlined-age-simple">
+                Day
+              </InputLabel>
+
+              <Select 
+                className="drop" 
+                value={this.state.dayOfWeek} 
+                onChange={this.handleDropFormChange} 
+                input={<OutlinedInput 
+                labelWidth={this.state.labelWidth} 
+                name="dayOfWeek" id="outlined-age-simple" />}>
+      
+                <MenuItem value={0}>Sunday</MenuItem>
+                <MenuItem value={1}>Monday</MenuItem>
+                <MenuItem value={2}>Tuesday</MenuItem>
+                <MenuItem value={3}>Wednesday</MenuItem>
+                <MenuItem value={4}>Thursday</MenuItem>
+                <MenuItem value={5}>Friday</MenuItem>
+                <MenuItem value={6}>Saturday</MenuItem>
+              </Select>
+            </FormControl>
+          </form>
         </div>
 
         <form autoComplete="off">
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel ref={ref => {
-                this.InputLabelRef = ref;
-              }} htmlFor="outlined-age-simple">
-              Day
-            </InputLabel>
-            <Select className="drop" value={this.state.dayOfWeek} onChange={this.handleDropFormChange} input={<OutlinedInput labelWidth={this.state.labelWidth} name="dayOfWeek" id="outlined-age-simple" />}>
-    
-              <MenuItem value={0}>Sunday</MenuItem>
-              <MenuItem value={1}>Monday</MenuItem>
-              <MenuItem value={2}>Tuesday</MenuItem>
-              <MenuItem value={3}>Wednesday</MenuItem>
-              <MenuItem value={4}>Thursday</MenuItem>
-              <MenuItem value={5}>Friday</MenuItem>
-              <MenuItem value={6}>Saturday</MenuItem>
-            </Select>
-          </FormControl>
-        </form>
+          <FormControl 
+            variant="outlined" 
+            className={classes.formControl}>
 
-        <form autoComplete="off">
-          <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel ref={ref => {
                 this.InputLabelRef = ref;
               }} htmlFor="outlined-age-simple">
               Hour
             </InputLabel>
-            <Select className="drop" value={this.state.hour} onChange={this.handleDropFormChange} input={<OutlinedInput labelWidth={this.state.labelWidth} name="dayOfWeek" id="outlined-age-simple" />}>
+            <Select 
+              className="drop" 
+              value={this.state.hour} 
+              onChange={this.handleDropFormChange} 
+              input={
+                <OutlinedInput 
+                  labelWidth={this.state.labelWidth} 
+                  name="dayOfWeek" 
+                  id="outlined-age-simple" />}>
 
               <MenuItem value={0}>1:00 AM</MenuItem>
               <MenuItem value={1}>2:00 AM</MenuItem>
