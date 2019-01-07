@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import keys from '../../special';
 import { withStyles, withTheme} from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
@@ -14,6 +15,10 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+
+var AWS = require('aws-sdk');
+
+var schedule = require('node-schedule');
 
 
 const styles = theme => ({
@@ -85,6 +90,31 @@ class Reminder extends React.Component {
     user.emailReminder = this.state.emailReminder;
     user.smsReminder = this.state.smsReminder;
 
+    var params = {
+      Message: 'Time to update your achievements on Rise 10!',
+      MessageStructure: 'string',
+      PhoneNumber: '+18313453689'
+    };
+
+    var rule = new schedule.RecurrenceRule();
+    rule.minute = 12
+    var j = schedule.scheduleJob(rule, function(){
+      AWS.config.update({
+        accessKeyId: keys.AWS_ACCESS_KEY_ID,
+        secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+        region: keys.AWS_REGION
+      });
+      AWS.config.update({ region: 'us-west-2' });
+      var sns = new AWS.SNS();
+      
+      console.log('begin message send')
+      sns.publish(params, function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else     console.log(data);           // successful response
+      })
+    
+      console.log('complete')
+    });
     this.props.updateUser(user);
   }
 
