@@ -86,7 +86,7 @@ class ProfileElement extends React.Component {
       return (
         <div className="grps-page-wrapper">
           <div className="all-elements-container">
-            <div>
+            <div className="input-background">
               <div className="element-form-wrapper">
                 <form onSubmit={this.handleSubmit}>
                   <div className="element-form">

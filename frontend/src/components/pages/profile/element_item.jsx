@@ -59,23 +59,25 @@ class ElementItem extends React.Component {
   render() {
     return (
       <div className="all-elements-container">
-        <div className="element-form-wrapper">
-          <form onSubmit={this.handleSubmit}>
-            <div className="element-form">
-              <input type="text"
-                value={this.state.title}
-                onChange={this.update('title')}
-                placeholder="Title"
-              />
-              <textarea
-                value={this.state.description}
-                onChange={this.update('description')}
-                placeholder="Description"
-              ></textarea>
-              <input type="submit" value={this.label} />
-            </div>
-          </form>
-          {this.renderMsg()}
+        <div className="input-background">
+          <div className="element-form-wrapper">
+            <form onSubmit={this.handleSubmit}>
+              <div className="element-form">
+                <input type="text"
+                  value={this.state.title}
+                  onChange={this.update('title')}
+                  placeholder="Title"
+                />
+                <textarea
+                  value={this.state.description}
+                  onChange={this.update('description')}
+                  placeholder="Description"
+                ></textarea>
+                <input type="submit" value={this.label} />
+              </div>
+            </form>
+            {this.renderMsg()}
+          </div>
         </div>
       </div>
     );

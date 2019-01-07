@@ -32,3 +32,14 @@
 .all-elements-container {
   width: 100%;
 }
+
+.input-background {
+  padding: 5px;
+  /* color: white; */
+}
+
+.element-form-wrapper > form * {
+  color: white;
+  background: transparent;
+  resize: none;
+}
