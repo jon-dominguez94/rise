@@ -1,16 +1,16 @@
 import React from 'react';
 
-class SingleGoal extends React.Component {
+class SingleRole extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: this.props.goal.id,
-      title: props.goal.title,
-      description: props.goal.description,
+      id: this.props.role.id,
+      title: props.role.title,
+      description: props.role.description,
       msg: ''
     };
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -24,18 +24,18 @@ class SingleGoal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let newGoal = Object.assign({}, this.props.goal, this.state);
-    this.props.updateGoal(newGoal)
+    let newRole = Object.assign({}, this.props.role, this.state);
+    this.props.updateRole(newRole)
       .then(res => {
         if (res.errors === undefined) {
-          this.setState({msg: 'Successful'});
+          this.setState({ msg: 'Successful' });
         } else {
-          this.setState({msg: 'Please correct errors listed below'});
+          this.setState({ msg: 'Please correct errors listed below' });
         }
       })
       .then(() => {
         setTimeout(() => {
-          this.setState({msg: ''})
+          this.setState({ msg: '' })
         }, 1500);
       });
   }
@@ -56,10 +56,10 @@ class SingleGoal extends React.Component {
 
   render() {
     return (
-      <div className="all-goals-container">
-        <div className="goal-form-wrapper">
+      <div className="all-roles-container">
+        <div className="role-form-wrapper">
           <form onSubmit={this.handleSubmit}>
-            <div className="goal-form">
+            <div className="role-form">
               <input type="text"
                 value={this.state.title}
                 onChange={this.update('title')}
@@ -70,7 +70,7 @@ class SingleGoal extends React.Component {
                 onChange={this.update('description')}
                 placeholder="Description"
               ></textarea>
-              <input type="submit" value="Update Goal" />
+              <input type="submit" value="UpdateRole" />
             </div>
           </form>
           {this.renderMsg()}
@@ -80,4 +80,4 @@ class SingleGoal extends React.Component {
   }
 }
 
-export default SingleGoal;
+export default SingleRole;
