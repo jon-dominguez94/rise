@@ -14,6 +14,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 const styles = theme => ({
@@ -99,6 +100,7 @@ class Reminder extends React.Component {
     const { classes } = this.props;
 
     return (
+    
       <div className="reminder-container">
 
         <div className="email-selector">
@@ -217,6 +219,7 @@ class Reminder extends React.Component {
           </Button>
         </div>
       </div>
+
     );
   }
 }
