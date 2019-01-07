@@ -1,0 +1,20 @@
+.report-link {
+  padding: 19px 0;
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.report-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.report-input-field::placeholder {
+  color: gray;
+}
+
+.report-input-field {
+  padding-left: 15px;
+}

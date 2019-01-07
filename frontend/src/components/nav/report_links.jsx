@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleReportLink from './single_report_links';
+import '../../css/report_links.css';
 
 class ReportLinks extends React.Component {
   constructor(props) {
@@ -49,11 +50,14 @@ class ReportLinks extends React.Component {
   render() {
     return (
       <div className="navbar-links">
+      <div className="report-links">
         <span className="bar-link user-greet">{this.props.user.fname}'s Reports</span>
+      </div>
         <hr />
-        <form onSubmit={this.handleSubmit}>
+        <div className="report-links">
+        <form className="new-report-form" onSubmit={this.handleSubmit}>
           <div className="grp-form">
-            <input type="text"
+            <input className="report-input-field" type="text"
               value={this.state.week}
               onChange={this.update('week')}
               placeholder="Week Number"
@@ -61,6 +65,7 @@ class ReportLinks extends React.Component {
             <input type="submit" value="Create Report" />
           </div>
         </form>
+        </div>
         {this.state.reports.map(report => (
           <SingleReportLink key={report._id} report={report}/>
         ))}
