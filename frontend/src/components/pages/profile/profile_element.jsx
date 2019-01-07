@@ -86,22 +86,24 @@ class ProfileElement extends React.Component {
       return (
         <div className="grps-page-wrapper">
           <div className="all-elements-container">
-            <div className="element-form-wrapper">
-              <form onSubmit={this.handleSubmit}>
-                <div className="element-form">
-                  <input type="text"
-                    value={this.state.title}
-                    onChange={this.update('title')}
-                    placeholder="Title"
-                  />
-                  <textarea
-                    value={this.state.description}
-                    onChange={this.update('description')}
-                    placeholder="Description"
-                  ></textarea>
-                  <input type="submit" value={this.label} />
-                </div>
-              </form>
+            <div>
+              <div className="element-form-wrapper">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="element-form">
+                    <input type="text"
+                      value={this.state.title}
+                      onChange={this.update('title')}
+                      placeholder="Title"
+                    />
+                    <textarea
+                      value={this.state.description}
+                      onChange={this.update('description')}
+                      placeholder="Description"
+                    ></textarea>
+                    <input type="submit" value={this.label} />
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
           {this.state.elements.map(element => (

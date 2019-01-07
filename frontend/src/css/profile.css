@@ -12,6 +12,12 @@
   border-radius: 3px;
 }
 
+.ib {
+  /* display: inline-block; */
+  width: 230px;
+  position: relative;
+}
+
 .grps-page-wrapper, .element-form {
   position: relative;
   display: flex;
@@ -20,10 +26,9 @@
 
 .grps-page-wrapper {
   align-items: center;
+  padding: 100px;
 }
 
-.ib {
-  /* display: inline-block; */
-  width: 230px;
-  position: relative;
+.all-elements-container {
+  width: 100%;
 }
