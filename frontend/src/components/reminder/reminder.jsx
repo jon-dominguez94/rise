@@ -28,9 +28,6 @@ const styles = theme => ({
   selectEmpty: {
     marginTop: theme.spacing.unit * 2
   },
-  button: {
-    color: 'white'
-  }
 });
 
 class Reminder extends React.Component {
@@ -101,10 +98,12 @@ class Reminder extends React.Component {
 
     const { classes } = this.props;
 
-    return <div className="reminder-container">
-        <FormControlLabel control={<Switch checked={this.state.emailReminder} onChange={this.handleChange("emailReminder")} value="emailReminder" color="primary" />} label="Email" />
-
-        <div className="email-text-selector">
+    return (
+      <div className="reminder-container">
+        <div className="email-selector">
+          <FormControlLabel control={<Switch checked={this.state.emailReminder} onChange={this.handleChange("emailReminder")} value="emailReminder" color="primary" />} label="Email" />
+        </div>
+        <div className="sms-selector">
           <FormControlLabel control={<Switch checked={this.state.smsReminder} onChange={this.handleChange("smsReminder")} value="smsReminder" color="primary" />} label="Text Message" />
         </div>
 
@@ -116,9 +115,7 @@ class Reminder extends React.Component {
               Day
             </InputLabel>
             <Select className="drop" value={this.state.dayOfWeek} onChange={this.handleDropFormChange} input={<OutlinedInput labelWidth={this.state.labelWidth} name="dayOfWeek" id="outlined-age-simple" />}>
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
+    
               <MenuItem value={0}>Sunday</MenuItem>
               <MenuItem value={1}>Monday</MenuItem>
               <MenuItem value={2}>Tuesday</MenuItem>
@@ -138,9 +135,7 @@ class Reminder extends React.Component {
               Hour
             </InputLabel>
             <Select className="drop" value={this.state.hour} onChange={this.handleDropFormChange} input={<OutlinedInput labelWidth={this.state.labelWidth} name="dayOfWeek" id="outlined-age-simple" />}>
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
+
               <MenuItem value={0}>1:00 AM</MenuItem>
               <MenuItem value={1}>2:00 AM</MenuItem>
               <MenuItem value={2}>3:00 AM</MenuItem>
@@ -174,7 +169,8 @@ class Reminder extends React.Component {
             Save Preferences
           </Button>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
