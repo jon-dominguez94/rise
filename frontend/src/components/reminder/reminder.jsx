@@ -90,31 +90,40 @@ class Reminder extends React.Component {
     user.emailReminder = this.state.emailReminder;
     user.smsReminder = this.state.smsReminder;
 
+    let oldPhone = this.props.user.phone
+    let newNumber = "+1" + oldPhone.slice(0,3) + oldPhone.slice(4,7) + oldPhone.slice(8,12)
+
     var params = {
-      Message: 'Time to update your achievements on Rise 10!',
+      Message: 'Time to update your achievements on Rise!',
       MessageStructure: 'string',
-      PhoneNumber: '+18313453689'
+      PhoneNumber: newNumber
     };
 
+
     var rule = new schedule.RecurrenceRule();
-    rule.minute = 12
-    var j = schedule.scheduleJob(rule, function(){
-      AWS.config.update({
-        accessKeyId: keys.AWS_ACCESS_KEY_ID,
-        secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
-        region: keys.AWS_REGION
-      });
-      AWS.config.update({ region: 'us-west-2' });
-      var sns = new AWS.SNS();
+    rule.minute = 0
+    rule.dayOfWeek = this.state.dayOfWeek
+    rule.hour = this.state.hour
+
+    if (this.state.smsReminder){
+      var j = schedule.scheduleJob(rule, function(){
+        AWS.config.update({
+          accessKeyId: keys.AWS_ACCESS_KEY_ID,
+          secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+          region: keys.AWS_REGION
+        });
+        AWS.config.update({ region: 'us-west-2' });
+        var sns = new AWS.SNS();
+        
+        console.log('begin message send')
+        sns.publish(params, function(err, data) {
+          if (err) console.log(err, err.stack); // an error occurred
+          else     console.log(data);           // successful response
+        })
       
-      console.log('begin message send')
-      sns.publish(params, function(err, data) {
-        if (err) console.log(err, err.stack); // an error occurred
-        else     console.log(data);           // successful response
-      })
-    
-      console.log('complete')
-    });
+        console.log('complete')
+      });
+    }
     this.props.updateUser(user);
   }
 
