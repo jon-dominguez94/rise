@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { fetchUserRoles, updateRole, composeRole } from '../../../actions/role_actions';
-import RolesPage from "./roles_page";
-import ProfileElement from "../profile/profile_element";
+import ProfileElement from "./profile_element";
 
 const mstp = state => {
   return {

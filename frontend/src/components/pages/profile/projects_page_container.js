@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUserProjects, updateProject, composeProject } from '../../../actions/project_actions';
-import ProjectsPage from './projects_page';
-import ProfileElement from "../profile/profile_element";
+import ProfileElement from "./profile_element";
 
 const mstp = state => {
   return {

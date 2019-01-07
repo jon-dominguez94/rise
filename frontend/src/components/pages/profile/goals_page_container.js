@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUserGoals, updateGoal, composeGoal } from '../../../actions/goal_actions';
-import GoalsPage from './goals_page';
-import ProfileElement from '../profile/profile_element';
+import ProfileElement from './profile_element';
 
 const mstp = state => {
   return {

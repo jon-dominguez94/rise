@@ -9,9 +9,9 @@ import SignupFormContainer from './session/signup_form_container';
 
 import MainPage from './main/main_page';
 import ProfilePageContainer from '../components/pages/profile/profile_page_container';
-import GoalsPageContainer from '../components/pages/goals/goals_page_container';
-import RolesPageContainer from '../components/pages/roles/roles_page_container';
-import ProjectsPageContainer from '../components/pages/projects/projects_page_container';
+import GoalsPageContainer from './pages/profile/goals_page_container';
+import RolesPageContainer from './pages/profile/roles_page_container';
+import ProjectsPageContainer from './pages/profile/projects_page_container';
 import ProfileSplashPage from './pages/profile/profile_splash_page';
 import ReportsSplashPage from '../components/pages/reports/reports_page_container';
 
