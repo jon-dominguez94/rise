@@ -24,7 +24,7 @@ class ReportLinks extends React.Component {
   render() {
     return (
       <div className="navbar-links">
-        <span className="bar-link user-greet">Hello, {this.props.user.fname}!</span>
+        <span className="bar-link user-greet">{this.props.user.fname}'s Reports</span>
         <hr />
         {this.props.reports.map(report => (
           <SingleReportLink key={report._id} report={report}/>

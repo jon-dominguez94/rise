@@ -39,7 +39,6 @@ const App = () => (
         <ProtectedRoute exact path="/profile/goals" component={GoalsPageContainer} />
         <ProtectedRoute exact path="/profile/roles" component={RolesPageContainer} />
         <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
-        <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
         <ProtectedRoute path="/reports/:id" component={ReportPage} />
 
         <ProtectedRoute exact path="/reports/new_entry" component={NewEntryContainer} />
