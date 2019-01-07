@@ -14,18 +14,18 @@ const EntrySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'users'
     },
-    // goal: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'goals'
-    // },
-    // role: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'roles'
-    // },
-    // report: {
-    //     type: Schema.Types.ObjectId, 
-    //     ref: 'reports'
-    // },
+    goal: {
+        type: Schema.Types.ObjectId,
+        ref: 'goals'
+    },
+    role: {
+        type: Schema.Types.ObjectId,
+        ref: 'roles'
+    },
+    report: {
+        type: Schema.Types.ObjectId, 
+        ref: 'reports'
+    },
     date: {
         type: Date,
         default: Date.now
