@@ -76,15 +76,15 @@ class GoalsPage extends React.Component{
   render() {
     if(this.state.goals.length === 0){
       return (
-        <div className="no-goals"></div>
+        <div className="no-grps"></div>
       );
     }
     else {
       return (
-        <div className="goals-page-wrapper">
-          <div className="goal-form-wrapper">
+        <div className="grps-page-wrapper">
+          <div className="grp-form-wrapper">
             <form onSubmit={this.handleSubmit}>
-              <div className="goal-form">
+              <div className="grp-form">
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
