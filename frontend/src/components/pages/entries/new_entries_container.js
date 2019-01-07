@@ -4,10 +4,11 @@ import { withRouter } from 'react-router-dom';
 
 
 const mapStateToProps = (state) => {
-    debugger
+    let reportId = ownProps.match.params.id;
+
     return {
-        // userId: state.session.user.userId,
-        newEntry: state.entries.new
+        user: state.session.user,
+        report: state.entities.reports[reportId]
     };
 };
 
