@@ -3,7 +3,8 @@ import { fetchUserReports } from '../../actions/report_actions';
 import ReportLinks from "./report_links";
 
 const mstp = state => ({
-  user: state.session.user
+  user: state.session.user,
+  reports: Object.values(state.reports)
 });
 
 const mdtp = dispatch => {
