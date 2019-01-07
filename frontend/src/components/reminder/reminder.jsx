@@ -205,7 +205,12 @@ class Reminder extends React.Component {
         </form>
 
         <div className="update-preferences-button">
-          <Button variant="contained" onClick={this.handleSubmit} color="primary" className={classes.button}>
+          <Button 
+            variant="contained" 
+            onClick={this.handleSubmit} 
+            color="primary" 
+            className={classes.button}
+          >
             Save Preferences
           </Button>
         </div>
