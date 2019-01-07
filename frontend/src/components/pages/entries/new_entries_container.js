@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createEntry } from '../../../actions/entry_actions';
+import { fetchUserGoals } from '../../../actions/goal_actions';
 import { withRouter } from 'react-router-dom';
 
 
@@ -14,7 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createEntry: data => dispatch(createEntry(data))
+        createEntry: data => dispatch(createEntry(data)),
+        fetchUserGoals: id => dispatch(fetchUserGoals(id))
     };
 };
 
