@@ -51,3 +51,10 @@
   outline: none;
   font-size: 14px;
 }
+
+.el-label {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #5c5edc;
+}
