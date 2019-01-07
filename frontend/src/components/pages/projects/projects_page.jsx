@@ -1,15 +1,15 @@
 import React from 'react';
-import SingleRole from './single_role';
+import SingleProject from './single_project';
 import '../../../css/profile.css';
 
-class RolesPage extends React.Component {
+class ProjectsPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       title: '',
       description: '',
-      roles: [],
+      projects: [],
       errors: {}
     };
 
@@ -17,13 +17,13 @@ class RolesPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchUserRoles(this.props.user.id);
+    this.props.fetchUserProjects(this.props.user.id);
   }
 
   componentWillReceiveProps(newState) {
     // console.log(newState);
     this.setState({
-      roles: newState.roles,
+      projects: newState.projects,
       errors: newState.errors
     });
   }
@@ -36,11 +36,11 @@ class RolesPage extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let newRole = {
+    let newProject = {
       title: this.state.title,
       description: this.state.description
     };
-    this.props.composeRole(newRole)
+    this.props.composeProject(newProject)
       // .then(res => console.log(res.errors));
       .then(res => {
         if (res.errors === undefined) {
@@ -74,17 +74,17 @@ class RolesPage extends React.Component {
   }
 
   render() {
-    if (this.state.roles === undefined) {
+    if (this.state.projects === undefined) {
       return (
-        <div className="no-roles"></div>
+        <div className="no-grps"></div>
       );
     }
     else {
       return (
-        <div className="roles-page-wrapper">
-          <div className="role-form-wrapper">
+        <div className="grps-page-wrapper">
+          <div className="grp-form-wrapper">
             <form onSubmit={this.handleSubmit}>
-              <div className="role-form">
+              <div className="grp-form">
                 <input type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
@@ -95,12 +95,12 @@ class RolesPage extends React.Component {
                   onChange={this.update('description')}
                   placeholder="Description"
                 ></textarea>
-                <input type="submit" value="Create Role" />
+                <input type="submit" value="Create Project" />
               </div>
             </form>
           </div>
-          {this.state.roles.map(role => (
-            <SingleRole key={role._id} role={role} updateRole={this.props.updateRole} />
+          {this.state.projects.map(project => (
+            <SingleProject key={project._id} project={project} updateProject={this.props.updateProject} />
           ))}
           {this.renderErrors()}
         </div>
@@ -109,4 +109,4 @@ class RolesPage extends React.Component {
   }
 }
 
-export default RolesPage;
+export default ProjectsPage;

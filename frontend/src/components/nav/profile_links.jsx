@@ -8,6 +8,9 @@ const HomeLinks = props => (
     {/* <NavLink className="bar-link" to={"/profile"} activeClassName="selected">
       Profile
     </NavLink> */}
+    <NavLink className="bar-link" to={"/profile/projects"} activeClassName="selected">
+      Projects
+    </NavLink>
     <NavLink className="bar-link" to={"/profile/goals"} activeClassName="selected">
       Goals
     </NavLink>
