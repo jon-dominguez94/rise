@@ -8,6 +8,9 @@ const ReportsReducer = (state = {}, action) => {
       return action.reports.data;
     case RECEIVE_REPORT:
     case RECEIVE_NEW_REPORT:
+      const report = action.report.data;
+      const reportObject = { [report._id]: report };
+      return merge({}, state, reportObject);
     default:
       return state;
   }
