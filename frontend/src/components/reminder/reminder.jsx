@@ -151,7 +151,6 @@ class Reminder extends React.Component {
 
   handleTest(e) {
     e.preventDefault()
-    debugger
     if (this.state.emailReminder) {
       const email = new Email(this.props.user.email)
       console.log('begin email message')
