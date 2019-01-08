@@ -8,6 +8,9 @@ class ReportsPage extends React.Component {
 
   componentWillMount() {
     this.props.fetchUserEntries(this.props.user.id);
+    this.props.fetchUserProjects(this.props.user.id);
+    this.props.fetchUserRoles(this.props.user.id);
+    this.props.fetchUserReports(this.props.user.id)
   }
 
   render() {
