@@ -4,7 +4,10 @@ export const writeEntry = data => {
     return axios.post('/api/entries', data)
 };
 
-export const getReportEntries = id => {
-    return axios.get(`/api/entries/reports/${id}`)
+export const getUserEntries = id => {
+    return axios({
+        method: 'get',
+        url: `/api/entries/user/${id}`
+    });
 };
 

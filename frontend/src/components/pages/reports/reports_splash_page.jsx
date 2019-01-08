@@ -3,7 +3,7 @@ import settingsLogo from '../../../profile.png';
 import '../../../css/settings.css';
 
 export default function profile_splash_page() {
-  debugger
+  
   return (
     <div className="settings-logo-container">
       <img className="settings-logo" src={settingsLogo} alt="" />
