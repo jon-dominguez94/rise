@@ -145,7 +145,16 @@ class SignupForm extends React.Component {
                 />
               </div>
               <div className="session-input-area">
-                <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+                <TextField
+                  id="outlined-name"
+                  label="Password"
+                  className={classes.textField}
+                  onChange={this.update("password")}
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.password}
+                  type="password"
+                />
               </div>
               <div className="session-input-area">
                 <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
