@@ -64,7 +64,7 @@ class ReportLinks extends React.Component {
         {/* <div className="username-reports">Reports</div> */}
         </span>
       </div>
-        <hr />
+        {/* <hr /> */}
         <div className="reports">
         <div className="report-links">
         <form className="new-report-form" onSubmit={this.handleSubmit}>
