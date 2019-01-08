@@ -63,7 +63,7 @@ router.post('/register', (req, res) => {
           newUser.save()
           .then(user => {
             res.json(user)
-            
+            console.log("Send verification email");
             var params = {
               EmailAddress: req.body.email,
               // TemplateName: "RiseEmailTemplate"
