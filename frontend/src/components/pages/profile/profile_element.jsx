@@ -107,7 +107,7 @@ class ProfileElement extends React.Component {
     } else {
       return (
         <div className="grps-page-wrapper">
-          <div className="all-elements-container">
+          <div className="all-elements-container new-element">
             <div className="el-label">New {this.props.label}</div>
             <div className="input-background">
               <div className="element-form-wrapper">

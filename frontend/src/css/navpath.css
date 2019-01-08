@@ -1,0 +1,24 @@
+.navpath-wrapper {
+  width: 100%;
+  display: flex;
+  margin: 20px 0;
+}
+
+.link-arrow {
+  margin-left: 5px;
+}
+
+.path-link {
+  margin-left: 5px;
+}
+
+.link-wrapper {
+  color: rgb(255, 192, 34);
+  font-size: 12px;
+  text-transform: capitalize;
+  /* display: flex; */
+}
+
+.outside-navpath {
+  width: 100%;
+}

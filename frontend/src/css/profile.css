@@ -45,15 +45,23 @@
 
 .all-elements-container {
   align-items: center;
+  width: 100%;
 }
 
 .grps-page-wrapper {
   align-items: center;
   padding: 100px 150px;
+  /* height: 100vh; */
 }
 
 .all-elements-container {
+}
+
+.other-elems-container {
   width: 100%;
+  /* position: static; */
+  height: 75%;
+  overflow: scroll;
 }
 
 .input-background {
@@ -62,6 +70,10 @@
   width: 100%;
   background: #1c1d22;
   border-radius: 3px;
+}
+
+.new-element {
+  margin-bottom: 30px;
 }
 
 .element-form-wrapper > form * {
