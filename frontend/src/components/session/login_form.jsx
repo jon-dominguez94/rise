@@ -44,9 +44,9 @@ class LoginForm extends React.Component {
   }
 
 
-  // componentDidMount() {
-  //   console.log('login mounted');
-  // }
+  componentDidMount() {
+    this.props.clearErrors();
+  }
 
   componentWillReceiveProps(nextProps){
     if(nextProps.currentUser === true){
