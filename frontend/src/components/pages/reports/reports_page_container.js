@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ReportsPage from "./reports_page";
-import { fetchReport } from "../../../actions/report_actions";
+import { fetchReport, fetchUserReports } from "../../../actions/report_actions";
 
 const mstp = (state, ownProps) => {
   const report = state.reports[ownProps.match.params.id];
