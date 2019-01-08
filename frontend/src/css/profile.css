@@ -11,7 +11,9 @@
 }
 
 .on-element {
-  margin: 5px;
+  margin: 0;
+  /* top: -5px; */
+  padding: 11px 25px;
 }
 
 .ib {

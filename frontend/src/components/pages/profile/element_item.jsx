@@ -32,6 +32,7 @@ class ElementItem extends React.Component {
       .then(res => {
         if (res.errors === undefined) {
           this.setState({ msg: 'Success' });
+          document.getElementById(`desc-${this.state.id}`).classList.add('hidden');
         } else {
           this.setState({ msg: 'Please correct errors listed below' });
         }
@@ -58,7 +59,7 @@ class ElementItem extends React.Component {
   }
 
   revealDesc() {
-    document.getElementById(`desc-${this.state.id}`).classList.toggle('hidden');
+    document.getElementById(`desc-${this.state.id}`).classList.remove('hidden');
   }
 
   render() {
