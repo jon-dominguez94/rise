@@ -5,6 +5,9 @@ export const writeEntry = data => {
 };
 
 export const getUserEntries = id => {
-    return axios.get(`/api/entries/user/${id}`)
+    return axios({
+        method: 'get',
+        url: `/api/entries/user/${id}`
+    });
 };
 

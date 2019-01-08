@@ -7,12 +7,25 @@ class ReportsPage extends React.Component {
 
   componentWillMount() {
     this.props.fetchReport(this.props.match.params.id);
+    this.props.fetchUserEntries(this.props.user.id);
   }
 
   render() {
-    // if (this.props.report == undefined) return <div></div>
+    if (this.props.report === undefined || this.props.entries === undefined) return <div></div>
+    // debugger
     return (
-      <div></div>
+      <div>
+
+
+        {this.props.entries.map(entry => {
+          return (
+            <div key={entry.id}>
+              {entry.description}
+            </div>
+          )
+        })}
+      
+      </div>
       // <div>{this.props.report.week}</div>
     );
   }

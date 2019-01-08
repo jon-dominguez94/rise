@@ -1,7 +1,7 @@
 import { writeEntry, getUserEntries } from '../util/entry_api_util';
 
 export const RECEIVE_NEW_ENTRY = "RECEIVE_NEW_ENTRY";
-export const RECEIVE_ENTRIES = "RECEIVE_REPORT_ENTRIES";
+export const RECEIVE_ENTRIES = "RECEIVE_ENTRIES";
 
 export const receiveUserEntries = entries => ({
     type: RECEIVE_ENTRIES,
