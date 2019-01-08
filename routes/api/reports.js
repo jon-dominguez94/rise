@@ -7,7 +7,9 @@ const Report = require('../../models/Report');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the reports route" }));
 
-router.get('/user/:user_id', (req, res) => {
+router.get('/user/:user_id',
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
   Report.find({ user: req.params.user_id })
     .sort({ date: -1 })
     .then(reports => {

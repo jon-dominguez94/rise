@@ -5,6 +5,11 @@ class ReportsPage extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    // debugger
+    // this.props.fetchReport(this.props.match.params.id);
+  }
+
   render() {
     return (
       <div>ENTRIES GO HERE</div>
