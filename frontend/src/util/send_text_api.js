@@ -1,7 +1,8 @@
 var AWS = require('aws-sdk');
 var schedule = require('node-schedule');
 require('dotenv').config({path: '/Users/tckw00/Desktop/rise/frontend/.env'})
-import keys from '../special'
+// import keys from '../special'
+const keys = require('../config/keys');
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -34,7 +35,7 @@ var params = {
 var rule = new schedule.RecurrenceRule();
 // rule.dayOfWeek = 0
 // rule.hour = 13;
-rule.minute = 37;
+rule.minute = 9;
 
 const timedText = () => (sns.publish(params));
  
@@ -46,12 +47,12 @@ const timedText = () => (sns.publish(params));
 var j = schedule.scheduleJob(rule, function(){
 
   AWS.config.update({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION
+    accessKeyId: keys.AWS_ACCESS_KEY_ID,
+    secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+    region: keys.AWS_REGION
   });
   var sns = new AWS.SNS();
-
+  console.log('begin text')
   sns.publish(params, function(err, data) {
     if (err) console.log(err, err.stack); // an error occurred
     else     console.log(data);           // successful response
@@ -60,44 +61,44 @@ var j = schedule.scheduleJob(rule, function(){
   console.log('complete')
 });
 
-class SendText {
-  constructor(phoneNumber, dayOfWeek, hour){
-    this.phoneNumber = phoneNumber
-    this.dayOfWeek = dayOfWeek
-    this.hour = hour
-  }
+// class SendText {
+//   constructor(phoneNumber, dayOfWeek, hour){
+//     this.phoneNumber = phoneNumber
+//     this.dayOfWeek = dayOfWeek
+//     this.hour = hour
+//   }
 
-  message(){
-    params = {
-      Message: 'Time to update your achievements on Rise 10!',
-      MessageStructure: 'string',
-      PhoneNumber: '+18313453689'
-    };
+//   message(){
+//     params = {
+//       Message: 'Time to update your achievements on Rise 10!',
+//       MessageStructure: 'string',
+//       PhoneNumber: '+18313453689'
+//     };
   
-    rule = new schedule.RecurrenceRule();
-    rule.hour = this.hour
-    rule.dayOfWeek
+//     rule = new schedule.RecurrenceRule();
+//     rule.hour = this.hour
+//     rule.dayOfWeek
   
-    j = schedule.scheduleJob(rule, function(){
-      AWS.config.update({
-        accessKeyId: keys.AWS_ACCESS_KEY_ID,
-        secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
-        region: keys.AWS_REGION
-      });
-      AWS.config.update({ region: 'us-west-2' });
-      var sns = new AWS.SNS();
+//     j = schedule.scheduleJob(rule, function(){
+//       AWS.config.update({
+//         accessKeyId: keys.AWS_ACCESS_KEY_ID,
+//         secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+//         region: keys.AWS_REGION
+//       });
+//       AWS.config.update({ region: 'us-west-2' });
+//       var sns = new AWS.SNS();
       
-      console.log('begin message send')
-      sns.publish(params, function(err, data) {
-        if (err) console.log(err, err.stack); // an error occurred
-        else     console.log(data);           // successful response
-      })
+//       console.log('begin message send')
+//       sns.publish(params, function(err, data) {
+//         if (err) console.log(err, err.stack); // an error occurred
+//         else     console.log(data);           // successful response
+//       })
     
-      console.log('complete')
-    }
-  }
-}
-export default SendText;
+//       console.log('complete')
+//     }
+//   }
+// }
+// export default SendText;
 
 // j.cancel();
 
