@@ -66,8 +66,8 @@ div[class^="session-form"] {
 }
 
 .on-login {
-  left: 0%;
-  width: 100%;
+  left: 7.5%;
+  width: 85%;
 }
 
 .errors-list {
