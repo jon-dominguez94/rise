@@ -134,7 +134,15 @@ class SignupForm extends React.Component {
                 />
               </div>
               <div className="session-input-area">
-                <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
+                <TextField
+                  id="outlined-name"
+                  label="Email"
+                  className={classes.textField}
+                  onChange={this.update("email")}
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.email}
+                />
               </div>
               <div className="session-input-area">
                 <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
