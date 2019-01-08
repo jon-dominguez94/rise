@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../css/report_page.css';
-
+import { NavLink } from 'react-router-dom';
 class ReportsPage extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +57,9 @@ class ReportsPage extends React.Component {
           )
         })}
         </div>
-
+        
+        
+        <NavLink to={`/reports/${this.props.report._id}/new_entry`}>Create New Entry</NavLink>
       </div>
     );
   }
