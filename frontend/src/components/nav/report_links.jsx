@@ -73,7 +73,7 @@ class ReportLinks extends React.Component {
               onChange={this.update('week')}
               placeholder="Week Number"
             /> */}
-            <input type="submit" value="New Report" />
+            <input className="new-report-button" type="submit" value="New Report" />
           </div>
         </form>
         <br />

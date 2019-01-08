@@ -57,3 +57,27 @@
 .r {
   width: 100%;
 }
+
+.new-report-button {
+  font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 30px;
+  color: white;
+  background-color: #5c5edc;
+  border-color: #5c5edc;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  transition: transform .3s ease-in-out, background-color .2s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.new-report-button:hover {
+  transform: translate3d(0px, -1px, 0px);
+  background: #393a8b;
+  cursor: pointer;
+  /* box-shadow: 0px 2px 2px .1px rgb(207, 207, 207); */
+}
