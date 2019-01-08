@@ -119,22 +119,21 @@ class Reminder extends React.Component {
 
 
     var rule = new schedule.RecurrenceRule();
-    rule.minute = 55
+    rule.minute = 0
     rule.dayOfWeek = this.state.dayOfWeek
     rule.hour = this.state.hour
 
     if (this.state.smsReminder){
-      console.log('begin text message')
+      console.log('text scheduled')
       var j = schedule.scheduleJob(rule, function(){
+
         AWS.config.update({
           accessKeyId: keys.AWS_ACCESS_KEY_ID,
           secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
           region: keys.AWS_REGION
         });
-        AWS.config.update({ region: 'us-west-2' });
         var sns = new AWS.SNS();
-        
-        console.log('begin message send')
+        console.log('begin text')
         sns.publish(params, function(err, data) {
           if (err) console.log(err, err.stack); // an error occurred
           else     console.log(data);           // successful response
@@ -290,30 +289,30 @@ class Reminder extends React.Component {
                 labelStyle={{ color: '#ff0000' }}
               >
 
-                <MenuItem value={0}>1:00 AM</MenuItem>
-                <MenuItem value={1}>2:00 AM</MenuItem>
-                <MenuItem value={2}>3:00 AM</MenuItem>
-                <MenuItem value={3}>4:00 AM</MenuItem>
-                <MenuItem value={4}>5:00 AM</MenuItem>
-                <MenuItem value={5}>6:00 AM</MenuItem>
-                <MenuItem value={6}>7:00 AM</MenuItem>
-                <MenuItem value={7}>8:00 AM</MenuItem>
-                <MenuItem value={8}>9:00 AM</MenuItem>
-                <MenuItem value={9}>10:00 AM</MenuItem>
-                <MenuItem value={10}>11:00 AM</MenuItem>
-                <MenuItem value={11}>12:00 PM</MenuItem>
-                <MenuItem value={12}>1:00 PM</MenuItem>
-                <MenuItem value={13}>2:00 PM</MenuItem>
-                <MenuItem value={14}>3:00 PM</MenuItem>
-                <MenuItem value={15}>4:00 PM</MenuItem>
-                <MenuItem value={16}>5:00 PM</MenuItem>
-                <MenuItem value={17}>6:00 PM</MenuItem>
-                <MenuItem value={18}>7:00 PM</MenuItem>
-                <MenuItem value={19}>8:00 PM</MenuItem>
-                <MenuItem value={20}>9:00 PM</MenuItem>
-                <MenuItem value={21}>10:00 PM</MenuItem>
-                <MenuItem value={22}>11:00 PM</MenuItem>
-                <MenuItem value={23}>12:00 PM</MenuItem>
+                <MenuItem value={1}>1:00 AM</MenuItem>
+                <MenuItem value={2}>2:00 AM</MenuItem>
+                <MenuItem value={3}>3:00 AM</MenuItem>
+                <MenuItem value={4}>4:00 AM</MenuItem>
+                <MenuItem value={5}>5:00 AM</MenuItem>
+                <MenuItem value={6}>6:00 AM</MenuItem>
+                <MenuItem value={7}>7:00 AM</MenuItem>
+                <MenuItem value={8}>8:00 AM</MenuItem>
+                <MenuItem value={9}>9:00 AM</MenuItem>
+                <MenuItem value={10}>10:00 AM</MenuItem>
+                <MenuItem value={11}>11:00 AM</MenuItem>
+                <MenuItem value={12}>12:00 PM</MenuItem>
+                <MenuItem value={13}>1:00 PM</MenuItem>
+                <MenuItem value={14}>2:00 PM</MenuItem>
+                <MenuItem value={15}>3:00 PM</MenuItem>
+                <MenuItem value={16}>4:00 PM</MenuItem>
+                <MenuItem value={17}>5:00 PM</MenuItem>
+                <MenuItem value={18}>6:00 PM</MenuItem>
+                <MenuItem value={19}>7:00 PM</MenuItem>
+                <MenuItem value={20}>8:00 PM</MenuItem>
+                <MenuItem value={21}>9:00 PM</MenuItem>
+                <MenuItem value={22}>10:00 PM</MenuItem>
+                <MenuItem value={23}>11:00 PM</MenuItem>
+                <MenuItem value={0}>12:00 AM</MenuItem>
               </Select>
             </FormControl>
           </form>
