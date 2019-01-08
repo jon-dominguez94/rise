@@ -7,7 +7,6 @@ class ReportsPage extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchReport(this.props.match.params.id);
     this.props.fetchUserEntries(this.props.user.id);
   }
 
