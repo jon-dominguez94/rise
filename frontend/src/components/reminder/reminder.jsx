@@ -16,7 +16,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 
-const keys = require('../../../../config/keys')
+const keys = require('../../config/keys')
 
 var AWS = require('aws-sdk');
 
