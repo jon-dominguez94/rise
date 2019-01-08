@@ -18,7 +18,6 @@ router.get(
                     entriesObject[entry._id] = entry;
                 });
                 res.json(entriesObject);
-                // res.json(goals);
             })
             .catch(err => res.status(404).json({ nogoalsfound: "No entries found" }));
     }
