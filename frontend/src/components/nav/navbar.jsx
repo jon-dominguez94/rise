@@ -24,6 +24,7 @@ class Navbar extends React.Component {
         <Switch>
           <Route exact path={'/home'} component={HomeLinksContainer}/>
           <Route path={'/profile'} component={ProfileLinksContainer}/>
+          <Route path={'/reminders'} component={ProfileLinksContainer}/>
           <Route path={'/reports'} component={ReportLinksContainer} />
         </Switch>
       );
