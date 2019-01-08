@@ -10,10 +10,10 @@ class ReportsPage extends React.Component {
   }
 
   render() {
-    debugger
-    if (this.props.report == undefined) return <div></div>
+    // if (this.props.report == undefined) return <div></div>
     return (
-      <div>{this.props.report.week}</div>
+      <div></div>
+      // <div>{this.props.report.week}</div>
     );
   }
 }

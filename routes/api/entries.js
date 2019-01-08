@@ -6,17 +6,23 @@ const passport = require('passport');
 const Entry = require('../../models/Entry');
 
 
-// router.get("/test", (req, res) => res.json({ msg: "This is the entry test route" }));
-
-router.get('/report/:report_id', (req, res) => {
-    passport.authenticate('jwt', { session: false }),
-    Entry.find({ report: req.params.report_id })
-        .then(entries => res.json(entries))
-        .catch(err =>
-            res.status(404).json({ noentriesfound: 'No entries found from that report' }
-            )
-        );
-});
+router.get(
+    "/user/:user_id",
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+        Entry.find({ user: req.params.user_id })
+            .sort({ date: -1 })
+            .then(entries => {
+                entriesObject = {};
+                entries.forEach(entry => {
+                    entriesObject[entry._id] = entry;
+                });
+                res.json(entriesObject);
+                // res.json(goals);
+            })
+            .catch(err => res.status(404).json({ nogoalsfound: "No entries found" }));
+    }
+);
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
