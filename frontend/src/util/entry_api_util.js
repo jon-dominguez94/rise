@@ -8,6 +8,3 @@ export const getReportEntries = id => {
     return axios.get(`/api/entries/reports/${id}`)
 };
 
-// export const writeTweet = data => {
-//     return axios.post('/api/tweets/', data)
-// }
