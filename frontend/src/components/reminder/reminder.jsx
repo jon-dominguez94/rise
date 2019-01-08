@@ -156,6 +156,41 @@ class Reminder extends React.Component {
     this.props.updateUser(user);
   }
 
+  handleTest(e) {
+    e.preventDefault()
+    // if (this.props.user.emailReminder) {
+    //   const email = new Email(this.props.user.email)
+    //   console.log('begin email message')
+      
+    //   email.sendEmail();
+    // }
+
+    // e.preventDefault()
+    // if (this.state.smsReminder) {
+    //   let oldPhone = this.props.user.phone
+    //   let newNumber = "+1" + oldPhone.slice(0, 3) + oldPhone.slice(4, 7) + oldPhone.slice(8, 12)
+
+    //   var params = {
+    //     Message: 'Time to update your achievements on Rise!',
+    //     MessageStructure: 'string',
+    //     PhoneNumber: newNumber
+    //   };
+
+    //   AWS.config.update({
+    //     accessKeyId: keys.AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+    //     region: keys.AWS_REGION
+    //   });
+    //   AWS.config.update({ region: 'us-west-2' });
+    //   var sns = new AWS.SNS();
+
+    //   sns.publish(params, function (err, data) {
+    //     if (err) console.log(err, err.stack); // an error occurred
+    //     else console.log(data);           // successful response
+    //   })
+    // }
+  }
+
   handleUpdate(field) {
     return e =>
       this.setState({
@@ -295,6 +330,17 @@ class Reminder extends React.Component {
             Save Preferences
           </Button>
         </div>
+
+          <div className="test-preferences-button">
+            <Button
+              variant="contained"
+              onClick={this.handleTest}
+              color="primary"
+              className={classes.button}
+            >
+              Test
+          </Button>
+          </div>
       </div>
       </MuiThemeProvider>
     );
