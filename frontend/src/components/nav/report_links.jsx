@@ -38,16 +38,19 @@ class ReportLinks extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let newReport = {
-      week: this.state.week,
+      week: `${this.state.reports[0].week + 1}`,
     };
     this.props.composeReport(newReport)
       // .then(res => console.log(res.errors));
       .then(res => {
         if (res.errors === undefined) {
+          debugger;
           this.setState({ week: '', });
           this.props.fetchUserReports(this.props.user.id);
+          this.props.history.push(`/reports/${res.report.data._id}/`);
         }
       });
+    
   }
 
   render() {
@@ -64,14 +67,16 @@ class ReportLinks extends React.Component {
         <div className="report-links">
         <form className="new-report-form" onSubmit={this.handleSubmit}>
           <div className="grp-form">
-            <input className="report-input-field" type="text"
+            {/* <input className="report-input-field" type="text"
               value={this.state.week}
               onChange={this.update('week')}
               placeholder="Week Number"
-            />
+            /> */}
             <input type="submit" value="New Report" />
           </div>
         </form>
+        <br />
+        <br />
         </div>
         {this.state.reports.map(report => (
           <SingleReportLink key={report._id} report={report}/>
