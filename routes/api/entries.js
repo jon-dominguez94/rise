@@ -21,13 +21,15 @@ router.get('/report/:report_id', (req, res) => {
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
+        // debugger
         const newEntry = new Entry({
             description: req.body.description,
             importance: req.body.importance,
-            // report: req.report.id
-            // goal: req.goal.id
-            // role: req.role.id
-            user: req.user.id
+            user: req.user.id,
+            report: req.body.report,
+            goal: req.body.goal,
+            role: req.body.role,
+            project: req.body.project
         });
 
         newEntry.save().then(entry => res.json(entry));

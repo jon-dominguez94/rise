@@ -5,13 +5,12 @@ import '../../../css/entry_form.css';
 class NewEntry extends React.Component{
     constructor(props) {
         super(props);
-
         this.state = {
             description: "",
             importance: 1,
-            goal: "",
-            role: "",
-            project: ""
+            goal: this.props.goals[0],
+            role: this.props.roles[0],
+            project: this.props.project[0]
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,25 +24,31 @@ class NewEntry extends React.Component{
         this.props.fetchUserReports(this.props.user.id);
     }
 
+    componentDidMount(){
+        // debugger
+    }
+
     
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({ newEntry: nextProps.newEntry.description });
-    // }
+    componentWillReceiveProps(nextProps) {
+        // debugger
+        // this.setState({ newEntry: nextProps.newEntry.description });
+    }
 
     handleSubmit(e) {
         e.preventDefault();
-
+        // debugger
         let entry = {
             description: this.state.description,
             importance: this.state.importance,
             user: this.props.user.id,
             report: this.props.report._id,
-            goal: this.props.goal._id,
-            role: this.props.role._id,
-            project: this.props.project._id
+            goal: this.state.goal._id,
+            role: this.state.role._id,
+            project: this.state.project._id
         };
+        // debugger
 
-        this.props.createEntry(entry);
+        this.props.createEntry(entry)
         // this.setState({ description: '', importance: 1 });
 
     }
@@ -58,12 +63,18 @@ class NewEntry extends React.Component{
         });
     }
 
+    // update1(field) {
+    //     return e => this.setState({
+    //         [field]: e.currentTarget.value
+    //     });
+    // }
+
     render(){
         
         return (
             <div className='entry-form-container'>
                 <h1 className="session-title">Create Entry</h1>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <textarea
                         value={this.state.description}
                         onChange={this.update('description')}
@@ -88,11 +99,11 @@ class NewEntry extends React.Component{
                     <div className='entry-dropdown'>  
                     <label>Goal
                         <select
-                            value={this.state.goal}
-                            onChange={this.update('goal')}>
-                            { this.props.goals.map( goal => {
+                            // value={this.state.goal}
+                            onChange={(e)=> {this.setState({goal: this.props.goals[e.currentTarget.value]})}}>
+                            { this.props.goals.map( (goal, i) => {
                             return (
-                                <option key={goal._id} value={goal.id}>{goal.title}</option>
+                                <option key={goal._id} value={i}>{goal.title}</option>
                             )
                         })}
                         </select>
@@ -102,11 +113,11 @@ class NewEntry extends React.Component{
                         <div className='entry-dropdown'>
                             <label>Role
                         <select
-                            value={this.state.role}
-                            onChange={this.update('role')}>
-                            {this.props.roles.map(role => {
+                            // value={this.state.role}
+                            onChange={(e) => { this.setState({ role: this.props.roles[e.currentTarget.value] }) }}>
+                            {this.props.roles.map((role, i) => {
                                 return (
-                                    <option key={role._id} value={role.id}>{role.title}</option>
+                                    <option key={role._id} value={i}>{role.title}</option>
                                 )
                                 })}
                         </select>
@@ -116,11 +127,11 @@ class NewEntry extends React.Component{
                         <div className='entry-dropdown'>
                             <label>Project
                         <select
-                            value={this.state.project}
-                            onChange={this.update('project')}>
-                            {this.props.projects.map(project => {
+                            // value={this.state.project}
+                            onChange={(e) => { this.setState({ project: this.props.projects[e.currentTarget.value] }) }}>
+                            {this.props.projects.map((project, i) => {
                                 return (
-                                    <option key={project._id} value={project.id}>{project.title}</option>
+                                    <option key={project._id} value={i}>{project.title}</option>
                                 )
                             })}
                         </select>
