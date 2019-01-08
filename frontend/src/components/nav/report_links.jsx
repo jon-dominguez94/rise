@@ -44,7 +44,7 @@ class ReportLinks extends React.Component {
       // .then(res => console.log(res.errors));
       .then(res => {
         if (res.errors === undefined) {
-          debugger;
+          // debugger;
           this.setState({ week: '', });
           this.props.fetchUserReports(this.props.user.id);
           this.props.history.push(`/reports/${res.report.data._id}/`);
