@@ -22,7 +22,7 @@ class ReportLinks extends React.Component {
   }
 
   componentWillReceiveProps(newState){
-    console.log(newState);
+    // console.log(newState);
     this.setState({
       reports: newState.reports,
       week: newState.week
@@ -54,6 +54,7 @@ class ReportLinks extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div className="r">
       <div className="report-links">
