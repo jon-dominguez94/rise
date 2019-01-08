@@ -38,7 +38,7 @@ class ElementItem extends React.Component {
       })
       .then(() => {
         setTimeout(() => {
-          this.setState({ msg: '' })
+          this.setState({ msg: '' });
         }, 2000);
       });
   }
