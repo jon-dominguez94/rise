@@ -21,15 +21,18 @@ class Navbar extends React.Component {
 
   getLinks(){
     if(this.props.loggedIn){
-      return(
-        
+      return (
         <Switch>
-          <Route exact path={'/home'} component={HomeLinksContainer}/>
-          <Route path={'/profile'} component={ProfileLinksContainer}/>
-          <Route path={'/reminders'} component={ProfileLinksContainer}/>
           <Route path={'/reports'} component={ReportLinksContainer} />
+          <Route path={"/"} component={HomeLinksContainer} />
         </Switch>
       );
+        // <Switch>
+        //   <Route exact path={'/home'} component={HomeLinksContainer}/>
+        //   <Route path={'/profile'} component={ProfileLinksContainer}/>
+        //   <Route path={'/reminders'} component={ProfileLinksContainer}/>
+        //   <Route path={'/reports'} component={ReportLinksContainer} />
+        // </Switch>
     } else {
       return(
         <div className="navbar-links">
@@ -57,7 +60,7 @@ class Navbar extends React.Component {
             {/* <h1 className="header-one">RISE</h1> */}
           </div>
         </Link>
-        <Route path="/" component={NavpathContainer} />
+        {/* <Route path="/" component={NavpathContainer} /> */}
         <hr/>
         {this.getLinks()}
         <hr/>
