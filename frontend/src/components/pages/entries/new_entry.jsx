@@ -10,7 +10,7 @@ class NewEntry extends React.Component{
             importance: 1,
             goal: this.props.goals[0],
             role: this.props.roles[0],
-            project: this.props.project[0]
+            project: this.props.projects[0]
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,7 +21,9 @@ class NewEntry extends React.Component{
         this.props.fetchUserGoals(this.props.user.id);
         this.props.fetchUserProjects(this.props.user.id);
         this.props.fetchUserRoles(this.props.user.id);
-        this.props.fetchUserReports(this.props.user.id);
+        this.props.fetchUserReports(this.props.user.id).then(()=> {
+            this.setState({ goal: this.props.goals[0], role: this.props.roles[0], project: this.props.projects[0]})
+        });
     }
 
     componentDidMount(){
@@ -29,10 +31,10 @@ class NewEntry extends React.Component{
     }
 
     
-    componentWillReceiveProps(nextProps) {
+    // componentWillReceiveProps(nextProps) {
         // debugger
         // this.setState({ newEntry: nextProps.newEntry.description });
-    }
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
