@@ -63,12 +63,13 @@ router.post('/register', (req, res) => {
           newUser.save()
           .then(user => {
             res.json(user)
-            
+            console.log("Send verification email");
             var params = {
               EmailAddress: req.body.email,
-              TemplateName: "RiseEmailTemplate"
+              // TemplateName: "RiseEmailTemplate"
             };
-            ses.sendCustomVerificationEmail(params, function (err, data) {
+            // ses.sendCustomVerificationEmail(params, function (err, data) {
+            ses.verifyEmailIdentity(params, function (err, data) {
               if (err) console.log(err, err.stack);
               // an error occurred
               else console.log(data); // successful response

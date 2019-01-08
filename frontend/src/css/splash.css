@@ -1,0 +1,12 @@
+.splash-logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.splash-logo {
+  width: 20%;
+  height: auto;
+}
