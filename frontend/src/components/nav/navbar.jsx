@@ -57,8 +57,8 @@ class Navbar extends React.Component {
             {/* <h1 className="header-one">RISE</h1> */}
           </div>
         </Link>
-        <hr/>
         <Route path="/" component={NavpathContainer} />
+        <hr/>
         {this.getLinks()}
         <hr/>
       </div>

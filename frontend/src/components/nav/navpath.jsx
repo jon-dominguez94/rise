@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import '../../css/navpath.css';
 
 class Navpath extends React.Component {
   constructor(props){
@@ -18,7 +19,7 @@ class Navpath extends React.Component {
     let links = [];
     if (nextProps.path.includes("login") || nextProps.path.includes("signup") || nextProps.path === "/home") {
       // alert('session');
-      links = [];
+      links = '';
     } else if (nextProps.path !== "/home") {
       links = links.concat(nextProps.path.split("/").filter(Boolean));
     } 
@@ -38,10 +39,10 @@ class Navpath extends React.Component {
       const linkpath = this.state.path.slice(0, i+1);
       return (
         <div className="link-wrapper">
-          <NavLink to={`/${linkpath}`}>
+          <NavLink className="path-link" to={`/${linkpath}`}>
             {link}
           </NavLink>
-          <i class="fa fa-long-arrow-right" />
+          <i className="fa fa-long-arrow-right link-arrow" />
         </div>
       );
     });
@@ -53,19 +54,20 @@ class Navpath extends React.Component {
     if(this.state.path === ''){
       return <div></div>;
     }
-    return (
-
-      <div className="navpath-wrapper">
-        <div className="link-wrapper">
-          <NavLink to={`/home`}>Home</NavLink>
-          <i class="fa fa-long-arrow-right" />
+    return <div className="outside-navpath">
+        <div className="navpath-wrapper">
+          <div className="link-wrapper">
+            <NavLink className="path-link" to={`/home`}>Home</NavLink>
+            <i className="fa fa-long-arrow-right link-arrow" />
+          </div>
+          {this.renderLinks()}
         </div>
-        {this.renderLinks()}
-      </div>
+        {/* <hr /> */}
+      </div>;
+
       // <div>{this.state.path.join(' ')}
       //   <i class="fa fa-long-arrow-right"></i>
       // </div>
-    );
   }
 }
 
