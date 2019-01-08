@@ -13,8 +13,8 @@ import GoalsPageContainer from './pages/profile/goals_page_container';
 import RolesPageContainer from './pages/profile/roles_page_container';
 import ProjectsPageContainer from './pages/profile/projects_page_container';
 import ProfileSplashPage from './pages/profile/profile_splash_page';
-import ReportsSplashPage from '../components/pages/reports/reports_page_container';
-import ReportPage from '../components/pages/reports/reports_page';
+import ReportsSplashPage from '../components/pages/reports/reports_splash_page';
+import ReportPage from '../components/pages/reports/reports_page_container';
 
 import ReminderContainer from '../components/reminder/reminder_container';
 
@@ -41,7 +41,7 @@ const App = () => (
         <ProtectedRoute exact path="/profile/roles" component={RolesPageContainer} />
         <ProtectedRoute exact path="/profile/projects" component={ProjectsPageContainer} />
         <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
-        <ProtectedRoute exact path="/reports/:id" component={ReportPage} />
+        {/* <ProtectedRoute path="/reports/:id" component={ReportPage} /> */}
 
         <ProtectedRoute exact path="/reports/:id/new_entry" component={NewEntryContainer} />
 
