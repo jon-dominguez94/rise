@@ -15,6 +15,7 @@ class ElementItem extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.revealDesc = this.revealDesc.bind(this);
+    this.hideDesc = this.hideDesc.bind(this);
   }
 
   update(field) {
@@ -32,6 +33,9 @@ class ElementItem extends React.Component {
       .then(res => {
         if (res.errors === undefined) {
           this.setState({ msg: 'Success' });
+          document.getElementById(`desc-${this.state.id}`).classList.add('hidden');
+          document.getElementById(`open-${this.state.id}`).classList.remove('hidden');
+          // document.getElementsByClassName('update-open')[0].classList.remove('hidden');
         } else {
           this.setState({ msg: 'Please correct errors listed below' });
         }
@@ -58,7 +62,15 @@ class ElementItem extends React.Component {
   }
 
   revealDesc() {
-    document.getElementById(`desc-${this.state.id}`).classList.toggle('hidden');
+    document.getElementById(`desc-${this.state.id}`).classList.remove('hidden');
+    document.getElementById(`open-${this.state.id}`).classList.add('hidden');
+    // document.getElementsByClassName('update-open')[0].classList.add('hidden');
+  }
+  
+  hideDesc() {
+    document.getElementById(`desc-${this.state.id}`).classList.add('hidden');
+    document.getElementById(`open-${this.state.id}`).classList.remove('hidden');
+    // document.getElementsByClassName('update-open')[0].classList.remove('hidden');
   }
 
   render() {
@@ -67,8 +79,10 @@ class ElementItem extends React.Component {
           <div className="element-form-wrapper">
             <form onSubmit={this.handleSubmit}>
               <div className="element-form">
-                <input type="text" value={this.state.title} onClick={this.revealDesc} onChange={this.update("title")} placeholder="Title" />
+                <input type="text" value={this.state.title} onChange={this.update("title")} placeholder="Title" />
+              <div id={`open-${this.state.id}`} className="update-open" onClick={this.revealDesc} >Edit</div>
                 <div id={`desc-${this.state.id}`} className="elem-desc hidden">
+                <div className="update-close" onClick={this.hideDesc}>Close</div>
                   <hr />
                   <textarea value={this.state.description} onChange={this.update("description")} placeholder="Description" />
                   {/* <input type="submit" value={this.label} /> */}

@@ -11,12 +11,28 @@
 }
 
 .on-element {
-  margin: 5px;
+  margin: 0;
+  /* top: -5px; */
+  padding: 11px 25px;
 }
+
+.update-close, .update-open {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  cursor: pointer;
+}
+
+/* .update-open {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  cursor: pointer;
+} */
 
 .ib {
   /* display: inline-block; */
-  width: 230px;
+  width: 235px;
   position: relative;
   left: 0;
 }

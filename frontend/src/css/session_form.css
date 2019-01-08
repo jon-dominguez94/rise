@@ -18,6 +18,10 @@ div[class^="session-form"] {
   margin: 15px;
 }
 
+.session-title.login {
+  font-size: 22px;
+}
+
 /* .session-input-area {
   width: 250px;
   height: 40px;
@@ -66,8 +70,8 @@ div[class^="session-form"] {
 }
 
 .on-login {
-  left: 0%;
-  width: 100%;
+  left: 7.5%;
+  width: 85%;
 }
 
 .errors-list {
@@ -78,4 +82,56 @@ div[class^="session-form"] {
 
 .error-item {
   padding: 2px 5px;
+}
+
+.info-input-area {
+  width: 250px;
+  height: 50px;
+  background: #1c1d22;
+  margin: 10px 0;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  /* border: 0.5px solid #5c5edc; */
+}
+
+.info-input-area input {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  margin: 0 15px;
+  color: #bdbdbd;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.info-label {
+  white-space: nowrap;
+  font-size: 10px;
+  color: #5c5edc;
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  background: #2a2b30;
+  padding: 0 3px;
+}
+
+.info-input-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 5px;
+  border: 0.5px solid #5c5edc;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.info-input-area.submit-btn {
+  width: 50%;
+  /* height: 150%; */
+}
+
+.info-input-area.submit-btn:hover {
+  background: #5c5edc;
 }

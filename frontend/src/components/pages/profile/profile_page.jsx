@@ -107,25 +107,43 @@ class ProfilePage extends React.Component{
         <form onSubmit={this.handleSubmit}>
           <div className="session-form">
             <h1 className="session-title">Your info</h1>
-            <div className="session-input-area">
-              <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
+            <div className="info-input-area">
+              {/* <div className="info-input-wrapper"> */}
+                {/* <div className="info-label">First Name</div> */}
+                <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
+              {/* </div> */}
             </div>
-            <div className="session-input-area">
-              <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
+            <div className="info-input-area">
+              {/* <div className="info-input-wrapper"> */}
+                {/* <div className="info-label">Last Name</div> */}
+                <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
+              {/* </div> */}
             </div>
-            <div className="session-input-area">
-              <input type="text" value={this.state.email} readOnly onClick={() => this.setMsg("Can't edit email")}/>
+            <div className="info-input-area">
+              {/* <div className="info-input-wrapper"> */}
+                {/* <div className="info-label">Email</div> */}
+                <input type="text" value={this.state.email} readOnly onClick={() => this.setMsg("Can't edit email")}/>
+              {/* </div> */}
             </div>
-            <div className="session-input-area">
-              <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+            <div className="info-input-area">
+              {/* <div className="info-input-wrapper"> */}
+                {/* <div className="info-label">Password</div> */}
+                <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+              {/* </div> */}
             </div>
-            <div className="session-input-area">
-              <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
+            <div className="info-input-area">
+              {/* <div className="info-input-wrapper"> */}
+                {/* <div className="info-label">Confirm Password</div> */}
+                <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
+                {/* </div> */}
             </div>
-            <div className="session-input-area">
-              <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
+            <div className="info-input-area">
+              {/* <div className="info-input-wrapper"> */}
+                {/* <div className="info-label">Phone Number</div> */}
+                <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
+                {/* </div> */}
             </div>
-            <div className="session-input-area submit-btn">
+            <div className="info-input-area submit-btn">
               <input type="submit" value="Update" />
             </div>
             {this.renderErrors()}
@@ -134,6 +152,38 @@ class ProfilePage extends React.Component{
         {this.renderMsg()}
       </div>
     );
+    // return (
+    //   <div className="session-form-container">
+    //     <form onSubmit={this.handleSubmit}>
+    //       <div className="session-form">
+    //         <h1 className="session-title">Your info</h1>
+    //         <div className="session-input-area">
+    //           <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
+    //         </div>
+    //         <div className="session-input-area">
+    //           <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
+    //         </div>
+    //         <div className="session-input-area">
+    //           <input type="text" value={this.state.email} readOnly onClick={() => this.setMsg("Can't edit email")}/>
+    //         </div>
+    //         <div className="session-input-area">
+    //           <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+    //         </div>
+    //         <div className="session-input-area">
+    //           <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
+    //         </div>
+    //         <div className="session-input-area">
+    //           <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
+    //         </div>
+    //         <div className="session-input-area submit-btn">
+    //           <input type="submit" value="Update" />
+    //         </div>
+    //         {this.renderErrors()}
+    //       </div>
+    //     </form>
+    //     {this.renderMsg()}
+    //   </div>
+    // );
   }
 }
 
