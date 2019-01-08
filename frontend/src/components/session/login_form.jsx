@@ -1,5 +1,33 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+
+const styles = theme => ({
+
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    width: 200,
+  },
+});
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+})
+
 
 class LoginForm extends React.Component {
   constructor(props){
@@ -64,24 +92,53 @@ class LoginForm extends React.Component {
   }
 
   render(){
-    return <div className="session-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="session-form">
-            <h1 className="session-title">Welcome back!</h1>
-            <div className="session-input-area">
-              <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
-            </div>
-            <div className="session-input-area">
-              <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
-            </div>
-            <div className="session-input-area submit-btn">
-              <input type="submit" value="Login" />
-            </div>
-            {this.renderErrors()}
+    const { classes } = this.props;
+    return (
+      <MuiThemeProvider theme={theme}>
+        <div className="session-form-container">
+            <form onSubmit={this.handleSubmit}>
+              <div className="session-form">
+                <h1 className="session-title">Welcome back!</h1>
+                <div className="session-input-area">
+                <TextField
+                  id="outlined-name"
+                  label="Email"
+                  className={classes.textField}
+                  onChange={this.update("email")}
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.email}
+                />
+                </div>
+                <div className="session-input-area">
+                <TextField
+                  id="outlined-name"
+                  label="Password"
+                  className={classes.textField}
+                  onChange={this.update("password")}
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.password}
+                />
+                </div>
+                <div className="session-input-area submit-btn">
+                  <Button
+                    variant="contained"
+                    onClick={this.handleSubmit}
+                    color="primary"
+                    className={classes.button}
+                  >
+                    Login
+                  </Button>
+                  {/* <input type="submit" value="Login" /> */}
+                </div>
+                {this.renderErrors()}
+              </div>
+            </form>
           </div>
-        </form>
-      </div>;
+      </MuiThemeProvider>
+    );
   }
 }
 
-export default withRouter(LoginForm);
+export default withRouter(withStyles(styles)(LoginForm));
