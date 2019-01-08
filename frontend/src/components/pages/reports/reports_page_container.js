@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ReportsPage from "./reports_page";
-import { fetchReport } from "../../../actions/report_actions";
+// import { fetchReport } from "../../../actions/report_actions";
 import { fetchUserEntries } from "../../../actions/entry_actions";
 
 const mstp = (state, ownProps) => {
