@@ -1,6 +1,35 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import '../../css/session_form.css';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+
+const styles = theme => ({
+
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    width: 200,
+  },
+});
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+})
+
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -75,36 +104,49 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    return <div className="session-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="session-form">
-            <h1 className="session-title">Join us!</h1>
-            <div className="session-input-area">
-              <input type="text" value={this.state.fname} onChange={this.update("fname")} placeholder="First Name" />
+    const { classes } = this.props;
+    return (
+      <MuiThemeProvider theme={theme}>
+        <div className="session-form-container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="session-form">
+              <h1 className="session-title">Join us!</h1>
+              <div className="session-input-area">
+                <TextField
+                  id="outlined-name"
+                  label="First Name"
+                  className={classes.textField}
+                  onChange={this.update("fname")}
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.fname}
+                />
+              </div>
+              <div className="session-input-area">
+                <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
+              </div>
+              <div className="session-input-area">
+                <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
+              </div>
+              <div className="session-input-area">
+                <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+              </div>
+              <div className="session-input-area">
+                <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
+              </div>
+              <div className="session-input-area">
+                <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
+              </div>
+              <div className="session-input-area submit-btn">
+                <input type="submit" value="Sign Up" />
+              </div>
+              {this.renderErrors()}
             </div>
-            <div className="session-input-area">
-              <input type="text" value={this.state.lname} onChange={this.update("lname")} placeholder="Last Name" />
-            </div>
-            <div className="session-input-area">
-              <input type="text" value={this.state.email} onChange={this.update("email")} placeholder="Email" />
-            </div>
-            <div className="session-input-area">
-              <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
-            </div>
-            <div className="session-input-area">
-              <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
-            </div>
-            <div className="session-input-area">
-              <input type="text" value={this.state.phone} onChange={this.update("phone")} placeholder="Phone" />
-            </div>
-            <div className="session-input-area submit-btn">
-              <input type="submit" value="Sign Up" />
-            </div>
-            {this.renderErrors()}
-          </div>
-        </form>
-      </div>;
+          </form>
+        </div>
+      </MuiThemeProvider>
+    );
   }
 }
 
-export default withRouter(SignupForm);
+export default withRouter(withStyles(styles)(SignupForm));
