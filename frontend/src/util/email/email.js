@@ -1,5 +1,6 @@
-import keys from '../../special';
+// import keys from '../../special';
 // require("dotenv").config();
+const keys = require('../../config/keys')
 class AWSEmail {
 
   constructor(emailAddress) {
@@ -50,8 +51,10 @@ class AWSEmail {
 
 }
 
-module.exports = AWSEmail;
+export default AWSEmail;
 
-const Email = require('./email')
-const email = new Email('mark.kopec@gmail.com')
-email.sendEmail();
+// module.exports = AWSEmail;
+
+// const Email = require('./email')
+// const email = new Email('mark.kopec@gmail.com')
+// email.sendEmail();
