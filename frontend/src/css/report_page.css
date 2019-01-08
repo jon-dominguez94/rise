@@ -40,3 +40,43 @@
     /* position: relative;
     top: 70px; */
 }
+
+.pic1 {
+    width: 300px;
+}
+
+.pic2 {
+    width: 200px;
+}
+
+.instructions {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.instructions h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.instructions-field {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.step-1 {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #7072f3;
+}
+
+.step-2 {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #7072f3;
+}
