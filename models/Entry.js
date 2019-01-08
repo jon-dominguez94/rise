@@ -10,22 +10,26 @@ const EntrySchema = new Schema({
         type: Number,
         required: true
     },
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'users'
-    // },
-    // goal: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'goals'
-    // },
-    // role: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'roles'
-    // },
-    // report: {
-    //     type: Schema.Types.ObjectId, 
-    //     ref: 'reports'
-    // },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    goal: {
+        type: Schema.Types.ObjectId,
+        ref: 'goals'
+    },
+    role: {
+        type: Schema.Types.ObjectId,
+        ref: 'roles'
+    },
+    project: {
+        type: Schema.Types.ObjectId,
+        ref: 'projects'
+    },
+    report: {
+        type: Schema.Types.ObjectId, 
+        ref: 'reports'
+    },
     date: {
         type: Date,
         default: Date.now
