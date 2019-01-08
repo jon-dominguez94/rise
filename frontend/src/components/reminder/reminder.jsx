@@ -27,13 +27,6 @@ var schedule = require('node-schedule');
 // const Email = require('../../util/email/email')
 
 const theme = createMuiTheme({
-  "dropDownMenu": {
-    "accentColor": "#3f51b5"
-  },
-  "toggle": {
-    "thumbOnColor": "#3f51b5",
-    "trackOnColor": "rgba(48, 63, 159, 0.5)"
-  },
   palette: {
     type: 'dark',
   },
@@ -158,7 +151,6 @@ class Reminder extends React.Component {
 
   handleTest(e) {
     e.preventDefault()
-    debugger
     if (this.state.emailReminder) {
       const email = new Email(this.props.user.email)
       console.log('begin email message')
@@ -206,7 +198,7 @@ class Reminder extends React.Component {
       <MuiThemeProvider theme={theme}>
     
       <div className="reminder-container">
-        Update Your Reminder Preferences Here
+        Update Your Reminder Settings Here
         
         <div className="email-selector">
           <FormControlLabel 
@@ -231,94 +223,94 @@ class Reminder extends React.Component {
               />} 
             label="Text Message" />
         </div>
+        <div className="drop-selectors">
+          <div className="day-selector">
+            <form autoComplete="off">
+              <FormControl 
+                variant="outlined" 
+                className={classes.formControl}>
+                <InputLabel ref={ref => {
+                    this.InputLabelRef = ref;
+                  }} htmlFor="outlined-age-simple">
+                  Day
+                </InputLabel>
 
-        <div className="day-selector">
-          <form autoComplete="off">
-            <FormControl 
-              variant="outlined" 
-              className={classes.formControl}>
-              <InputLabel ref={ref => {
+                <Select 
+                  selected classes={{
+                    root: 'text-color'
+                  }}
+                  className="drop" 
+                  value={this.state.dayOfWeek} 
+                  onChange={this.handleDropFormChange} 
+                  input={<OutlinedInput 
+                  labelWidth={this.state.labelWidth} 
+                  name="dayOfWeek" id="outlined-age-simple" />}>
+        
+                  <MenuItem value={0}>Sunday</MenuItem>
+                  <MenuItem value={1}>Monday</MenuItem>
+                  <MenuItem value={2}>Tuesday</MenuItem>
+                  <MenuItem value={3}>Wednesday</MenuItem>
+                  <MenuItem value={4}>Thursday</MenuItem>
+                  <MenuItem value={5}>Friday</MenuItem>
+                  <MenuItem value={6}>Saturday</MenuItem>
+                </Select>
+              </FormControl>
+            </form>
+          </div>
+
+          <div className="time-selector">
+            <form autoComplete="off">
+              <FormControl
+                variant="outlined"
+                className={classes.formControl}>
+                <InputLabel 
+                  ref={ref => {
                   this.InputLabelRef = ref;
                 }} htmlFor="outlined-age-simple">
-                Day
-              </InputLabel>
+                  Time
+                </InputLabel>
 
-              <Select 
-                selected classes={{
-                  root: 'text-color'
-                }}
-                className="drop" 
-                value={this.state.dayOfWeek} 
-                onChange={this.handleDropFormChange} 
-                input={<OutlinedInput 
-                labelWidth={this.state.labelWidth} 
-                name="dayOfWeek" id="outlined-age-simple" />}>
-      
-                <MenuItem value={0}>Sunday</MenuItem>
-                <MenuItem value={1}>Monday</MenuItem>
-                <MenuItem value={2}>Tuesday</MenuItem>
-                <MenuItem value={3}>Wednesday</MenuItem>
-                <MenuItem value={4}>Thursday</MenuItem>
-                <MenuItem value={5}>Friday</MenuItem>
-                <MenuItem value={6}>Saturday</MenuItem>
-              </Select>
-            </FormControl>
-          </form>
+                <Select
+                  selected classes={{
+                    root: 'text-color'}}
+                  value={this.state.hour}
+                  className={classes.select}
+                  onChange={this.handleDropFormChange}
+                  input={<OutlinedInput
+                    labelWidth={this.state.labelWidth}
+                    name="hour" id="outlined-age-simple" />}
+                  labelStyle={{ color: '#ff0000' }}
+                >
+
+                  <MenuItem value={1}>1:00 AM</MenuItem>
+                  <MenuItem value={2}>2:00 AM</MenuItem>
+                  <MenuItem value={3}>3:00 AM</MenuItem>
+                  <MenuItem value={4}>4:00 AM</MenuItem>
+                  <MenuItem value={5}>5:00 AM</MenuItem>
+                  <MenuItem value={6}>6:00 AM</MenuItem>
+                  <MenuItem value={7}>7:00 AM</MenuItem>
+                  <MenuItem value={8}>8:00 AM</MenuItem>
+                  <MenuItem value={9}>9:00 AM</MenuItem>
+                  <MenuItem value={10}>10:00 AM</MenuItem>
+                  <MenuItem value={11}>11:00 AM</MenuItem>
+                  <MenuItem value={12}>12:00 PM</MenuItem>
+                  <MenuItem value={13}>1:00 PM</MenuItem>
+                  <MenuItem value={14}>2:00 PM</MenuItem>
+                  <MenuItem value={15}>3:00 PM</MenuItem>
+                  <MenuItem value={16}>4:00 PM</MenuItem>
+                  <MenuItem value={17}>5:00 PM</MenuItem>
+                  <MenuItem value={18}>6:00 PM</MenuItem>
+                  <MenuItem value={19}>7:00 PM</MenuItem>
+                  <MenuItem value={20}>8:00 PM</MenuItem>
+                  <MenuItem value={21}>9:00 PM</MenuItem>
+                  <MenuItem value={22}>10:00 PM</MenuItem>
+                  <MenuItem value={23}>11:00 PM</MenuItem>
+                  <MenuItem value={0}>12:00 AM</MenuItem>
+                </Select>
+              </FormControl>
+            </form>
+          </div>
         </div>
-
-        <div className="time-selector">
-          <form autoComplete="off">
-            <FormControl
-              variant="outlined"
-              className={classes.formControl}>
-              <InputLabel 
-                ref={ref => {
-                this.InputLabelRef = ref;
-              }} htmlFor="outlined-age-simple">
-                Time
-              </InputLabel>
-
-              <Select
-                selected classes={{
-                  root: 'text-color'}}
-                value={this.state.hour}
-                className={classes.select}
-                onChange={this.handleDropFormChange}
-                input={<OutlinedInput
-                  labelWidth={this.state.labelWidth}
-                  name="hour" id="outlined-age-simple" />}
-                labelStyle={{ color: '#ff0000' }}
-              >
-
-                <MenuItem value={1}>1:00 AM</MenuItem>
-                <MenuItem value={2}>2:00 AM</MenuItem>
-                <MenuItem value={3}>3:00 AM</MenuItem>
-                <MenuItem value={4}>4:00 AM</MenuItem>
-                <MenuItem value={5}>5:00 AM</MenuItem>
-                <MenuItem value={6}>6:00 AM</MenuItem>
-                <MenuItem value={7}>7:00 AM</MenuItem>
-                <MenuItem value={8}>8:00 AM</MenuItem>
-                <MenuItem value={9}>9:00 AM</MenuItem>
-                <MenuItem value={10}>10:00 AM</MenuItem>
-                <MenuItem value={11}>11:00 AM</MenuItem>
-                <MenuItem value={12}>12:00 PM</MenuItem>
-                <MenuItem value={13}>1:00 PM</MenuItem>
-                <MenuItem value={14}>2:00 PM</MenuItem>
-                <MenuItem value={15}>3:00 PM</MenuItem>
-                <MenuItem value={16}>4:00 PM</MenuItem>
-                <MenuItem value={17}>5:00 PM</MenuItem>
-                <MenuItem value={18}>6:00 PM</MenuItem>
-                <MenuItem value={19}>7:00 PM</MenuItem>
-                <MenuItem value={20}>8:00 PM</MenuItem>
-                <MenuItem value={21}>9:00 PM</MenuItem>
-                <MenuItem value={22}>10:00 PM</MenuItem>
-                <MenuItem value={23}>11:00 PM</MenuItem>
-                <MenuItem value={0}>12:00 AM</MenuItem>
-              </Select>
-            </FormControl>
-          </form>
-        </div>
-        
 
         <div className="save-preferences-button">
           <Button 
@@ -327,7 +319,7 @@ class Reminder extends React.Component {
             color="primary" 
             className={classes.button}
           >
-            Save Preferences
+            Save Settings
           </Button>
         </div>
 

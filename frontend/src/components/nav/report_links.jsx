@@ -59,12 +59,12 @@ class ReportLinks extends React.Component {
       <div className="r">
       <div className="report-links">
         <span className="home-reports-links">
-        <NavLink className="bar-link" to={'/home'} activeClassName="selected">Home</NavLink>
+        {/* <NavLink className="bar-link" to={'/home'} activeClassName="selected">Home</NavLink> */}
         {/* <div className="reports-arrow-container"><img className="reports-arrow" src={reportsArrow} alt="" /></div> */}
         {/* <div className="username-reports">Reports</div> */}
         </span>
       </div>
-        <hr />
+        {/* <hr /> */}
         <div className="reports">
         <div className="report-links">
         <form className="new-report-form" onSubmit={this.handleSubmit}>
