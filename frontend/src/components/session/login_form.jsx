@@ -45,9 +45,9 @@ class LoginForm extends React.Component {
   }
 
 
-  // componentDidMount() {
-  //   console.log('login mounted');
-  // }
+  componentDidMount() {
+    this.props.clearErrors();
+  }
 
   componentWillReceiveProps(nextProps){
     if(nextProps.currentUser === true){
@@ -81,7 +81,7 @@ class LoginForm extends React.Component {
       );
     } else {
       return (
-        <div className="errors-container">
+        <div className="errors-container on-login">
           <ul className="errors-list">
             {Object.keys(this.state.errors).map((error, i) => (
               <li className="error-item" key={`error-${i}`}>{this.state.errors[error]}</li>

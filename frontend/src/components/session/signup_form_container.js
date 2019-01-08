@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, receiveErrors } from '../../actions/session_actions';
 import SignupForm from './signup_form';
 
 const mstp = state => {
@@ -11,7 +11,8 @@ const mstp = state => {
 
 const mdtp = dispatch => {
   return {
-    signup: user => dispatch(signup(user))
+    signup: user => dispatch(signup(user)),
+    clearErrors: () => dispatch(receiveErrors([]))
   };
 };
 
