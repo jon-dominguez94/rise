@@ -1,19 +1,20 @@
 import React from 'react';
 import splashLogo from '../../splash.png';
+import splashBackground from '../../splash_background.jpg';
 import '../../css/splash.css'
 
 class SplashPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Your Career is Calling</h1>
-        
-          <div className="splash-logo-container"></div>
-          <img className="splash-logo" src={splashLogo} alt="" />
-          We help employees get raises and promotions by tracking their goals and accomplishments
-        <footer>
-          Copyright &copy; 2019 Rise
-        </footer>
+        <main>
+          <div className="tag-container">
+            <div className="tagline">Your Career is Calling</div>
+            <img className="splash-background" src={splashBackground} alt="" />
+            <img className="splash-logo" src={splashLogo} alt="" />
+            <div className="one-liner">We help employees get raises and promotions by tracking their goals and accomplishments</div>
+          </div>
+        </main>
       </div>
     )
   }
