@@ -13,6 +13,13 @@ const validateUpdateInput = require('../../validation/update');
 const validText = require('../../validation/valid-text');
 const AWS = require("aws-sdk");
 
+AWS.config.update({
+  accessKeyId: keys.AWS_ACCESS_KEY_ID,
+  secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+  region: keys.AWS_REGION
+});
+const ses = new AWS.SES();
+
 router.get('/test', (req, res) => res.json({msg: "This is the users route"}));
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -56,17 +63,11 @@ router.post('/register', (req, res) => {
           newUser.save()
           .then(user => {
             res.json(user)
-            AWS.config.update({
-              accessKeyId: keys.AWS_ACCESS_KEY_ID,
-              secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
-              region: keys.AWS_REGION
-            });
-            const ses = new AWS.SES();
+            
             var params = {
               EmailAddress: req.body.email,
               TemplateName: "RiseEmailTemplate"
             };
-            console.log("Verify email")
             ses.sendCustomVerificationEmail(params, function (err, data) {
               if (err) console.log(err, err.stack);
               // an error occurred

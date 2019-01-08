@@ -54,14 +54,14 @@ class ReportLinks extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     return (
       <div className="r">
       <div className="report-links">
         <span className="home-reports-links">
         <NavLink className="bar-link" to={'/home'} activeClassName="selected">Home</NavLink>
-        <div className="reports-arrow-container"><img className="reports-arrow" src={reportsArrow} alt="" /></div>
-        <div className="username-reports">Reports</div>
+        {/* <div className="reports-arrow-container"><img className="reports-arrow" src={reportsArrow} alt="" /></div> */}
+        {/* <div className="username-reports">Reports</div> */}
         </span>
       </div>
         <hr />

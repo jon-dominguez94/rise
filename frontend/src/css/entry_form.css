@@ -5,8 +5,12 @@
     align-items: center;
     flex-direction: column;
     position: relative;
-    top: 80px;
+    top: 70px;
 
+}
+
+.entry-form-container form{
+    margin-top: 10px;
 }
 
 .entry-description{
@@ -34,6 +38,9 @@
 
 }
 
+.entry-form-container select:hover{
+    background-color: #5c5edc;
+}
 .entry-dropdown {
     font-size: 14px;
     font-weight: 500;
@@ -54,7 +61,7 @@
     border: none; 
     outline: none;
     cursor: pointer;
-    margin-left: 60px;
+    margin-left: 25px;
     font-size: 14px;
     font-weight: 500;
     border-radius: 3px;
