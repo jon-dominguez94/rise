@@ -15,12 +15,13 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
-
+import Email from '../../util/email/email';
 const keys = require('../../config/keys')
 
 var AWS = require('aws-sdk');
 
 var schedule = require('node-schedule');
+// const Email = require('../../util/email/email')
 
 
 const styles = theme => ({
@@ -103,11 +104,12 @@ class Reminder extends React.Component {
 
 
     var rule = new schedule.RecurrenceRule();
-    rule.minute = 25
+    rule.minute = 41
     rule.dayOfWeek = this.state.dayOfWeek
     rule.hour = this.state.hour
 
     if (this.state.smsReminder){
+      console.log('begin text message')
       var j = schedule.scheduleJob(rule, function(){
         AWS.config.update({
           accessKeyId: keys.AWS_ACCESS_KEY_ID,
@@ -127,12 +129,14 @@ class Reminder extends React.Component {
       });
     }
 
-    // if( this.state.emailReminder){
-    //   const Email = require('../../util/email/email')
-    //   const email = new Email(this.props.user.email)
-    //   var k = schedule.scheduleJob(rule, email.sendEmail())
-    //   // email.sendEmail();
-    // }
+    if( this.state.emailReminder){
+      // const Email = require('../../util/email/email')
+      const email = new Email(this.props.user.email)
+      console.log('begin email message')
+      var k = schedule.scheduleJob(rule, email.sendEmail())
+      
+      // email.sendEmail();
+    }
 
     this.props.updateUser(user);
   }
