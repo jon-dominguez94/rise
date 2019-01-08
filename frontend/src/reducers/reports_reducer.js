@@ -7,6 +7,7 @@ const ReportsReducer = (state = {}, action) => {
     case RECEIVE_USER_REPORTS:
       return action.reports.data;
     case RECEIVE_REPORT:
+      return action.report.data;
     case RECEIVE_NEW_REPORT:
       const report = action.report.data;
       const reportObject = { [report._id]: report };
