@@ -41,7 +41,7 @@ const App = () => (
         <ProtectedRoute exact path="/profile/roles" component={RolesPageContainer} />
         <ProtectedRoute exact path="/profile/projects" component={ProjectsPageContainer} />
         <ProtectedRoute exact path="/reports" component={ReportsSplashPage} />
-        {/* <ProtectedRoute path="/reports/:id" component={ReportPage} /> */}
+        <ProtectedRoute exact path="/reports/:id" component={ReportPage} />
 
         <ProtectedRoute exact path="/reports/:id/new_entry" component={NewEntryContainer} />
 

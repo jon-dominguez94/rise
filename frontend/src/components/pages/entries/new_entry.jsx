@@ -50,8 +50,7 @@ class NewEntry extends React.Component{
         };
         // debugger
 
-        this.props.createEntry(entry)
-        // this.setState({ description: '', importance: 1 });
+        this.props.createEntry(entry).then(() => this.props.history.push(`/reports/${this.props.report._id}`));
 
     }
 
