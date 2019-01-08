@@ -119,7 +119,7 @@ class Reminder extends React.Component {
 
 
     var rule = new schedule.RecurrenceRule();
-    rule.minute = 41
+    rule.minute = 55
     rule.dayOfWeek = this.state.dayOfWeek
     rule.hour = this.state.hour
 

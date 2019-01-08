@@ -7,7 +7,7 @@ AWS.config.update({
   secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
   region: keys.AWS_REGION
 });
-AWS.config.update({region: 'us-west-2'})
+// AWS.config.update({region: 'us-west-2'})
 
 const ses = new AWS.SES();
 
