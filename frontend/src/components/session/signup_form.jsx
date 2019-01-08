@@ -20,8 +20,12 @@ const styles = theme => ({
     marginTop: 16,
   },
   menu: {
-    width: 200,
+    width: 250,
   },
+  toggle: {
+    labelColor: "#bdbdbd",
+  },
+  
 });
 
 const theme = createMuiTheme({
