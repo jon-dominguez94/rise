@@ -119,6 +119,7 @@ class LoginForm extends React.Component {
                   margin="normal"
                   variant="outlined"
                   value={this.state.password}
+                  type="password"
                 />
                 </div>
                 <div className="session-input-area submit-btn">
