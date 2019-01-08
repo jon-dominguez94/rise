@@ -36,19 +36,10 @@ class ReportsPage extends React.Component {
           return (
               <div className='report-entry' key={entry.id}>
               
-              {entry.description}
-              <br></br>
-              {entry.importance}
-              <br></br>
-              {entry.project}
-              <br></br>
-              {/* {console.log(this.props.projects[entry.project])} */}
-              {/* {console.log(this.props.roles[entry.role])} */}
-              {/* {console.log(this.props.goals[entry.goal])} */}
+              <div className='entry-description'>{entry.description}</div>
+               {entry.importance}
                {this.props.projects[entry.project].title}
-               <br></br>
                {this.props.goals[entry.goal].title}
-              <br></br>
                {this.props.roles[entry.role].title}
               
                          
@@ -58,8 +49,9 @@ class ReportsPage extends React.Component {
         })}
         </div>
         
-        
+        <div className='new-entry'>
         <NavLink to={`/reports/${this.props.report._id}/new_entry`}>Create New Entry</NavLink>
+        </div>
       </div>
     );
   }

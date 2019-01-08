@@ -1,5 +1,6 @@
 .report-page-title{
-  text-transform: uppercase;color: #5c5edc;
+  text-transform: uppercase;
+  color: #5c5edc;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 25px;
@@ -40,4 +41,21 @@
     align-items: center;
     /* position: relative;
     top: 70px; */
+}
+
+.new-entry{
+    text-transform: uppercase;
+    color: #bdbdbd;
+    background: #1c1d22;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.new-entry:hover{
+    background: #5c5edc;
 }
