@@ -55,7 +55,7 @@ class ReportLinks extends React.Component {
 
   render() {
     return (
-      <div className="navbar-links">
+      <div className="r">
       <div className="report-links">
         <span className="home-reports-links">
         <NavLink className="bar-link" to={'/home'} activeClassName="selected">Home</NavLink>
@@ -64,6 +64,7 @@ class ReportLinks extends React.Component {
         </span>
       </div>
         <hr />
+        <div className="reports">
         <div className="report-links">
         <form className="new-report-form" onSubmit={this.handleSubmit}>
           <div className="grp-form">
@@ -81,6 +82,7 @@ class ReportLinks extends React.Component {
         {this.state.reports.map(report => (
           <SingleReportLink key={report._id} report={report}/>
         ))}
+        </div>
       </div>
     )
   }
