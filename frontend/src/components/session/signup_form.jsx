@@ -180,7 +180,14 @@ class SignupForm extends React.Component {
                 />
               </div>
               <div className="session-input-area submit-btn">
-                <input type="submit" value="Sign Up" />
+                <Button
+                  variant="contained"
+                  onClick={this.handleSubmit}
+                  color="primary"
+                  className={classes.button}
+                >
+                  Sign Up
+                  </Button>
               </div>
               {this.renderErrors()}
             </div>
