@@ -6,13 +6,14 @@ class ReportsPage extends React.Component {
   }
 
   componentWillMount() {
-    // debugger
-    // this.props.fetchReport(this.props.match.params.id);
+    this.props.fetchReport(this.props.match.params.id);
   }
 
   render() {
+    debugger
+    if (this.props.report == undefined) return <div></div>
     return (
-      <div>ENTRIES GO HERE</div>
+      <div>{this.props.report.week}</div>
     );
   }
 }
