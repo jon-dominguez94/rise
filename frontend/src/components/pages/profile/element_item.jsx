@@ -5,7 +5,7 @@ class ElementItem extends React.Component {
     super(props);
 
     this.state = {
-      id: this.props.element.id,
+      id: this.props.element._id,
       title: props.element.title,
       description: props.element.description,
       msg: ''
@@ -14,6 +14,7 @@ class ElementItem extends React.Component {
     this.label = `Update ${this.props.label}`;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.revealDesc = this.revealDesc.bind(this);
   }
 
   update(field) {
@@ -37,7 +38,7 @@ class ElementItem extends React.Component {
       })
       .then(() => {
         setTimeout(() => {
-          this.setState({ msg: '' })
+          this.setState({ msg: '' });
         }, 2000);
       });
   }
@@ -49,11 +50,15 @@ class ElementItem extends React.Component {
       );
     } else {
       return (
-        <div className="msg-container">
+        <div className="msg-container on-element">
           <p>{this.state.msg}</p>
         </div>
       );
     }
+  }
+
+  revealDesc() {
+    document.getElementById(`desc-${this.state.id}`).classList.toggle('hidden');
   }
 
   render() {
@@ -62,8 +67,8 @@ class ElementItem extends React.Component {
           <div className="element-form-wrapper">
             <form onSubmit={this.handleSubmit}>
               <div className="element-form">
-                <input type="text" value={this.state.title} onChange={this.update("title")} placeholder="Title" />
-                <div className="elem-desc">
+                <input type="text" value={this.state.title} onClick={this.revealDesc} onChange={this.update("title")} placeholder="Title" />
+                <div id={`desc-${this.state.id}`} className="elem-desc hidden">
                   <hr />
                   <textarea value={this.state.description} onChange={this.update("description")} placeholder="Description" />
                   {/* <input type="submit" value={this.label} /> */}

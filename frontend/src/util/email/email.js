@@ -1,5 +1,6 @@
-require("dotenv").config();
-
+// import keys from '../../special';
+// require("dotenv").config();
+const keys = require('../../config/keys')
 class AWSEmail {
 
   constructor(emailAddress) {
@@ -8,6 +9,11 @@ class AWSEmail {
 
   sendEmail() {
     const AWS = require("aws-sdk");
+    AWS.config.update({
+      accessKeyId: keys.AWS_ACCESS_KEY_ID,
+      secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+      region: keys.AWS_REGION
+    });
     AWS.config.update({ region: "us-west-2" });
     const ses = new AWS.SES();
 
@@ -45,8 +51,10 @@ class AWSEmail {
 
 }
 
-module.exports = AWSEmail;
+export default AWSEmail;
 
-const Email = require('./email');
-const email = new Email("mark.kopec@gmail.com")
-email.sendEmail();
+// module.exports = AWSEmail;
+
+// const Email = require('./email')
+// const email = new Email('mark.kopec@gmail.com')
+// email.sendEmail();
