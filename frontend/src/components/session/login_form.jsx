@@ -102,7 +102,7 @@ class LoginForm extends React.Component {
                 <h1 className="session-title">Welcome back!</h1>
                 <div className="session-input-area">
                 <TextField
-                  id="outlined-name"
+                  id="outlined-email"
                   label="Email"
                   className={classes.textField}
                   onChange={this.update("email")}
@@ -113,7 +113,7 @@ class LoginForm extends React.Component {
                 </div>
                 <div className="session-input-area">
                 <TextField
-                  id="outlined-name"
+                  id="outlined-password"
                   label="Password"
                   className={classes.textField}
                   onChange={this.update("password")}
