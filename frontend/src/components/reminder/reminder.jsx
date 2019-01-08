@@ -16,13 +16,28 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import Email from '../../util/email/email';
-const keys = require('../../config/keys')
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+const keys = require('../../config/keys');
 
 var AWS = require('aws-sdk');
 
 var schedule = require('node-schedule');
 // const Email = require('../../util/email/email')
 
+const theme = createMuiTheme({
+  "dropDownMenu": {
+    "accentColor": "#3f51b5"
+  },
+  "toggle": {
+    "thumbOnColor": "#3f51b5",
+    "trackOnColor": "rgba(48, 63, 159, 0.5)"
+  },
+  palette: {
+    type: 'dark',
+  },
+})
 
 const styles = theme => ({
   root: {
@@ -153,9 +168,11 @@ class Reminder extends React.Component {
     const { classes } = this.props;
 
     return (
+      <MuiThemeProvider theme={theme}>
     
       <div className="reminder-container">
-
+        Update Your Reminder Preferences Here
+        
         <div className="email-selector">
           <FormControlLabel 
             control={
@@ -279,7 +296,7 @@ class Reminder extends React.Component {
           </Button>
         </div>
       </div>
-
+      </MuiThemeProvider>
     );
   }
 }
