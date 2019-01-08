@@ -1,10 +1,10 @@
 import React from "react";
-import logo from '../../logo.png';
+import '../../css/main_page.css';
 
 class MainPage extends React.Component {
   render() {
     return (
-      <div>
+      <div className="main-page">
         <h1>Todo</h1>
         Main Page
       </div>
