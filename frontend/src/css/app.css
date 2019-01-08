@@ -22,14 +22,14 @@
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #2a2b30;
+  color: #393a41;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #2a2b30;
+  color: #393a41;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #2a2b30;
+  color: #393a41;
 }
