@@ -3,6 +3,7 @@ import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import HomeLinksContainer from './home_links_container';
 import ProfileLinksContainer from './profile_links_container';
 import ReportLinksContainer from './report_links_container';
+import NavpathContainer from './navpath_container';
 import '../../css/navbar.css';
 import logo from '../../logo.png';
 
@@ -21,6 +22,7 @@ class Navbar extends React.Component {
   getLinks(){
     if(this.props.loggedIn){
       return(
+        
         <Switch>
           <Route exact path={'/home'} component={HomeLinksContainer}/>
           <Route path={'/profile'} component={ProfileLinksContainer}/>
@@ -56,6 +58,7 @@ class Navbar extends React.Component {
           </div>
         </Link>
         <hr/>
+        <Route path="/" component={NavpathContainer} />
         {this.getLinks()}
         <hr/>
       </div>
