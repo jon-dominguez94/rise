@@ -12,7 +12,6 @@ const validateLoginInput = require('../../validation/login');
 const validateUpdateInput = require('../../validation/update');
 const validText = require('../../validation/valid-text');
 const AWS = require("aws-sdk");
-const ses = new AWS.SES();
 
 router.get('/test', (req, res) => res.json({msg: "This is the users route"}));
 
@@ -57,17 +56,22 @@ router.post('/register', (req, res) => {
           newUser.save()
           .then(user => {
             res.json(user)
-            
-            // var params = {
-            //   EmailAddress: req.body.email,
-            //   TemplateName: "RiseEmailTemplate"
-            // };
-
-            // ses.sendCustomVerificationEmail(params, function (err, data) {
-            //   if (err) console.log(err, err.stack);
-            //   // an error occurred
-            //   else console.log(data); // successful response
-            // });
+            AWS.config.update({
+              accessKeyId: keys.AWS_ACCESS_KEY_ID,
+              secretAccessKey: keys.AWS_SECRET_ACCESS_KEY,
+              region: keys.AWS_REGION
+            });
+            const ses = new AWS.SES();
+            var params = {
+              EmailAddress: req.body.email,
+              TemplateName: "RiseEmailTemplate"
+            };
+            console.log("Verify email")
+            ses.sendCustomVerificationEmail(params, function (err, data) {
+              if (err) console.log(err, err.stack);
+              // an error occurred
+              else console.log(data); // successful response
+            });
 
           })
           .catch(err => console.log(err));

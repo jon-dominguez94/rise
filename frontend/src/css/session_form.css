@@ -1,5 +1,5 @@
 .session-form-container {
-  height: 100%;
+  height: 75%;
 }
 
 div[class^="session-form"] {
@@ -14,11 +14,11 @@ div[class^="session-form"] {
   color: #5c5edc;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 18px;
+  font-size: 25px;
   margin: 15px;
 }
 
-.session-input-area {
+/* .session-input-area {
   width: 250px;
   height: 40px;
   background: #1c1d22;
@@ -37,16 +37,16 @@ div[class^="session-form"] {
   color: #bdbdbd;
   font-size: 16px;
   font-weight: 700;
-}
+} */
 
-.submit-btn{
+/* .submit-btn{
   width: 150px;
   margin-top: 30px;
 }
 
 .submit-btn input{
   color: #bdbdbd;
-}
+} */
 
 .errors-container {
   border: 0.5px solid rgb(172, 49, 49);
