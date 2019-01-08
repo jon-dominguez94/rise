@@ -48,7 +48,7 @@
 
 .pic2 {
     width: 225px;
-    margin-left: 25%;
+    margin-left: 27%;
 }
 
 .pic3 {
@@ -94,6 +94,19 @@
     height: 100vh;
     overflow: scroll;
     padding-top: 350px;
+    /* background-image: url("../profile.png"); */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+
+.reports-logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 0;
 }
 
 /* .step-1 {

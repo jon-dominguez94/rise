@@ -14,6 +14,10 @@ class ReportsSplashPage extends React.Component {
   render() {
     if (this.props.reports.length == 0) {
       return (
+        <div>
+        {/* <div className="reports-logo-container">
+          <img className="settings-logo" src={settingsLogo} alt="" />
+        </div> */}
         <div className="instructions-field">
           <div className="instructions">
             <h1 className="reports-header">WELCOME TO THE REPORTS PAGE</h1>
@@ -30,6 +34,7 @@ class ReportsSplashPage extends React.Component {
               <img className="pic3" src={Pic3} alt="" />
             </div>
           </div>
+        </div>
         </div>
       )
     } else {
