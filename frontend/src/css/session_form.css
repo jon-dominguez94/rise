@@ -18,6 +18,10 @@ div[class^="session-form"] {
   margin: 15px;
 }
 
+.session-title.login {
+  font-size: 22px;
+}
+
 /* .session-input-area {
   width: 250px;
   height: 40px;
