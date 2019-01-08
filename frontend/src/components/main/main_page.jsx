@@ -1,4 +1,5 @@
 import React from "react";
+import logo from '../../logo.png';
 
 class MainPage extends React.Component {
   render() {
