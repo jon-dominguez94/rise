@@ -19,16 +19,16 @@ class MainPage extends React.Component {
           <div className="reports-photo photo">
             <img src={ReportPhoto} alt=""/>
           </div>
-          <div className="reports-instructions instructions">
+          <div className="reports-instructions instructions" id="odd1">
             <h2>Reports</h2>
             <p>Create entries for your weekly and monthly Achievements!</p>
           </div>
         </div>
 
         <div className="goals-instructions-container container">
-          <div className="goals-instructions instructions">
+          <div className="goals-instructions instructions" id="even1">
             <h2>Goals</h2>
-            <p>Record your goals for the year.</p>
+            <p>Your goals matter to you. Record them so you can track your progress!</p>
           </div>
           <div className="goals-photo photo">
             <img src={GoalPhoto} alt=""/>
@@ -39,14 +39,14 @@ class MainPage extends React.Component {
           <div className="roles-photo photo">
             <img src={RolePhoto} alt=""/>
           </div>
-          <div className="roles-instructions instructions">
+          <div className="roles-instructions instructions" id="odd2">
             <h2>Roles</h2>
             <p>Track your varying roles throughout the year.</p>
           </div>
         </div>
 
         <div className="projects-instructions-container container">
-          <div className="projects-instructions instructions">
+          <div className="projects-instructions instructions" id="even2">
             <h2>Projects</h2>
             <p>Keep a record of all the projects you have completed or worked on.</p>
           </div>
@@ -59,9 +59,9 @@ class MainPage extends React.Component {
           <div className="reminders-photo photo">
             <img src={ReminderPhoto} alt=""/>
           </div>
-          <div className="reminders-instructions instructions">
+          <div className="reminders-instructions instructions" id="odd3">
             <h2>Reminders</h2>
-            <p>We know life is hectic. Let us take care of the weekly reminders so you can stay focused.</p>
+            <p>We know life is hectic. Let us take care of the weekly reminders so you can stay focused!</p>
           </div>
         </div>
 
