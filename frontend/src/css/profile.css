@@ -119,6 +119,11 @@
   font-size: 15px;
 }
 
+.on-profile {
+  width: 100%;
+  left: 0;
+}
+
 .show {
   display: block;
 }

@@ -10,6 +10,7 @@
   min-width: 300px;
   width: 20%;
   border-right: 1px solid #bdbdbd;
+  position: relative;
 }
 
 .right {
@@ -32,4 +33,12 @@
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #393a41;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
 }
