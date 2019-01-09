@@ -81,6 +81,28 @@ class ProfilePage extends React.Component{
     }
   }
 
+  renderPasswords(){
+    if(this.state.email !== 'test@test.test'){
+      return <div>
+          <div className="info-input-area">
+            <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
+          </div>
+          <div className="info-input-area">
+            <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
+          </div>
+        </div>;
+    } else {
+      return <div>
+          <div className="info-input-area">
+          <input type="password" value={this.state.password} readOnly onClick={() => this.setMsg("Can't edit Demo password")} placeholder="Password" />
+          </div>
+          <div className="info-input-area">
+          <input type="password" value={this.state.password2} readOnly onClick={() => this.setMsg("Can't edit Demo password")} placeholder="Confirm Password"/>
+          </div>
+        </div>;
+    }
+  }
+
   renderMsg(){
     if(this.state.msg === ''){
       return (
@@ -125,18 +147,7 @@ class ProfilePage extends React.Component{
                 <input type="text" value={this.state.email} readOnly onClick={() => this.setMsg("Can't edit email")}/>
               {/* </div> */}
             </div>
-            <div className="info-input-area">
-              {/* <div className="info-input-wrapper"> */}
-                {/* <div className="info-label">Password</div> */}
-                <input type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password" />
-              {/* </div> */}
-            </div>
-            <div className="info-input-area">
-              {/* <div className="info-input-wrapper"> */}
-                {/* <div className="info-label">Confirm Password</div> */}
-                <input type="password" value={this.state.password2} onChange={this.update("password2")} placeholder="Confirm Password" />
-                {/* </div> */}
-            </div>
+            {this.renderPasswords()}
             <div className="info-input-area">
               {/* <div className="info-input-wrapper"> */}
                 {/* <div className="info-label">Phone Number</div> */}
