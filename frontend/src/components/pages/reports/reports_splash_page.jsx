@@ -4,6 +4,9 @@ import Pic1 from './pic1.png';
 import Pic2 from './pic2.png';
 import Pic3 from './pic3.png';
 import '../../../css/settings.css';
+import { Route } from 'react-router-dom';
+import ReportsPage from './reports_page_container';
+
 
 
 class ReportsSplashPage extends React.Component {
@@ -12,6 +15,7 @@ class ReportsSplashPage extends React.Component {
   }
 
   render() {
+    // debugger
     if (this.props.reports.length == 0) {
       return (
         <div>
@@ -39,9 +43,9 @@ class ReportsSplashPage extends React.Component {
       )
     } else {
       return (
-        <div className="settings-logo-container">
-          <img className="settings-logo" src={settingsLogo} alt="" />
-        </div>
+        <div></div>
+        // <ReportsPage report={Object.values(this.props.reports)[0]} />
+        // <div>{this.props.history.push(`/reports/${Object.values(this.props.reports)[0]}`)}</div>
       )
     }
   }
