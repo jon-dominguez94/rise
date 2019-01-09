@@ -29,8 +29,8 @@
 }
 
 .container .instructions p {
-  font-size: 24px;
-  line-height: 50px;
+  font-size: 1.3vw;
+  line-height: 4vh;
   text-align: left;
 }
 .container .instructions h2 {
