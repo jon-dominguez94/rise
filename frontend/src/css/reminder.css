@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 375px;
+  height: auto;
   justify-content: space-around;
   padding: 20px 0;
   border-radius: 7px;
@@ -32,4 +32,10 @@
 
 .MuiTypography-body1-41 {
   color: #bebebe important!;
+}
+
+.test-info{
+  font-size: 15px;
+  padding-top: 20px;
+
 }
