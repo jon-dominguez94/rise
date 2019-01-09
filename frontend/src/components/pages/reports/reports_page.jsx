@@ -14,6 +14,7 @@ class ReportsPage extends React.Component {
   // }
 
   componentWillMount() {
+      this.props.fetchUserReports(this.props.user.id)
       this.props.fetchUserProjects(this.props.user.id)
       this.props.fetchUserRoles(this.props.user.id)
       this.props.fetchUserGoals(this.props.user.id)
@@ -21,6 +22,7 @@ class ReportsPage extends React.Component {
   }
 
   render() {
+    // debugger
     // if (Object.values(this.props.report).length === 1){
     //   return (
     //     <div className='new-entry-div'>
@@ -28,7 +30,7 @@ class ReportsPage extends React.Component {
     //     </div>
     //   )
     // }
-    if ( Object.values(this.props.entries).length === 0 || Object.values(this.props.report).length === 0 || Object.values(this.props.goals).length === 0 || Object.values(this.props.roles).length === 0 || Object.values(this.props.projects).length === 0){ 
+    if ( Object.values(this.props.entries).length === 0 || Object.values(this.props.reports).length === 0 || Object.values(this.props.goals).length === 0 || Object.values(this.props.roles).length === 0 || Object.values(this.props.projects).length === 0){ 
       return (
         <div></div>
       // <div className='new-entry-div'>

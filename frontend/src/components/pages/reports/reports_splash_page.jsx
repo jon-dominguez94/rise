@@ -12,14 +12,27 @@ import ReportsPage from './reports_page_container';
 class ReportsSplashPage extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      reports: [],
+      week: ''
+    };
   }
 
   componentWillMount(){
     this.props.fetchUserReports(this.props.user.id);
   }
 
+  componentWillReceiveProps(newState) {
+    // console.log(newState);
+    this.setState({
+      reports: newState.reports,
+      week: newState.week
+    });
+  }
+
   render() {
-    if (this.props.reports.length == 0) {
+    if (this.state.reports.length == 0) {
       return (
         <div>
         {/* <div className="reports-logo-container">
