@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ReportsSplashPage from "./reports_splash_page";
-// import { fetchReport } from "../../../actions/report_actions";
+import { fetchUserReports } from "../../../actions/report_actions";
 import { fetchUserEntries } from "../../../actions/entry_actions";
 
 const mstp = (state, ownProps) => {
@@ -12,7 +12,7 @@ const mstp = (state, ownProps) => {
 };
 
 const mdtp = dispatch => ({
-
+  fetchUserReports: id => dispatch(fetchUserReports(id)),
 });
 
 export default connect(
