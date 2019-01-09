@@ -14,6 +14,10 @@ class ReportsSplashPage extends React.Component {
     super(props);
   }
 
+  componentWillMount(){
+    this.props.fetchUserReports(this.props.user.id);
+  }
+
   render() {
     // debugger
     if (this.props.reports.length == 0) {
@@ -43,9 +47,9 @@ class ReportsSplashPage extends React.Component {
       )
     } else {
       return (
-        // <div></div>
+        <div></div>
         // <ReportsPage report={Object.values(this.props.reports)[0]} />
-        <div>{this.props.history.push(`/reports/${Object.values(this.props.reports)[0]._id}`)}</div>
+        // <div>{this.props.history.push(`/reports/${Object.values(this.props.reports)[0]._id}`)}</div>
       )
     }
   }
