@@ -4,6 +4,10 @@
  overflow: scroll;
 }
 
+.main-page-container p {
+  color: white;
+}
+
 .photo {
   width: 45%;
 }
@@ -14,8 +18,23 @@
   border-radius: 15px;
 }
 
-.instructions {
-  width: 55%
+.container .instructions {
+  width: 55%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.container .instructions p {
+  font-size: 24px;
+  line-height: 50px;
+  text-align: left;
+}
+.container .instructions h2 {
+  font-size: 36px;
 }
 
 .container {
@@ -34,4 +53,10 @@
   text-align: center;
   padding-top: 50px;
   padding-bottom: 100px;
+}
+
+.blurb {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
