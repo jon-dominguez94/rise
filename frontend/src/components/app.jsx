@@ -27,6 +27,9 @@ const App = () => (
   <div className="overall">
     <div className="left">
       <Route path='/' component={NavBarContainer} />
+      <div className="copyright">
+        Copyright &copy; 2019 Rise
+      </div>
     </div>
     <div className="right">
       <Switch>
