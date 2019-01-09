@@ -22,7 +22,6 @@ class ReportsPage extends React.Component {
   }
 
   render() {
-    debugger
     // if (Object.values(this.props.report).length === 1){
     //   return (
     //     <div className='new-entry-div'>
