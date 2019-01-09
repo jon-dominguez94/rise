@@ -60,3 +60,24 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+#odd1 {
+  padding-left: 90px;
+}
+#odd2 {
+  padding-left: 90px;
+}
+#odd3 {
+  padding-left: 90px;
+}
+
+#even1 {
+  padding-left: 0;
+}
+#even2 {
+  padding-left: 0;
+}
+
+.space-break {
+  height: 500px;
+}
