@@ -13,7 +13,7 @@ import GoalsPageContainer from './pages/profile/goals_page_container';
 import RolesPageContainer from './pages/profile/roles_page_container';
 import ProjectsPageContainer from './pages/profile/projects_page_container';
 import ProfileSplashPage from './pages/profile/profile_splash_page';
-import ReportsSplashPage from '../components/pages/reports/reports_splash_page';
+import ReportsSplashPage from '../components/pages/reports/reports_splash_container';
 import ReportPage from '../components/pages/reports/reports_page_container';
 
 import ReminderContainer from '../components/reminder/reminder_container';
