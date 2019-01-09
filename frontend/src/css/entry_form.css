@@ -11,6 +11,7 @@
 
 .entry-form-container form{
     margin-top: 10px;
+    width:
 }
 
 .entry-description{
@@ -35,7 +36,8 @@
     font-size: 12px;
     margin-left: 12px;
     border-radius: 3px;
-
+    overflow: hidden;
+    max-width: 100px;
 }
 
 .entry-form-container select:hover{
@@ -81,6 +83,7 @@
 }
 
 .dropdowns{
+    width: 100%;
     display: flex;
     align-items: center;
     padding-top: 12px;
