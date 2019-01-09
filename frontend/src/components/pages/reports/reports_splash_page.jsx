@@ -14,8 +14,7 @@ class ReportsSplashPage extends React.Component {
     super(props);
 
     this.state = {
-      reports: [],
-      week: ''
+      reports: []
     };
   }
 
@@ -26,8 +25,7 @@ class ReportsSplashPage extends React.Component {
   componentWillReceiveProps(newState) {
     // console.log(newState);
     this.setState({
-      reports: newState.reports,
-      week: newState.week
+      reports: newState.reports
     });
   }
 
