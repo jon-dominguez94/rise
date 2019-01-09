@@ -1,5 +1,6 @@
 .report-page-title{
-  text-transform: uppercase;color: #5c5edc;
+  text-transform: uppercase;
+  color: #5c5edc;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 25px;
@@ -13,9 +14,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 90vh;
 }
 .report-entry{
-    display: inline;
+    /* display: inline; */
+    display: flex;
+    flex-direction: column;
     background: #1c1d22;
     /* height: 20%; */
     resize: none;
@@ -23,15 +27,27 @@
     width: 60%;
     border: none; 
     outline: none;
-    border-radius: 3px;
     font-size: 18px;
-    padding: 20px;
+    /* padding: 20px; */
     margin-bottom: 20px;
+    
 }
 
+.rep-entry-info{
+    margin: 0px;
+    /* padding-top: 150px; */
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    background: #2a2b30;
+
+}
 .all-entries-div{
     width: 100%;
-    height: 700px;
+    max-height: 600px;
     overflow: scroll;
     display: flex; 
     /* justify-content: center; */
@@ -41,6 +57,69 @@
     top: 70px; */
 }
 
+.new-entry{
+    /* text-transform: uppercase; */
+    cursor: pointer;
+    color: #bdbdbd;
+    background: #1c1d22;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 6px 15px 6px 15px;
+    /* line-height: 4; */
+
+}
+
+.new-entry-div{
+    /* line-height: 1.5; */
+}
+
+
+.new-entry:hover{
+    background: #5c5edc;
+}
+
+
+.rep-entry-description{
+    padding: 20px;
+    line-height: 1.5;
+    -webkit-border-radius: 5px;
+}
+
+.rep-entry-description p{
+    height: 100%;
+    /* border-radius: 3px; */
+}
+
+
+
+.rep-entry-info select {
+    color: #bdbdbd;
+    background: #1c1d22;
+    cursor: pointer;
+    border: none; 
+    outline: none;
+    font-size: 12px;
+    margin-left: 3px;
+    border-radius: 3px;
+
+}
+
+.rep-entry-info select:hover{
+    background-color: #5c5edc;
+}
+
+.entry-dropdown2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+
+.info-divs{
+    display: flex;
+    font-size: 12px;
+}
 .pic1 {
     width: 300px;
     margin-left: 25%;
