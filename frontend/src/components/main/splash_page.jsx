@@ -6,18 +6,18 @@ import '../../css/splash.css'
 class SplashPage extends React.Component {
   render() {
     return (
-      <div>
-        <main>
-          <div className="tag-container">
-            <div className="tagline">Your Career is Calling</div>
-            <img className="splash-background" src={splashBackground} alt="" />
-            <img className="splash-logo" src={splashLogo} alt="" />
-            <div className="one-liner">We help employees get raises and promotions by tracking their goals and accomplishments</div>
-          </div>
-        </main>
-      </div>
+      <div className="splash">
+        <img className="splash-background" src={splashBackground} alt="" />
+        <div className="splash-container">
+          <div className="tagline">Your Career is Calling</div>
+          <img className="splash-logo" src={splashLogo} alt="" />
+          <div className="one-liner">We help employees get raises and promotions by tracking their goals and accomplishments</div>
+        </div>
+      </div >
+      
     )
   }
 }
 
 export default SplashPage;
+
