@@ -132,7 +132,7 @@ class LoginForm extends React.Component {
                   >
                     Login
                   </Button>
-                  {/* <input type="submit" value="Login" /> */}
+                  <input className="hidden" type="submit" value="Login" />
                 </div>
                 {this.renderErrors()}
               </div>

@@ -110,96 +110,40 @@ class SignupForm extends React.Component {
 
   render() {
     const { classes } = this.props;
-    return (
-      <MuiThemeProvider theme={theme}>
+    return <MuiThemeProvider theme={theme}>
         <div className="session-form-container">
           <form onSubmit={this.handleSubmit}>
             <div className="session-form">
               <h1 className="session-title">Join us!</h1>
               <div className="session-input-area">
-                <TextField
-                  id="outlined-name"
-                  label="First Name"
-                  className={classes.textField}
-                  onChange={this.update("fname")}
-                  margin="normal"
-                  variant="outlined"
-                  value={this.state.fname}
-                />
+                <TextField id="outlined-name" label="First Name" className={classes.textField} onChange={this.update("fname")} margin="normal" variant="outlined" value={this.state.fname} />
               </div>
               <div className="session-input-area">
-                <TextField
-                  id="outlined-name"
-                  label="Last Name"
-                  className={classes.textField}
-                  onChange={this.update("lname")}
-                  margin="normal"
-                  variant="outlined"
-                  value={this.state.lname}
-                />
+                <TextField id="outlined-name" label="Last Name" className={classes.textField} onChange={this.update("lname")} margin="normal" variant="outlined" value={this.state.lname} />
               </div>
               <div className="session-input-area">
-                <TextField
-                  id="outlined-name"
-                  label="Email"
-                  className={classes.textField}
-                  onChange={this.update("email")}
-                  margin="normal"
-                  variant="outlined"
-                  value={this.state.email}
-                />
+                <TextField id="outlined-name" label="Email" className={classes.textField} onChange={this.update("email")} margin="normal" variant="outlined" value={this.state.email} />
               </div>
               <div className="session-input-area">
-                <TextField
-                  id="outlined-name"
-                  label="Password"
-                  className={classes.textField}
-                  onChange={this.update("password")}
-                  margin="normal"
-                  variant="outlined"
-                  value={this.state.password}
-                  type="password"
-                />
+                <TextField id="outlined-name" label="Password" className={classes.textField} onChange={this.update("password")} margin="normal" variant="outlined" value={this.state.password} type="password" />
               </div>
               <div className="session-input-area">
-                <TextField
-                  id="outlined-name"
-                  label="Confirm Password"
-                  className={classes.textField}
-                  onChange={this.update("password2")}
-                  margin="normal"
-                  variant="outlined"
-                  value={this.state.password2}
-                  type="password"
-                />
+                <TextField id="outlined-name" label="Confirm Password" className={classes.textField} onChange={this.update("password2")} margin="normal" variant="outlined" value={this.state.password2} type="password" />
               </div>
               <div className="session-input-area">
-                <TextField
-                  id="outlined-name"
-                  label="Phone"
-                  className={classes.textField}
-                  onChange={this.update("phone")}
-                  margin="normal"
-                  variant="outlined"
-                  value={this.state.phone}
-                />
+                <TextField id="outlined-name" label="Phone" className={classes.textField} onChange={this.update("phone")} margin="normal" variant="outlined" value={this.state.phone} />
               </div>
               <div className="session-input-area submit-btn">
-                <Button
-                  variant="contained"
-                  onClick={this.handleSubmit}
-                  color="primary"
-                  className={classes.button}
-                >
+                <Button variant="contained" onClick={this.handleSubmit} color="primary" className={classes.button}>
                   Sign Up
-                  </Button>
+                </Button>
               </div>
               {this.renderErrors()}
             </div>
+            <input className="hidden" type="submit" value="Signup" />
           </form>
         </div>
-      </MuiThemeProvider>
-    );
+      </MuiThemeProvider>;
   }
 }
 

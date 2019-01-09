@@ -84,3 +84,84 @@
     display: flex;
     font-size: 12px;
 }
+.pic1 {
+    width: 300px;
+    margin-left: 25%;
+}
+
+.pic2 {
+    width: 225px;
+    margin-left: 27%;
+}
+
+.pic3 {
+    /* border: 1px solid rgb(83, 83, 83); */
+}
+
+.instructions {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* overflow: scroll; */
+}
+
+.reports-header {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid white;
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #7072f3;
+    display: flex;
+    justify-content: center;
+}
+
+.instructions h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7072f3;
+    display: flex;
+    justify-content: center;
+    /* color: white; */
+}
+
+.instructions-field {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow: scroll;
+    padding-top: 350px;
+    /* background-image: url("../profile.png"); */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+
+.reports-logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 0;
+}
+
+/* .step-1 {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #7072f3;
+}
+
+.step-2 {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #7072f3;
+} */
