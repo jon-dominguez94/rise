@@ -38,7 +38,7 @@ class ReportLinks extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let newReport = {
-      week: `${this.state.reports[0].week + 1}`,
+      week: `${this.state.reports.length == 0 ? 1 : this.state.reports[0].week + 1}`,
     };
     this.props.composeReport(newReport)
       // .then(res => console.log(res.errors));
