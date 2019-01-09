@@ -1,0 +1,39 @@
+.footer {
+  height: 350px;
+  /* background-color: #5c5edc; */
+  margin-bottom: 100px;
+}
+
+.profile-photos-container {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.photo-holder {
+  height: 250px;
+  width: 200px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.profile-photo {
+  margin-right: 25px;
+}
+
+.photo-name {
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 24px;
+}
+
+#engineering-team h1 {
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 25px;
+}
