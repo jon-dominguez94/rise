@@ -1,0 +1,62 @@
+.main-page-container {
+ color: #5c5edc;
+ height: 100vh;
+ overflow: scroll;
+}
+
+.main-page-container p {
+  color: white;
+}
+
+.photo {
+  width: 45%;
+}
+
+.photo img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.container .instructions {
+  width: 55%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.container .instructions p {
+  font-size: 24px;
+  line-height: 50px;
+  text-align: left;
+}
+.container .instructions h2 {
+  font-size: 36px;
+}
+
+.container {
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 75px;
+  margin-left: 200px;
+  margin-right: 200px;
+
+}
+
+.main-page-header {
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.blurb {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
