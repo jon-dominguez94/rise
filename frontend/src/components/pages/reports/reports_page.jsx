@@ -21,8 +21,30 @@ class ReportsPage extends React.Component {
   }
 
   render() {
+    // if (Object.values(this.props.report).length === 1){
+    //   return (
+    //     <div className='new-entry-div'>
+    //     <NavLink className='new-entry' to={`/reports/${this.props.report._id}/new_entry`}>New Entry</NavLink>
+    //     </div>
+    //   )
+    // }
+    if ( Object.values(this.props.entries).length === 0 || Object.values(this.props.report).length === 0 || Object.values(this.props.goals).length === 0 || Object.values(this.props.roles).length === 0 || Object.values(this.props.projects).length === 0){ 
+      return (
+        <div></div>
+      // <div className='new-entry-div'>
+      //   <NavLink className='new-entry' to={`/reports/${this.props.report._id}/new_entry`}>New Entry</NavLink>
+      // </div>
+      )
+    }
 
-    if (Object.values(this.props.entries).length === 0 || Object.values(this.props.report).length === 0 || Object.values(this.props.goals).length === 0 || Object.values(this.props.roles).length === 0 || Object.values(this.props.projects).length === 0) return null
+    // if (Object.values(this.props.entries).length === 0 && Object.values(this.props.report) === 1){
+    //   return (
+    //     <div className='new-entry-div'>
+    //       <NavLink className='new-entry' to={`/reports/${this.props.report._id}/new_entry`}>New Entry</NavLink>
+    //     </div>
+    //   )
+    // }
+
 
     // debugger
     return (
@@ -35,13 +57,48 @@ class ReportsPage extends React.Component {
 
           return (
               <div className='report-entry' key={entry.id}>
-              
-              <div className='rep-entry-description'>{entry.description}</div>
+              <div className='rep-entry-description'><p>{entry.description}</p></div>
               <div className='rep-entry-info'>
-                <div className='info-divs'><div>Rating: {entry.importance}</div></div>
-                <div className='info-divs'><div>Project: {this.props.projects[entry.project].title}</div></div>
-                <div className='info-divs'><div>Goal: {this.props.goals[entry.goal].title}</div></div>
-                <div className='info-divs'><div>Title: {this.props.roles[entry.role].title}</div></div>
+                <div className='entry-dropdown2'>
+                  <label>
+                    RATING
+                  <select>
+                      <option>
+                        {entry.importance}
+                      </option>
+                    </select>
+                  </label>
+                  </div>
+                <div className='entry-dropdown2'>
+                  <label>
+                    PROJECT
+                  <select>
+                      <option>
+                        {this.props.projects[entry.project].title}
+                      </option>
+                    </select>
+                  </label>
+                </div>
+                <div className='entry-dropdown2'>
+                  <label>
+                    GOAL
+                  <select>
+                      <option>
+                        {this.props.goals[entry.goal].title}
+                      </option>
+                    </select>
+                  </label>
+                </div>
+                <div className='entry-dropdown2'>
+                <label>
+                  ROLE
+                  <select>
+                    <option>
+                      {this.props.roles[entry.role].title}
+                    </option>
+                  </select>
+                </label>
+                </div>
               </div>
                          
 
@@ -51,7 +108,7 @@ class ReportsPage extends React.Component {
         </div>
         
         <div className='new-entry-div'>
-        <NavLink className='new-entry'to={`/reports/${this.props.report._id}/new_entry`}>New Entry</NavLink>
+          <NavLink className='new-entry'to={`/reports/${this.props.report._id}/new_entry`}>New Entry</NavLink>
         </div>
       </div>
     );

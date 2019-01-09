@@ -7,11 +7,11 @@ import { fetchUserProjects } from '../../../actions/project_actions';
 
 const mstp = (state, ownProps) => {
   const report = state.reports[ownProps.match.params.id];
-  
+  const entries = Object.values(state.entries).filter( entry => entry.report === report._id)
   return {
     user: state.session.user,
     report,
-    entries: Object.values(state.entries),
+    entries,
     goals: state.goals,
     roles: state.roles,
     projects: state.projects
