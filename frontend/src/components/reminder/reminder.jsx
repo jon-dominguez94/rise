@@ -323,15 +323,19 @@ class Reminder extends React.Component {
           </Button>
         </div>
 
-          <div className="test-preferences-button">
-            <Button
-              variant="contained"
-              onClick={this.handleTest}
-              color="primary"
-              className={classes.button}
-            >
-              Test
-          </Button>
+        <div className="test-preferences-button">
+          <Button
+            variant="contained"
+            onClick={this.handleTest}
+            color="primary"
+            className={classes.button}
+          >
+            Test
+        </Button>
+        </div>
+
+          <div className="test-info">
+            Test will immediatly send a notification using the methods toggled above. Navigate to "Account Info" to change your text message number.
           </div>
       </div>
       </MuiThemeProvider>
