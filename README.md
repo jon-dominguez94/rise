@@ -33,8 +33,12 @@ At the end of a work review period it is difficult to recall all the great thing
 - CSS
 
 ## Team Members
-Mark Kopec
-Jon Dominguez
-Sameeh Khan
+
+[Ben Cowden](https://github.com/bjcow93)
+[Jon Dominguez](https://github.com/jon-dominguez94)
+[Sameeh Khan](https://github.com/sameehkhan)
+[Mark Kopec](https://github.com/kopecmark)
 [Ted Wildenradt](https://github.com/TedWildenradt/)
-Ben 
+
+## Possible Future Implementations
+- 
