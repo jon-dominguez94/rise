@@ -51,7 +51,7 @@ const App = () => (
         {/* <ProtectedRoute exact path="/reports/:id" component={ReportEntriesContainer} /> */}
 
         <ProtectedRoute exact path="/reminders" component={ReminderContainer} />
-        <Redirect to="/home" />
+        <Redirect to="/" />
       </Switch>
     </div>
   </div>
