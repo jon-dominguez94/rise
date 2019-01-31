@@ -37,6 +37,7 @@ class ReportsPage extends React.Component {
     if ( Object.values(this.props.entries).length === 0 || Object.values(this.props.goals).length === 0 || Object.values(this.props.roles).length === 0 || Object.values(this.props.projects).length === 0){ 
       return (
         <div className="single-entry">
+          <div className="no-msg">No entries on this report yet</div>
           <div className='new-entry-div no-others'>
             <NavLink className='new-entry' to={`/reports/${this.props.report._id}/new_entry`}>New Entry</NavLink>
           </div>
