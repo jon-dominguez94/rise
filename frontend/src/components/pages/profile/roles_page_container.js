@@ -8,7 +8,7 @@ const mstp = state => {
     elements: Object.values(state.roles),
     errors: state.errors.roles,
     label: 'Role',
-    bg: '#2f2b4b'
+    bg: '#340000'
   };
 };
 
