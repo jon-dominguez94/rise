@@ -7,7 +7,9 @@ const mstp = state => {
     user: state.session.user,
     elements: Object.values(state.projects),
     errors: state.errors.projects,
-    label: 'Project'
+    label: 'Project',
+    bg: '#051e3e'
+
   };
 };
 
