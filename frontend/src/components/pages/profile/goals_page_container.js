@@ -7,7 +7,8 @@ const mstp = state => {
     user: state.session.user,
     elements: Object.values(state.goals),
     errors: state.errors.goals,
-    label: 'Goal'
+    label: 'Goal',
+    bg: '#251e3e'
   };
 };
 
