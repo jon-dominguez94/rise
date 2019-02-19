@@ -109,7 +109,7 @@ class ProfileElement extends React.Component {
         <div className="grps-page-wrapper">
           <div className="all-elements-container new-element">
             <div className="el-label">New {this.props.label}</div>
-            <div className="input-background" style={{ background: '#451e3e'}}>
+            <div className="input-background" style={{ background: '#8874a3'}}>
               <div className="element-form-wrapper">
                 <form onSubmit={this.handleSubmit}>
                   <div className="element-form">
