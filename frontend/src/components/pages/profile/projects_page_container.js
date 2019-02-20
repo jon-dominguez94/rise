@@ -8,7 +8,7 @@ const mstp = state => {
     elements: Object.values(state.projects),
     errors: state.errors.projects,
     label: 'Project',
-    bg: '#051e3e'
+    bg: '#251e3e'
 
   };
 };
